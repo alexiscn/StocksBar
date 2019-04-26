@@ -28,6 +28,13 @@ class Stock {
     /// 最低成交价
     var low: Float = 0.0
     
+    var percent: Float {
+        if lastClosedPrice == 0.0 {
+            return 0.0
+        }
+        return (current - lastClosedPrice)/lastClosedPrice
+    }
+    
     class func parseSinaCode(_ code: String) -> Stock? {
         
         let components = code.split(separator: ",").map { return String($0) }

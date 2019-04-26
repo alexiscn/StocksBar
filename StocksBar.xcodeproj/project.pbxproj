@@ -16,6 +16,7 @@
 		A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2002272D47F00FBE176 /* StocksAPI.swift */; };
 		A3DEF2042272D4D100FBE176 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2032272D4D100FBE176 /* StockTableViewCell.swift */; };
 		A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */; };
+		A3DEF20D2273084700FBE176 /* PopoverAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF20C2273084700FBE176 /* PopoverAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A3DEF2002272D47F00FBE176 /* StocksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksAPI.swift; sourceTree = "<group>"; };
 		A3DEF2032272D4D100FBE176 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTableViewController.swift; sourceTree = "<group>"; };
+		A3DEF20C2273084700FBE176 /* PopoverAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAction.swift; sourceTree = "<group>"; };
 		ABC31EDE22B2F62C5B58DFCD /* Pods_StocksBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StocksBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA565643EA2C6EEEE955FFCF /* Pods-StocksBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StocksBar.debug.xcconfig"; path = "Target Support Files/Pods-StocksBar/Pods-StocksBar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 		A349894D22700BED002F7898 /* StocksBar */ = {
 			isa = PBXGroup;
 			children = (
+				A3DEF20B2273083300FBE176 /* Actions */,
 				A3DEF1FD2272D20D00FBE176 /* Models */,
 				A3DEF1FC2272D20300FBE176 /* Networking */,
 				A349895F227010E2002F7898 /* ViewControllers */,
@@ -137,6 +140,14 @@
 				A3DEF2032272D4D100FBE176 /* StockTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A3DEF20B2273083300FBE176 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				A3DEF20C2273084700FBE176 /* PopoverAction.swift */,
+			);
+			path = Actions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 			files = (
 				A3DEF2042272D4D100FBE176 /* StockTableViewCell.swift in Sources */,
 				A349895122700BED002F7898 /* ViewController.swift in Sources */,
+				A3DEF20D2273084700FBE176 /* PopoverAction.swift in Sources */,
 				A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */,
 				A349894F22700BED002F7898 /* AppDelegate.swift in Sources */,
 				A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */,

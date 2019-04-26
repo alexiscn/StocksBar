@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import Alamofire
+
+class StocksAPI {
+    // 沪深
+    private let aURL = "http://hq.sinajs.cn/list="
+    // 美港
+    private let gURL = "https://hq.sinajs.cn/list=gb_"
+    
+    func request() {
+        
+    }
+}
