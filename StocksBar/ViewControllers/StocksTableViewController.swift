@@ -18,8 +18,14 @@ class StocksTableViewController: NSViewController {
     private let priceHeaderCell = NSTableHeaderCell(textCell: "价格")
     private let percentHeaderCell = NSTableHeaderCell(textCell: "涨跌幅")
     
+    private struct CellIdentifiers {
+        static let symbols = "SymbolCellID"
+        static let price = "PriceCellID"
+        static let percent = "PercentCellID"
+    }
+    
     override func loadView() {
-        self.view = NSView()
+        self.view = NSView(frame: NSRect(x: 0, y: 0, width: 300, height: 500))
     }
     
     override func viewDidLoad() {
@@ -27,7 +33,7 @@ class StocksTableViewController: NSViewController {
         
         setupTableView()
         setupDataSource()
-        
+        tableView.reloadData()
         
     }
     
@@ -37,13 +43,14 @@ class StocksTableViewController: NSViewController {
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
-        
-        //let header = NSTableHeaderView(frame: NSRect(x: 0, y: 0, width: view.bounds.height, height: 24))
-        
+        tableView.snp.makeConstraints { make in
+            make.leading.top.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func setupDataSource() {
-        
+        dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
     }
 }
 
@@ -53,11 +60,17 @@ extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate 
         return dataSource.count
     }
     
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 50.0
+    }
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
 //        tableColumn?.headerCell =
-        
-        return nil
+        if tableColumn == tableView.tableColumns.first {
+            
+        }
+        tableColumn?.headerCell = symbolHeaderCell
+        return NSView()
     }
     
 }

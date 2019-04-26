@@ -10,6 +10,8 @@ import Foundation
 
 class Stock {
     
+    var code: String
+    
     /// 股票简称
     var symbol: String = ""
     
@@ -28,6 +30,10 @@ class Stock {
     /// 最低成交价
     var low: Float = 0.0
     
+    init(code: String) {
+        self.code = code
+    }
+    
     var percent: Float {
         if lastClosedPrice == 0.0 {
             return 0.0
@@ -35,11 +41,9 @@ class Stock {
         return (current - lastClosedPrice)/lastClosedPrice
     }
     
-    class func parseSinaCode(_ code: String) -> Stock? {
-        
-        let components = code.split(separator: ",").map { return String($0) }
-    
-        let stock = Stock()
+    class func parseSinaCode(_ code: String, value: String) -> Stock? {
+        let components = value.split(separator: ",").map { return String($0) }
+        let stock = Stock(code: code)
         stock.symbol = components[0]
         stock.openPrice = Float(components[1]) ?? 0.0
         stock.lastClosedPrice = Float(components[2]) ?? 0.0
