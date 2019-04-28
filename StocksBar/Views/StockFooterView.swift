@@ -54,8 +54,8 @@ class StockFooterView: NSView {
         }
     }
     
-    @objc private func handleTapSettingButton(_ sender: Any) {
-        
+    @objc private func handleTapSettingButton(_ sender: NSButton) {
+        OpenSettingMenuAction.perform(sender)
     }
     
     override func draw(_ dirtyRect: NSRect) {

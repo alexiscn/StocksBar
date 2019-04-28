@@ -26,7 +26,7 @@ class StocksTableViewController: NSViewController {
     internal let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockTableViewCellIdentifier")
     
     override func loadView() {
-        self.view = NSView(frame: NSRect(x: 0, y: 0, width: 300, height: 600))
+        self.view = NSView(frame: NSRect(x: 0, y: 0, width: 280, height: 450))
     }
     
     override func viewDidLoad() {
