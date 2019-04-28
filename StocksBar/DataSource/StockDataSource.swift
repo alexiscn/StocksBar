@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import Cocoa
 
-class StockDataSource {
+class StockDataSource: NSObject {
     
     static let shared = StockDataSource()
     
     var updatedHandler: RelayCommand?
+    
+    var stop = false
     
     private var content: [Stock] = []
     
@@ -35,7 +38,7 @@ class StockDataSource {
         return content[index]
     }
  
-    func update() {
+    @objc func update() {
         let codes = content.map { return $0.code }
         api.request(codes: codes) { (stocks, error) in
             if let error = error {
@@ -43,6 +46,12 @@ class StockDataSource {
             } else {
                 self.content = stocks
                 self.updatedHandler?()
+                if !self.stop {
+                    self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
+                }
+                if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+                    appDelegate.update(stock: self.content.first)
+                }
             }
         }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Stock: Codable {
+class Stock: NSObject, Codable {
     
     var code: String
     
@@ -39,6 +39,17 @@ class Stock: Codable {
             return 0.0
         }
         return (current - lastClosedPrice)/lastClosedPrice
+    }
+    
+    var percentString: String {
+        let p = percent
+        if p > 0 {
+            return String(format: "+%.2f%%", p * 100.0)
+        } else if p < 0 {
+            return String(format: "%.2f%%", p * 100.0)
+        } else {
+            return "-"
+        }
     }
     
     class func parseSinaCode(_ code: String, value: String) -> Stock? {

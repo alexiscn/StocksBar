@@ -52,4 +52,12 @@ extension AppDelegate {
     @objc func toggle() {
         PopoverAction.toggle()
     }
+    
+    func update(stock: Stock?) {
+        guard let stock = stock else {
+            return
+        }
+        let title = String(format: "%@ %.2f %@", stock.symbol, stock.current, stock.percentString)
+        statusItem.title = title
+    }
 }
