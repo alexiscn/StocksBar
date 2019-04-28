@@ -35,18 +35,10 @@ class StocksTableViewController: NSViewController {
         setupHeaderView()
         setupTableView()
         setupFooterView()
-        
-        tableView.reloadData()
-        
-        StockDataSource.shared.load()
         StockDataSource.shared.updatedHandler = { [weak self] in
             self?.tableView.reloadData()
         }
-        
-        let menu = NSMenu()
-        menu.delegate = self
-        tableView.menu = menu
-        view.window?.makeFirstResponder(tableView)
+        tableView.reloadData()
     }
     
     private func setupHeaderView() {
@@ -85,6 +77,11 @@ class StocksTableViewController: NSViewController {
         column.width = view.bounds.width
         tableView.headerView = nil
         tableView.addTableColumn(column)
+        
+        let menu = NSMenu()
+        menu.delegate = self
+        tableView.menu = menu
+        view.window?.makeFirstResponder(tableView)
     }
     
     private func setupFooterView() {

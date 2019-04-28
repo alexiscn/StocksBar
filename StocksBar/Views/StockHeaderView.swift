@@ -12,7 +12,9 @@ class StockHeaderView: NSView {
 
     var addCommand: RelayCommand?
     
-    private var titleLabel: NSTextField!
+    private var searchField: NSSearchField!
+    
+//    private var titleLabel: NSTextField!
     
     private var addButton: NSButton!
     
@@ -28,21 +30,32 @@ class StockHeaderView: NSView {
     
     private func commonInit() {
         
-        titleLabel = NSTextField()
-        titleLabel.isBordered = false
-        titleLabel.backgroundColor = .clear
-        titleLabel.isEditable = false
-        titleLabel.alignment = .center
-        titleLabel.font = NSFont.systemFont(ofSize: NSFont.systemFontSize, weight: .light)
-        titleLabel.stringValue = "StocksBar"
-        titleLabel.textColor = NSColor.headerColor
-        addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
+        searchField = NSSearchField()
+        searchField.placeholderString = "Search Stock"
+        searchField.refusesFirstResponder = true
+        addSubview(searchField)
+        searchField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(50)
             make.trailing.equalToSuperview().offset(-50)
         }
+        
+//        titleLabel = NSTextField()
+//        titleLabel.isBordered = false
+//        titleLabel.backgroundColor = .clear
+//        titleLabel.isEditable = false
+//        titleLabel.alignment = .center
+//        titleLabel.font = NSFont.systemFont(ofSize: NSFont.systemFontSize, weight: .light)
+//        titleLabel.stringValue = "StocksBar"
+//        titleLabel.textColor = NSColor.headerColor
+//        addSubview(titleLabel)
+//        titleLabel.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.centerY.equalToSuperview()
+//            make.leading.equalToSuperview().offset(50)
+//            make.trailing.equalToSuperview().offset(-50)
+//        }
         
         addButton = NSButton(image: NSImage(named: "icon_add")!, target: self, action: #selector(handleTapAddButton(_:)))
         addButton.isBordered = false

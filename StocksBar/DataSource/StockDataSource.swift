@@ -21,12 +21,18 @@ class StockDataSource: NSObject {
     
     private let api = StocksAPI()
     
-    func load() {
-        content.append(Stock(code: "sh601933"))
-        content.append(Stock(code: "sz000651"))
-        content.append(Stock(code: "sz000858"))
-        content.append(Stock(code: "sz002594"))
-        content.append(Stock(code: "sh601318"))
+    private override init() {
+        super.init()
+        if let data = try? Data(contentsOf: fileURL),
+            let list = try? JSONDecoder().decode([Stock].self, from: data), list.count > 0 {
+            content = list
+        } else {
+            content.append(Stock(code: "sh601933"))
+            content.append(Stock(code: "sz000651"))
+            content.append(Stock(code: "sz000858"))
+            content.append(Stock(code: "sz002594"))
+            content.append(Stock(code: "sh601318"))
+        }
         update()
     }
     
@@ -39,6 +45,9 @@ class StockDataSource: NSObject {
     }
  
     @objc func update() {
+        if content.count == 0 {
+            return
+        }
         let codes = content.map { return $0.code }
         api.request(codes: codes) { (stocks, error) in
             if let error = error {
@@ -53,6 +62,21 @@ class StockDataSource: NSObject {
                     appDelegate.update(stock: self.content.first)
                 }
             }
+        }
+    }
+    
+    private var fileURL: URL {
+        let path = NSHomeDirectory().appending("/Documents/stocks.data")
+        return URL(fileURLWithPath: path)
+    }
+    
+    func save() {
+        do {
+            try FileManager.default.removeItem(at: fileURL)
+            let data = try JSONEncoder().encode(content)
+            try data.write(to: fileURL)
+        } catch {
+            print(error)
         }
     }
 }

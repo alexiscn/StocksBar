@@ -46,6 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate {
     
     @objc func quit() {
+        StockDataSource.shared.save()
         NSApplication.shared.terminate(self)
     }
 
