@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SnapKit
 
 class StocksTableViewController: NSViewController {
 
@@ -18,14 +19,10 @@ class StocksTableViewController: NSViewController {
     private let priceHeaderCell = NSTableHeaderCell(textCell: "价格")
     private let percentHeaderCell = NSTableHeaderCell(textCell: "涨跌幅")
     
-    private struct CellIdentifiers {
-        static let symbols = "SymbolCellID"
-        static let price = "PriceCellID"
-        static let percent = "PercentCellID"
-    }
+    internal let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockTableViewCellIdentifier")
     
     override func loadView() {
-        self.view = NSView(frame: NSRect(x: 0, y: 0, width: 300, height: 500))
+        self.view = NSView(frame: NSRect(x: 0, y: 0, width: 300, height: 600))
     }
     
     override func viewDidLoad() {
@@ -39,6 +36,9 @@ class StocksTableViewController: NSViewController {
     
     private func setupTableView() {
         tableView = NSTableView(frame: view.bounds)
+        tableView.register(NSNib(nibNamed: "StockTableCellView", bundle: nil), forIdentifier: reuseIdentifier)
+        tableView.gridColor = NSColor(white: 232.0/254, alpha: 1.0)
+        tableView.gridStyleMask = .solidHorizontalGridLineMask
         tableView.autoresizingMask = [.width, .height]
         tableView.dataSource = self
         tableView.delegate = self
@@ -46,9 +46,22 @@ class StocksTableViewController: NSViewController {
         tableView.snp.makeConstraints { make in
             make.leading.top.trailing.bottom.equalToSuperview()
         }
+        
+        let column = NSTableColumn()
+        column.width = view.bounds.width
+        tableView.headerView = nil
+        tableView.addTableColumn(column)
     }
     
     private func setupDataSource() {
+        dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
+        dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
+        dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
+        dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
         dataSource.append(Stock(code: "sh601933"))
         dataSource.append(Stock(code: "sz000651"))
     }
@@ -65,12 +78,12 @@ extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate 
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-//        tableColumn?.headerCell =
-        if tableColumn == tableView.tableColumns.first {
-            
+        let stock = dataSource[row]
+        if let cell = tableView.makeView(withIdentifier: reuseIdentifier, owner: self) as? StockTableCellView {
+            cell.update(stock)
+            return cell
         }
-        tableColumn?.headerCell = symbolHeaderCell
-        return NSView()
+        return nil
     }
     
 }

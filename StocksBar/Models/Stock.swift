@@ -13,7 +13,7 @@ class Stock {
     var code: String
     
     /// 股票简称
-    var symbol: String = ""
+    var symbol: String = "永辉超市"
     
     /// 今日开盘价
     var openPrice: Float = 0.0
