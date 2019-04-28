@@ -17,6 +17,8 @@ class StocksAPI {
     // 美港
     private let gURL = "https://hq.sinajs.cn/list=gb_"
     
+    private let suggestionURL = "https://suggest3.sinajs.cn/suggest/type=&key="
+    
     func request(codes: [String], completion: @escaping StocksAPICompletion) {
         let code = codes.joined(separator: ",")
         let url = aURL.appending(code)
@@ -45,5 +47,27 @@ class StocksAPI {
             }
         }
         return stocks
+    }
+    
+    func suggestion(key: String, completion: @escaping StocksAPICompletion) {
+        let url = suggestionURL.appending(key)
+        Alamofire.request(url).responseString { response in
+            if let content = response.result.value {
+                let value = content.replacingOccurrences(of: "var suggestvalue=", with: "")
+                    .replacingOccurrences(of: ";", with: "")
+                    .replacingOccurrences(of: "\"", with: "")
+                let components = value.split(separator: ";").map { return String($0) }
+                var stocks: [Stock] = []
+                for item in components {
+                    let array = item.split(separator: ",").map { return String($0) }
+                    let stock = Stock(code: array[3])
+                    stock.symbol = array[0]
+                    stocks.append(stock)
+                }
+                completion(stocks, nil)
+            } else {
+                completion([], response.error)
+            }
+        }
     }
 }

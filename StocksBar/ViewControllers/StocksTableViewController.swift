@@ -74,8 +74,6 @@ class StocksTableViewController: NSViewController {
         tableView = NSTableView()
         tableView.backgroundColor = .white
         tableView.register(NSNib(nibNamed: "StockTableCellView", bundle: nil), forIdentifier: reuseIdentifier)
-//        tableView.gridColor = NSColor(white: 232.0/254, alpha: 1.0)
-//        tableView.gridStyleMask = .solidHorizontalGridLineMask
         tableView.selectionHighlightStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
@@ -128,10 +126,14 @@ extension StocksTableViewController: NSMenuDelegate {
         menu.removeAllItems()
         
         menu.addItem(NSMenuItem(title: "Delete", action: #selector(handleDeleteRow), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Top", action: #selector(handleDeleteRow), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Top", action: #selector(handleTopRow), keyEquivalent: ""))
     }
     
     @objc private func handleDeleteRow() {
+        
+    }
+    
+    @objc private func handleTopRow() {
         
     }
 }
