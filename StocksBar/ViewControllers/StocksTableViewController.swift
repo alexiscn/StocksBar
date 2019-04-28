@@ -19,8 +19,6 @@ class StocksTableViewController: NSViewController {
     
     private var footerView: StockFooterView!
     
-    private var dataSource: [Stock] = []
-    
     private let symbolHeaderCell = NSTableHeaderCell(textCell: "股票名称")
     private let priceHeaderCell = NSTableHeaderCell(textCell: "价格")
     private let percentHeaderCell = NSTableHeaderCell(textCell: "涨跌幅")
@@ -37,8 +35,18 @@ class StocksTableViewController: NSViewController {
         setupHeaderView()
         setupTableView()
         setupFooterView()
-        setupDataSource()
-        tableView.reloadData()   
+        
+        tableView.reloadData()
+        
+        StockDataSource.shared.load()
+        StockDataSource.shared.updatedHandler = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        let menu = NSMenu()
+        menu.delegate = self
+        tableView.menu = menu
+        view.window?.makeFirstResponder(tableView)
     }
     
     private func setupHeaderView() {
@@ -66,11 +74,13 @@ class StocksTableViewController: NSViewController {
         tableView = NSTableView()
         tableView.backgroundColor = .white
         tableView.register(NSNib(nibNamed: "StockTableCellView", bundle: nil), forIdentifier: reuseIdentifier)
-        tableView.gridColor = NSColor(white: 232.0/254, alpha: 1.0)
-        tableView.gridStyleMask = .solidHorizontalGridLineMask
+//        tableView.gridColor = NSColor(white: 232.0/254, alpha: 1.0)
+//        tableView.gridStyleMask = .solidHorizontalGridLineMask
         tableView.selectionHighlightStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.floatsGroupRows = true
+        tableView.intercellSpacing = NSSize.zero
         scrollView.documentView = tableView
         
         let column = NSTableColumn()
@@ -87,32 +97,12 @@ class StocksTableViewController: NSViewController {
             make.height.equalTo(50)
         }
     }
-    
-    private func setupDataSource() {
-        dataSource.append(Stock(code: "sh601933"))
-        dataSource.append(Stock(code: "sz000651"))
-        dataSource.append(Stock(code: "sh601933"))
-        dataSource.append(Stock(code: "sz000651"))
-        dataSource.append(Stock(code: "sh601933"))
-        dataSource.append(Stock(code: "sz000651"))
-        dataSource.append(Stock(code: "sh601933"))
-        dataSource.append(Stock(code: "sz000651"))
-        dataSource.append(Stock(code: "sh601933"))
-        dataSource.append(Stock(code: "sz000651"))
-        dataSource.append(Stock(code: "sz000651"))
-        dataSource.append(Stock(code: "sh601933"))
-        dataSource.append(Stock(code: "sz000651"))
-        dataSource.append(Stock(code: "sh601933"))
-        dataSource.append(Stock(code: "sz000651"))
-        dataSource.append(Stock(code: "sh601933"))
-        dataSource.append(Stock(code: "sz000651"))
-    }
 }
 
 extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return dataSource.count
+        return StockDataSource.shared.numberOfRows()
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
@@ -120,7 +110,7 @@ extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate 
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let stock = dataSource[row]
+        let stock = StockDataSource.shared.data(atIndex: row)
         if let cell = tableView.makeView(withIdentifier: reuseIdentifier, owner: self) as? StockTableCellView {
             cell.update(stock)
             return cell
@@ -128,4 +118,20 @@ extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate 
         return nil
     }
     
+    func tableView(_ tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool {
+        return true
+    }
+}
+
+extension StocksTableViewController: NSMenuDelegate {
+    func menuNeedsUpdate(_ menu: NSMenu) {
+        menu.removeAllItems()
+        
+        menu.addItem(NSMenuItem(title: "Delete", action: #selector(handleDeleteRow), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Top", action: #selector(handleDeleteRow), keyEquivalent: ""))
+    }
+    
+    @objc private func handleDeleteRow() {
+        
+    }
 }

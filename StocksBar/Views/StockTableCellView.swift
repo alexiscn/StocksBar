@@ -16,6 +16,8 @@ class StockTableCellView: NSTableCellView {
     
     @IBOutlet weak var percentView: NSView!
     
+    @IBOutlet weak var percentLabel: NSTextField!
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -30,13 +32,18 @@ class StockTableCellView: NSTableCellView {
         percentView.layer?.cornerRadius = 4
         
         let color: NSColor
+        let percent: String
         if stock.percent > 0 {
             color = Colors.red
+            percent = String(format: "+%.2f%%", stock.percent * 100.0)
         } else if stock.percent < 0 {
             color = Colors.green
+            percent = String(format: "%.2f%%", stock.percent * 100.0)
         } else {
             color = Colors.gray
+            percent = "-"
         }
+        percentLabel.stringValue = percent
         percentView.layer?.backgroundColor = color.cgColor
     }
     
