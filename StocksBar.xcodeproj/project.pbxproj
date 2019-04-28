@@ -13,6 +13,7 @@
 		A301F33622759BBC00A2327B /* StockTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A301F33522759BBC00A2327B /* StockTableCellView.xib */; };
 		A301F3392275A03800A2327B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F3382275A03800A2327B /* Colors.swift */; };
 		A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33A2275A70400A2327B /* StockFooterView.swift */; };
+		A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33C2275B7F000A2327B /* StockHeaderView.swift */; };
 		A349894F22700BED002F7898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349894E22700BED002F7898 /* AppDelegate.swift */; };
 		A349895122700BED002F7898 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349895022700BED002F7898 /* ViewController.swift */; };
 		A349895322700BEF002F7898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A349895222700BEF002F7898 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		A301F33522759BBC00A2327B /* StockTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockTableCellView.xib; sourceTree = "<group>"; };
 		A301F3382275A03800A2327B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A301F33A2275A70400A2327B /* StockFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFooterView.swift; sourceTree = "<group>"; };
+		A301F33C2275B7F000A2327B /* StockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHeaderView.swift; sourceTree = "<group>"; };
 		A349894B22700BED002F7898 /* StocksBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A349894E22700BED002F7898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A349895022700BED002F7898 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		A3DEF2022272D48900FBE176 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A301F33C2275B7F000A2327B /* StockHeaderView.swift */,
 				A301F33322759BAF00A2327B /* StockTableCellView.swift */,
 				A301F33522759BBC00A2327B /* StockTableCellView.xib */,
 				A301F33A2275A70400A2327B /* StockFooterView.swift */,
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A349895122700BED002F7898 /* ViewController.swift in Sources */,
+				A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */,
 				A301F3392275A03800A2327B /* Colors.swift in Sources */,
 				A301F33422759BAF00A2327B /* StockTableCellView.swift in Sources */,
 				A3DEF20D2273084700FBE176 /* PopoverAction.swift in Sources */,

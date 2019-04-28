@@ -16,7 +16,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Omx-Ry-3ao">
                     <rect key="frame" x="10" y="16" width="50" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Symbol" id="Urw-8P-3cA">
-                        <font key="font" usesAppearanceFont="YES"/>
+                        <font key="font" metaFont="titleBar"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -30,11 +30,11 @@
                     </textFieldCell>
                 </textField>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="RfE-IP-eon" userLabel="Percent View">
-                    <rect key="frame" x="426" y="13" width="80" height="24"/>
+                    <rect key="frame" x="442" y="13" width="64" height="24"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OQi-KE-eQz" userLabel="Percent Label">
-                            <rect key="frame" x="24" y="5" width="33" height="14"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" title="Label" id="hdm-ET-7GK">
+                            <rect key="frame" x="27" y="5" width="10" height="14"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" title="-" id="hdm-ET-7GK">
                                 <font key="font" metaFont="system" size="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -43,7 +43,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="6HM-VR-qA1"/>
-                        <constraint firstAttribute="width" constant="80" id="Jjb-qs-NK4"/>
+                        <constraint firstAttribute="width" constant="64" id="Jjb-qs-NK4"/>
                         <constraint firstItem="OQi-KE-eQz" firstAttribute="centerX" secondItem="RfE-IP-eon" secondAttribute="centerX" id="UTt-4O-nNe"/>
                         <constraint firstItem="OQi-KE-eQz" firstAttribute="centerY" secondItem="RfE-IP-eon" secondAttribute="centerY" id="bht-iJ-krF"/>
                     </constraints>

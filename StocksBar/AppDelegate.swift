@@ -7,6 +7,9 @@
 //
 
 import Cocoa
+import SnapKit
+
+typealias RelayCommand = () -> Void
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

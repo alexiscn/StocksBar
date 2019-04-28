@@ -13,7 +13,11 @@ class StocksTableViewController: NSViewController {
 
     private var scrollView: NSScrollView!
     
+    private var headerView: StockHeaderView!
+    
     private var tableView: NSTableView!
+    
+    private var footerView: StockFooterView!
     
     private var dataSource: [Stock] = []
     
@@ -30,22 +34,37 @@ class StocksTableViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupHeaderView()
         setupTableView()
+        setupFooterView()
         setupDataSource()
         tableView.reloadData()   
     }
     
+    private func setupHeaderView() {
+        headerView = StockHeaderView(frame: NSRect(x: 0, y: 0, width: view.bounds.width, height: 40))
+        view.addSubview(headerView)
+        headerView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+            make.height.equalTo(40)
+        }
+    }
+    
     private func setupTableView() {
         scrollView = NSScrollView(frame: view.bounds)
+        scrollView.automaticallyAdjustsContentInsets = false
+        scrollView.contentInsets = NSEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
         scrollView.hasVerticalScroller = true
         scrollView.borderType = .noBorder
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(40)
             make.bottom.equalToSuperview().offset(-50)
         }
         
         tableView = NSTableView()
+        tableView.backgroundColor = .white
         tableView.register(NSNib(nibNamed: "StockTableCellView", bundle: nil), forIdentifier: reuseIdentifier)
         tableView.gridColor = NSColor(white: 232.0/254, alpha: 1.0)
         tableView.gridStyleMask = .solidHorizontalGridLineMask
@@ -61,7 +80,12 @@ class StocksTableViewController: NSViewController {
     }
     
     private func setupFooterView() {
-        
+        footerView = StockFooterView(frame: NSRect(x: 0, y: 0, width: view.bounds.width, height: 50))
+        view.addSubview(footerView)
+        footerView.snp.makeConstraints { make in
+            make.leading.bottom.trailing.equalToSuperview()
+            make.height.equalTo(50)
+        }
     }
     
     private func setupDataSource() {
