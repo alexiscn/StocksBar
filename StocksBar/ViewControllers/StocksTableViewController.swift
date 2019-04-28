@@ -11,6 +11,8 @@ import SnapKit
 
 class StocksTableViewController: NSViewController {
 
+    private var scrollView: NSScrollView!
+    
     private var tableView: NSTableView!
     
     private var dataSource: [Stock] = []
@@ -30,22 +32,27 @@ class StocksTableViewController: NSViewController {
         
         setupTableView()
         setupDataSource()
-        tableView.reloadData()
-        
+        tableView.reloadData()   
     }
     
     private func setupTableView() {
-        tableView = NSTableView(frame: view.bounds)
+        scrollView = NSScrollView(frame: view.bounds)
+        scrollView.hasVerticalScroller = true
+        scrollView.borderType = .noBorder
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-50)
+        }
+        
+        tableView = NSTableView()
         tableView.register(NSNib(nibNamed: "StockTableCellView", bundle: nil), forIdentifier: reuseIdentifier)
         tableView.gridColor = NSColor(white: 232.0/254, alpha: 1.0)
         tableView.gridStyleMask = .solidHorizontalGridLineMask
-        tableView.autoresizingMask = [.width, .height]
+        tableView.selectionHighlightStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.leading.top.trailing.bottom.equalToSuperview()
-        }
+        scrollView.documentView = tableView
         
         let column = NSTableColumn()
         column.width = view.bounds.width
@@ -53,10 +60,21 @@ class StocksTableViewController: NSViewController {
         tableView.addTableColumn(column)
     }
     
+    private func setupFooterView() {
+        
+    }
+    
     private func setupDataSource() {
         dataSource.append(Stock(code: "sh601933"))
         dataSource.append(Stock(code: "sz000651"))
         dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
+        dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
+        dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
+        dataSource.append(Stock(code: "sh601933"))
+        dataSource.append(Stock(code: "sz000651"))
         dataSource.append(Stock(code: "sz000651"))
         dataSource.append(Stock(code: "sh601933"))
         dataSource.append(Stock(code: "sz000651"))
@@ -74,7 +92,7 @@ extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate 
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 50.0
+        return 40.0
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {

@@ -12,6 +12,7 @@
 		A301F33422759BAF00A2327B /* StockTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33322759BAF00A2327B /* StockTableCellView.swift */; };
 		A301F33622759BBC00A2327B /* StockTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A301F33522759BBC00A2327B /* StockTableCellView.xib */; };
 		A301F3392275A03800A2327B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F3382275A03800A2327B /* Colors.swift */; };
+		A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33A2275A70400A2327B /* StockFooterView.swift */; };
 		A349894F22700BED002F7898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349894E22700BED002F7898 /* AppDelegate.swift */; };
 		A349895122700BED002F7898 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349895022700BED002F7898 /* ViewController.swift */; };
 		A349895322700BEF002F7898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A349895222700BEF002F7898 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		A301F33322759BAF00A2327B /* StockTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableCellView.swift; sourceTree = "<group>"; };
 		A301F33522759BBC00A2327B /* StockTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockTableCellView.xib; sourceTree = "<group>"; };
 		A301F3382275A03800A2327B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A301F33A2275A70400A2327B /* StockFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFooterView.swift; sourceTree = "<group>"; };
 		A349894B22700BED002F7898 /* StocksBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A349894E22700BED002F7898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A349895022700BED002F7898 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				A301F33322759BAF00A2327B /* StockTableCellView.swift */,
 				A301F33522759BBC00A2327B /* StockTableCellView.xib */,
+				A301F33A2275A70400A2327B /* StockFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				A349894F22700BED002F7898 /* AppDelegate.swift in Sources */,
 				A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */,
 				A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */,
+				A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */,
 				A301F3302275982600A2327B /* StockDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

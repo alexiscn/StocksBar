@@ -14,4 +14,5 @@ struct Colors {
     
     static let red: NSColor = NSColor(red: 255.0/255, green: 59.0/255, blue: 48.0/255, alpha: 1.0)
     
+    static let gray: NSColor = NSColor.gray
 }

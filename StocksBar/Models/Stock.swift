@@ -22,7 +22,7 @@ class Stock {
     var lastClosedPrice: Float = 0.0
     
     /// 最近成交价格
-    var current: Float = 0.0
+    var current: Float = 10.24
     
     /// 最高成交价
     var high: Float = 0.0
