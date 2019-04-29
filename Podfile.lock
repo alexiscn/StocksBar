@@ -1,20 +1,28 @@
 PODS:
   - Alamofire (4.8.2)
+  - LaunchAtLogin (2.5.0)
+  - RxSwift (4.5.0)
   - SnapKit (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - LaunchAtLogin
+  - RxSwift
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - LaunchAtLogin
+    - RxSwift
     - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  LaunchAtLogin: 550b0cbbdaf1b13f87a0fab6a3f8e2fbafe067fe
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: b2c5bde8c03f85974253f81e221dd8f95b4709f8
+PODFILE CHECKSUM: ac1b5d08d73d4b4367c3777edb596257f742a0cb
 
 COCOAPODS: 1.6.0.beta.2

@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import UserNotifications
 
 class StockDataSource: NSObject {
     
@@ -26,12 +27,14 @@ class StockDataSource: NSObject {
         if let data = try? Data(contentsOf: fileURL),
             let list = try? JSONDecoder().decode([Stock].self, from: data), list.count > 0 {
             content = list
+            //try? FileManager.default.removeItem(at: fileURL)
         } else {
             content.append(Stock(code: "sh601933"))
             content.append(Stock(code: "sz000651"))
             content.append(Stock(code: "sz000858"))
             content.append(Stock(code: "sz002594"))
             content.append(Stock(code: "sh601318"))
+            content.append(Stock(code: "sh601360"))
         }
         update()
     }

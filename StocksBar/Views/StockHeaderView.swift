@@ -12,6 +12,8 @@ class StockHeaderView: NSView {
 
     var addCommand: RelayCommand?
     
+    private var iconView: NSImageView!
+    
     private var searchField: NSSearchField!
     
 //    private var titleLabel: NSTextField!
@@ -29,6 +31,14 @@ class StockHeaderView: NSView {
     }
     
     private func commonInit() {
+        
+        iconView = NSImageView(image: NSImage(named: "icon_stock")!)
+        addSubview(iconView)
+        iconView.snp.makeConstraints { make in
+            make.height.width.equalTo(24)
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(12)
+        }
         
         searchField = NSSearchField()
         searchField.placeholderString = "Search Stock"
