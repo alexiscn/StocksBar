@@ -7,12 +7,13 @@
 //
 
 import Cocoa
+import RxSwift
 
 class StockHeaderView: NSView {
 
     var headerCommand: RelayCommand?
     
-    private var searchField: NSSearchField!
+    var searchField: NSSearchField!
     
     private var listButton: NSButton!
     
@@ -54,6 +55,8 @@ class StockHeaderView: NSView {
         
         wantsLayer = true
         layer?.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0).cgColor
+        
+        
     }
     
     @objc private func handleTapListButton(_ sender: Any) {

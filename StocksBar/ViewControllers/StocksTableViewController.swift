@@ -13,38 +13,30 @@ class StocksTableViewController: NSViewController {
 
     private var scrollView: NSScrollView!
     
-    private var headerView: StockHeaderView!
-    
     private var tableView: NSTableView!
     
-    private var footerView: StockFooterView!
-    
-    internal let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockTableViewCellIdentifier")
+    let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockTableViewCellIdentifier")
     
     private var isEditing = false
     
     override func loadView() {
-        self.view = NSView(frame: NSRect(x: 0, y: 0, width: 300, height: 450))
+        self.view = NSView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupEffectView()
-        setupHeaderView()
+    
         setupTableView()
-        setupFooterView()
-        StockDataSource.shared.updatedHandler = {
-            if !self.isEditing {
-                self.tableView.reloadData()
-                let stock = StockDataSource.shared.data(atIndex: 0)
-                self.footerView.update(stock: stock)
-            }
-        }
         tableView.reloadData()
     }
     
-    private func editTableView() {
+    func reloadData() {
+        if !isEditing {
+            tableView.reloadData()
+        }
+    }
+    
+    func editTableView() {
         isEditing = !isEditing
         
         for i in 0 ..< self.tableView.numberOfRows {
@@ -52,28 +44,6 @@ class StocksTableViewController: NSViewController {
             isEditing ? cell.beginEditing(): cell.endEditing()
         }
         tableView.reloadData()
-    }
-    
-    private func setupEffectView() {
-        let effectView = NSVisualEffectView(frame: view.bounds)
-        effectView.material = .menu
-        view.addSubview(effectView)
-        effectView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(40)
-            make.leading.bottom.trailing.equalToSuperview()
-        }
-    }
-    
-    private func setupHeaderView() {
-        headerView = StockHeaderView(frame: NSRect(x: 0, y: 0, width: view.bounds.width, height: 50))
-        view.addSubview(headerView)
-        headerView.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
-            make.height.equalTo(50)
-        }
-        headerView.headerCommand = { [weak self] in
-            self?.editTableView()
-        }
     }
     
     private func setupTableView() {
@@ -86,8 +56,8 @@ class StocksTableViewController: NSViewController {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(50)
-            make.bottom.equalToSuperview().offset(-50)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
         
         tableView = NSTableView()
@@ -110,15 +80,6 @@ class StocksTableViewController: NSViewController {
         menu.delegate = self
         tableView.menu = menu
         view.window?.makeFirstResponder(tableView)
-    }
-    
-    private func setupFooterView() {
-        footerView = StockFooterView(frame: NSRect(x: 0, y: 0, width: view.bounds.width, height: 50))
-        view.addSubview(footerView)
-        footerView.snp.makeConstraints { make in
-            make.leading.bottom.trailing.equalToSuperview()
-            make.height.equalTo(50)
-        }
     }
     
     private func removeRow(_ row: Int, stock: Stock) {

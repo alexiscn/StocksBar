@@ -10,6 +10,7 @@ import Foundation
 import Cocoa
 import Alamofire
 import UserNotifications
+import RxSwift
 
 class StockDataSource: NSObject {
     
@@ -116,5 +117,9 @@ class StockDataSource: NSObject {
         content = array
         save()
         shouldUpdateDataSource = true
+    }
+    
+    func search(key: String) -> Observable<[Stock]> {
+        return api.suggestion(key: key)
     }
 }

@@ -11,7 +11,7 @@ import Cocoa
 class StockSearchViewController: NSViewController {
 
     private var scrollView: NSScrollView!
-    private var tableView: NSTableView!
+    var tableView: NSTableView!
     
     let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockSearchViewCellIdentifier")
     

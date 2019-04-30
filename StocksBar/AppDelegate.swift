@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(toggle)
         }
         
-        let controller = StocksTableViewController()
+        let controller = MainViewController()
         controller.view.frame = NSRect(x: 0, y: 0, width: 300, height: 450)
         
         popover.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0)

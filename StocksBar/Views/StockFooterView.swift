@@ -63,6 +63,9 @@ class StockFooterView: NSView {
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-12)
         }
+        
+        wantsLayer = true
+        layer?.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0).cgColor
     }
     
     @objc private func handleTapSettingButton(_ sender: NSButton) {
