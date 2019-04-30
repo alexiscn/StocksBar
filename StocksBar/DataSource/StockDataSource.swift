@@ -17,7 +17,7 @@ class StockDataSource: NSObject {
     
     var updatedHandler: RelayCommand?
     
-    var stop = false
+    private var shouldUpdateDataSource = true
     
     private var content: [Stock] = []
     
@@ -30,7 +30,7 @@ class StockDataSource: NSObject {
         if let data = try? Data(contentsOf: fileURL),
             let list = try? JSONDecoder().decode([Stock].self, from: data), list.count > 0 {
             content = list
-            //try? FileManager.default.removeItem(at: fileURL)
+            updatedHandler?()
         } else {
             content.append(Stock(code: "sh601933"))
             content.append(Stock(code: "sz000651"))
@@ -59,15 +59,15 @@ class StockDataSource: NSObject {
             if let error = error {
                 print(error)
             } else {
-                self.content = stocks
-                self.updatedHandler?()
-                if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
-                    appDelegate.update(stock: self.content.first)
+                if self.shouldUpdateDataSource {
+                    self.content = stocks
+                    self.updatedHandler?()
+                    if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+                        appDelegate.update(stock: self.content.first)
+                    }
                 }
             }
-            if !self.stop {
-                self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
-            }
+            self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
         }
     }
     
@@ -78,7 +78,9 @@ class StockDataSource: NSObject {
     
     func save() {
         do {
-            try FileManager.default.removeItem(at: fileURL)
+            if FileManager.default.fileExists(atPath: fileURL.path) {
+                try FileManager.default.removeItem(at: fileURL)
+            }
             let data = try JSONEncoder().encode(content)
             try data.write(to: fileURL)
         } catch {
@@ -87,10 +89,23 @@ class StockDataSource: NSObject {
     }
     
     func stickToTop(at index: Int) {
-        request?.cancel()
+        shouldUpdateDataSource = false
         var array = content
         let stock = array.remove(at: index)
         array.insert(stock, at: 0)
-        update()
+        content = array
+        save()
+        shouldUpdateDataSource = true
+    }
+    
+    func remove(stock: Stock) {
+        shouldUpdateDataSource = false
+        var array = content
+        if let index = array.firstIndex(where: { $0.code == stock.code }) {
+            array.remove(at: index)
+            content = array
+            save()
+        }
+        shouldUpdateDataSource = true
     }
 }

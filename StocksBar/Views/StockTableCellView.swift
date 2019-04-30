@@ -10,6 +10,8 @@ import Cocoa
 
 class StockTableCellView: NSTableCellView {
 
+    var deleteCommand: RelayCommand?
+    
     @IBOutlet weak var deleteButton: NSButton!
     
     @IBOutlet weak var symbolLabel: NSTextField!
@@ -43,7 +45,7 @@ class StockTableCellView: NSTableCellView {
         
         percentView.wantsLayer = true
         percentView.layer?.cornerRadius = 4
-        
+    
         let color: NSColor
         let percent: String
         if stock.percent > 0 {
@@ -61,14 +63,14 @@ class StockTableCellView: NSTableCellView {
     }
     
     func beginEditing() {
-        deleteButtonLeadingConstraint.constant = 6
+        deleteButtonLeadingConstraint.constant = 10
         contentViewLeadingConstaint.constant = 24
-        contentViewTrailingConstraint.constant = 12
-        dragButtonTraillingConstraint.constant = 0
+        contentViewTrailingConstraint.constant = 24
+        dragButtonTraillingConstraint.constant = 10
         
         NSAnimationContext.runAnimationGroup { context in
             context.allowsImplicitAnimation = true
-            context.duration = 0.5
+            context.duration = 0.2
             self.deleteButton.alphaValue = 1.0
             self.layoutSubtreeIfNeeded()
         }
@@ -82,13 +84,13 @@ class StockTableCellView: NSTableCellView {
         
         NSAnimationContext.runAnimationGroup { context in
             context.allowsImplicitAnimation = true
-            context.duration = 0.5
+            context.duration = 0.2
             self.deleteButton.alphaValue = 0.0
             self.layoutSubtreeIfNeeded()
         }
     }
     
     @IBAction func tapDeleteButton(_ sender: Any) {
-        
+        deleteCommand?()
     }
 }

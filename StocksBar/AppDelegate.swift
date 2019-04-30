@@ -29,11 +29,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         let controller = StocksTableViewController()
-        controller.view.frame = NSRect(x: 0, y: 0, width: 280, height: 450)
+        controller.view.frame = NSRect(x: 0, y: 0, width: 300, height: 450)
         
         popover.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0)
         popover.contentViewController = controller
-        popover.contentSize = NSSize(width: 280, height: 450)
+        popover.contentSize = NSSize(width: 300, height: 450)
         popover.appearance = NSAppearance(named: .aqua)
         popover.animates = false
         popover.behavior = .transient

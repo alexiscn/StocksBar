@@ -79,10 +79,10 @@
                     </constraints>
                 </customView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="haZ-VN-86Z" userLabel="Drag Button">
-                    <rect key="frame" x="518" y="8" width="24" height="24"/>
+                    <rect key="frame" x="522" y="10" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="24" id="0qQ-pb-SpD"/>
-                        <constraint firstAttribute="height" constant="24" id="Mt5-JB-VJI"/>
+                        <constraint firstAttribute="width" constant="20" id="0qQ-pb-SpD"/>
+                        <constraint firstAttribute="height" constant="20" id="Mt5-JB-VJI"/>
                     </constraints>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_drag" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Q0h-Hg-XZS">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
