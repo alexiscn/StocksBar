@@ -15,6 +15,8 @@ class StockSearchViewController: NSViewController {
     
     let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockSearchViewCellIdentifier")
     
+    private var dataSource: [Stock] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,5 +57,20 @@ class StockSearchViewController: NSViewController {
 }
 
 extension StockSearchViewController: NSTableViewDataSource, NSTableViewDelegate {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return dataSource.count
+    }
     
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let stock = StockDataSource.shared.data(atIndex: row)
+        if let cell = tableView.makeView(withIdentifier: reuseIdentifier, owner: self) as? StockSearchCellView {
+            cell.update(stock)
+            return cell
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 50.0
+    }
 }

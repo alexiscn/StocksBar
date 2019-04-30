@@ -150,10 +150,7 @@ extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate 
         }
         return nil
     }
-    
-    func tableView(_ tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool {
-        return true
-    }
+
 }
 
 extension StocksTableViewController: NSMenuDelegate {
@@ -165,7 +162,10 @@ extension StocksTableViewController: NSMenuDelegate {
     }
     
     @objc private func handleDeleteRow() {
-        
+        let clickedRow = tableView.clickedRow
+        if clickedRow > 0 {
+            StockDataSource.shared.remove(at: clickedRow)
+        }
     }
     
     @objc private func handleTopRow() {

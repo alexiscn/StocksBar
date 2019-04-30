@@ -108,4 +108,13 @@ class StockDataSource: NSObject {
         }
         shouldUpdateDataSource = true
     }
+    
+    func remove(at index: Int) {
+        shouldUpdateDataSource = false
+        var array = content
+        array.remove(at: index)
+        content = array
+        save()
+        shouldUpdateDataSource = true
+    }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
 typealias StocksAPICompletion = ((_ stocks: [Stock], _ error: Error?) -> Void)
 
@@ -49,25 +50,37 @@ class StocksAPI {
         return stocks
     }
     
-    func suggestion(key: String, completion: @escaping StocksAPICompletion) {
-        let url = suggestionURL.appending(key)
-        Alamofire.request(url).responseString { response in
-            if let content = response.result.value {
-                let value = content.replacingOccurrences(of: "var suggestvalue=", with: "")
-                    .replacingOccurrences(of: ";", with: "")
-                    .replacingOccurrences(of: "\"", with: "")
-                let components = value.split(separator: ";").map { return String($0) }
-                var stocks: [Stock] = []
-                for item in components {
-                    let array = item.split(separator: ",").map { return String($0) }
-                    let stock = Stock(code: array[3])
-                    stock.symbol = array[0]
-                    stocks.append(stock)
+    func parseSuggestionString(_ content: String?) -> [Stock] {
+        guard let content = content else {
+            return []
+        }
+        let value = content.replacingOccurrences(of: "var suggestvalue=", with: "")
+            .replacingOccurrences(of: ";", with: "")
+            .replacingOccurrences(of: "\"", with: "")
+        let components = value.split(separator: ";").map { return String($0) }
+        var stocks: [Stock] = []
+        for item in components {
+            let array = item.split(separator: ",").map { return String($0) }
+            let stock = Stock(code: array[3])
+            stock.symbol = array[0]
+            stocks.append(stock)
+        }
+        return stocks
+    }
+    
+    func suggestion(key: String) -> Observable<[Stock]> {
+        return Observable.create { observer -> Disposable in
+            let url = self.suggestionURL.appending(key)
+            Alamofire.request(url).responseString { response in
+                if let error = response.error {
+                    observer.onError(error)
+                } else {
+                    let stocks = self.parseSuggestionString(response.result.value)
+                    observer.onNext(stocks)
+                    observer.onCompleted()
                 }
-                completion(stocks, nil)
-            } else {
-                completion([], response.error)
             }
+            return Disposables.create()
         }
     }
 }

@@ -18,6 +18,8 @@
 		A349894F22700BED002F7898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349894E22700BED002F7898 /* AppDelegate.swift */; };
 		A349895322700BEF002F7898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A349895222700BEF002F7898 /* Assets.xcassets */; };
 		A349895622700BEF002F7898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A349895422700BEF002F7898 /* Main.storyboard */; };
+		A3503F572278504500215360 /* StockSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3503F562278504500215360 /* StockSearchCellView.swift */; };
+		A3503F592278505100215360 /* StockSearchCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3503F582278505100215360 /* StockSearchCellView.xib */; };
 		A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */; };
 		A3C968E32277FEA300130EDF /* NSPopover+SB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968E22277FEA300130EDF /* NSPopover+SB.swift */; };
 		A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF1FE2272D21800FBE176 /* Stock.swift */; };
@@ -41,6 +43,8 @@
 		A349895522700BEF002F7898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A349895722700BEF002F7898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A349895822700BEF002F7898 /* StocksBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StocksBar.entitlements; sourceTree = "<group>"; };
+		A3503F562278504500215360 /* StockSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchCellView.swift; sourceTree = "<group>"; };
+		A3503F582278505100215360 /* StockSearchCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockSearchCellView.xib; sourceTree = "<group>"; };
 		A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewController.swift; sourceTree = "<group>"; };
 		A3C968E22277FEA300130EDF /* NSPopover+SB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopover+SB.swift"; sourceTree = "<group>"; };
 		A3DEF1FE2272D21800FBE176 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				A301F33322759BAF00A2327B /* StockTableCellView.swift */,
 				A301F33522759BBC00A2327B /* StockTableCellView.xib */,
 				A301F33A2275A70400A2327B /* StockFooterView.swift */,
+				A3503F562278504500215360 /* StockSearchCellView.swift */,
+				A3503F582278505100215360 /* StockSearchCellView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A301F33622759BBC00A2327B /* StockTableCellView.xib in Resources */,
+				A3503F592278505100215360 /* StockSearchCellView.xib in Resources */,
 				A349895322700BEF002F7898 /* Assets.xcassets in Resources */,
 				A349895622700BEF002F7898 /* Main.storyboard in Resources */,
 			);
@@ -335,6 +342,7 @@
 				A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */,
 				A349894F22700BED002F7898 /* AppDelegate.swift in Sources */,
 				A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */,
+				A3503F572278504500215360 /* StockSearchCellView.swift in Sources */,
 				A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */,
 				A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */,
 				A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */,
