@@ -18,6 +18,8 @@
 		A349894F22700BED002F7898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349894E22700BED002F7898 /* AppDelegate.swift */; };
 		A349895322700BEF002F7898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A349895222700BEF002F7898 /* Assets.xcassets */; };
 		A349895622700BEF002F7898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A349895422700BEF002F7898 /* Main.storyboard */; };
+		A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */; };
+		A3C968E32277FEA300130EDF /* NSPopover+SB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968E22277FEA300130EDF /* NSPopover+SB.swift */; };
 		A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF1FE2272D21800FBE176 /* Stock.swift */; };
 		A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2002272D47F00FBE176 /* StocksAPI.swift */; };
 		A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */; };
@@ -39,6 +41,8 @@
 		A349895522700BEF002F7898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A349895722700BEF002F7898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A349895822700BEF002F7898 /* StocksBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StocksBar.entitlements; sourceTree = "<group>"; };
+		A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewController.swift; sourceTree = "<group>"; };
+		A3C968E22277FEA300130EDF /* NSPopover+SB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopover+SB.swift"; sourceTree = "<group>"; };
 		A3DEF1FE2272D21800FBE176 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		A3DEF2002272D47F00FBE176 /* StocksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksAPI.swift; sourceTree = "<group>"; };
 		A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTableViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		A349894D22700BED002F7898 /* StocksBar */ = {
 			isa = PBXGroup;
 			children = (
+				A3C968E12277FE8B00130EDF /* Extensions */,
 				A301F3372275A02D00A2327B /* Common */,
 				A3DEF20B2273083300FBE176 /* Actions */,
 				A301F32E2275981600A2327B /* DataSource */,
@@ -141,8 +146,17 @@
 			isa = PBXGroup;
 			children = (
 				A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */,
+				A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A3C968E12277FE8B00130EDF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A3C968E22277FEA300130EDF /* NSPopover+SB.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A3DEF1FC2272D20300FBE176 /* Networking */ = {
@@ -312,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C968E32277FEA300130EDF /* NSPopover+SB.swift in Sources */,
 				A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */,
 				A301F3392275A03800A2327B /* Colors.swift in Sources */,
 				A301F33422759BAF00A2327B /* StockTableCellView.swift in Sources */,
@@ -319,6 +334,7 @@
 				A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */,
 				A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */,
 				A349894F22700BED002F7898 /* AppDelegate.swift in Sources */,
+				A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */,
 				A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */,
 				A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */,
 				A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */,
@@ -488,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LX863G777H;
-				INFOPLIST_FILE = "$(SRCROOT)/StocksBar/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/StocksBar/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

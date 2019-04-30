@@ -47,7 +47,7 @@ class StockDataSource: NSObject {
         return content[index]
     }
  
-    @objc func update() {
+    @objc private func update() {
         if content.count == 0 {
             return
         }
@@ -58,12 +58,12 @@ class StockDataSource: NSObject {
             } else {
                 self.content = stocks
                 self.updatedHandler?()
-                if !self.stop {
-                    self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
-                }
                 if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
                     appDelegate.update(stock: self.content.first)
                 }
+            }
+            if !self.stop {
+                self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
             }
         }
     }

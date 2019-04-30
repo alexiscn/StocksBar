@@ -10,9 +10,11 @@ import Cocoa
 
 class StockFooterView: NSView {
 
-    private var settingButton: NSButton!
+    private var iconView: NSImageView!
     
     private var lastUpdatedLabel: NSTextField!
+    
+    private var settingButton: NSButton!
     
     override init(frame frameRect: NSRect) {
         
@@ -26,15 +28,13 @@ class StockFooterView: NSView {
     }
     
     private func commonInit() {
-        settingButton = NSButton(image: NSImage(named: "icon_setting")!, target: self, action: #selector(handleTapSettingButton(_:)))
-        settingButton.bezelStyle = .texturedSquare
-        settingButton.isBordered = false
-        settingButton.setButtonType(.momentaryPushIn)
-        addSubview(settingButton)
-        settingButton.snp.makeConstraints { make in
+        
+        iconView = NSImageView(image: NSImage(named: "icon_stock")!)
+        addSubview(iconView)
+        iconView.snp.makeConstraints { make in
             make.height.width.equalTo(24)
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-12)
+            make.leading.equalToSuperview().offset(12)
         }
         
         lastUpdatedLabel = NSTextField()
@@ -44,13 +44,24 @@ class StockFooterView: NSView {
         lastUpdatedLabel.alignment = .center
         lastUpdatedLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize, weight: .light)
         lastUpdatedLabel.stringValue = "最新更新时间：2019-04-29"
-        lastUpdatedLabel.textColor = NSColor.gridColor
+        lastUpdatedLabel.textColor = NSColor.textColor
         addSubview(lastUpdatedLabel)
         lastUpdatedLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(50)
             make.trailing.equalToSuperview().offset(-50)
+        }
+        
+        settingButton = NSButton(image: NSImage(named: "icon_setting")!, target: self, action: #selector(handleTapSettingButton(_:)))
+        settingButton.bezelStyle = .texturedSquare
+        settingButton.isBordered = false
+        settingButton.setButtonType(.momentaryPushIn)
+        addSubview(settingButton)
+        settingButton.snp.makeConstraints { make in
+            make.height.width.equalTo(24)
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-12)
         }
     }
     

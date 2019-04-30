@@ -12,11 +12,7 @@ class StockHeaderView: NSView {
 
     var addCommand: RelayCommand?
     
-    private var iconView: NSImageView!
-    
     private var searchField: NSSearchField!
-    
-//    private var titleLabel: NSTextField!
     
     private var addButton: NSButton!
     
@@ -31,42 +27,19 @@ class StockHeaderView: NSView {
     }
     
     private func commonInit() {
-        
-        iconView = NSImageView(image: NSImage(named: "icon_stock")!)
-        addSubview(iconView)
-        iconView.snp.makeConstraints { make in
-            make.height.width.equalTo(24)
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(12)
-        }
-        
+            
         searchField = NSSearchField()
+        searchField.focusRingType = .none
         searchField.placeholderString = "Search Stock"
         searchField.refusesFirstResponder = true
         addSubview(searchField)
         searchField.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(50)
+            make.leading.equalToSuperview().offset(20)
+            make.height.equalTo(32)
             make.trailing.equalToSuperview().offset(-50)
         }
-        
-//        titleLabel = NSTextField()
-//        titleLabel.isBordered = false
-//        titleLabel.backgroundColor = .clear
-//        titleLabel.isEditable = false
-//        titleLabel.alignment = .center
-//        titleLabel.font = NSFont.systemFont(ofSize: NSFont.systemFontSize, weight: .light)
-//        titleLabel.stringValue = "StocksBar"
-//        titleLabel.textColor = NSColor.headerColor
-//        addSubview(titleLabel)
-//        titleLabel.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.centerY.equalToSuperview()
-//            make.leading.equalToSuperview().offset(50)
-//            make.trailing.equalToSuperview().offset(-50)
-//        }
-        
+                
         addButton = NSButton(image: NSImage(named: "icon_add")!, target: self, action: #selector(handleTapAddButton(_:)))
         addButton.isBordered = false
         addButton.setButtonType(.momentaryPushIn)
@@ -77,6 +50,9 @@ class StockHeaderView: NSView {
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-12)
         }
+        
+        wantsLayer = true
+        layer?.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0).cgColor
     }
     
     @objc private func handleTapAddButton(_ sender: Any) {

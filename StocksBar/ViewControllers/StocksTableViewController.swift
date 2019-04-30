@@ -19,10 +19,6 @@ class StocksTableViewController: NSViewController {
     
     private var footerView: StockFooterView!
     
-    private let symbolHeaderCell = NSTableHeaderCell(textCell: "股票名称")
-    private let priceHeaderCell = NSTableHeaderCell(textCell: "价格")
-    private let percentHeaderCell = NSTableHeaderCell(textCell: "涨跌幅")
-    
     internal let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockTableViewCellIdentifier")
     
     override func loadView() {
@@ -31,6 +27,15 @@ class StocksTableViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let effectView = NSVisualEffectView(frame: view.bounds)
+        effectView.material = .menu
+//        effectView.blendingMode = .withinWindow
+        view.addSubview(effectView)
+//        effectView.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(40)
+//            make.leading.bottom.trailing.equalToSuperview()
+//        }
         
         setupHeaderView()
         setupTableView()
@@ -42,35 +47,38 @@ class StocksTableViewController: NSViewController {
     }
     
     private func setupHeaderView() {
-        headerView = StockHeaderView(frame: NSRect(x: 0, y: 0, width: view.bounds.width, height: 40))
+        headerView = StockHeaderView(frame: NSRect(x: 0, y: 0, width: view.bounds.width, height: 50))
         view.addSubview(headerView)
         headerView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
-            make.height.equalTo(40)
+            make.height.equalTo(50)
         }
     }
     
     private func setupTableView() {
-        scrollView = NSScrollView(frame: view.bounds)
+        scrollView = NSScrollView(frame: .zero)
         scrollView.automaticallyAdjustsContentInsets = false
+        scrollView.drawsBackground = false
         scrollView.contentInsets = NSEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
         scrollView.hasVerticalScroller = true
         scrollView.borderType = .noBorder
+        scrollView.backgroundColor = .clear
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(40)
+            make.top.equalToSuperview().offset(50)
             make.bottom.equalToSuperview().offset(-50)
         }
         
         tableView = NSTableView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .clear
         tableView.register(NSNib(nibNamed: "StockTableCellView", bundle: nil), forIdentifier: reuseIdentifier)
         tableView.selectionHighlightStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
         tableView.floatsGroupRows = true
         tableView.intercellSpacing = NSSize.zero
+        
         scrollView.documentView = tableView
         
         let column = NSTableColumn()
@@ -131,6 +139,9 @@ extension StocksTableViewController: NSMenuDelegate {
     }
     
     @objc private func handleTopRow() {
-        
+        let selectRow = tableView.selectedRow
+        if selectRow > 0 {
+            
+        }
     }
 }

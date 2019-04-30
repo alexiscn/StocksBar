@@ -24,12 +24,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         if let button = statusItem.button {
-            button.title = "HEELOHEELOHEELOHEELO"
+            button.title = "StocksBar"
             button.action = #selector(toggle)
         }
         
         let controller = StocksTableViewController()
         controller.view.frame = NSRect(x: 0, y: 0, width: 280, height: 450)
+        
+        popover.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0)
         popover.contentViewController = controller
         popover.contentSize = NSSize(width: 280, height: 450)
         popover.appearance = NSAppearance(named: .aqua)
