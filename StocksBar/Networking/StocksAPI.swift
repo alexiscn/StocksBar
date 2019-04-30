@@ -19,10 +19,10 @@ class StocksAPI {
     
     private let suggestionURL = "https://suggest3.sinajs.cn/suggest/type=&key="
     
-    func request(codes: [String], completion: @escaping StocksAPICompletion) {
+    func request(codes: [String], completion: @escaping StocksAPICompletion) -> DataRequest {
         let code = codes.joined(separator: ",")
         let url = aURL.appending(code)
-        Alamofire.request(url).responseString { response in
+        return Alamofire.request(url).responseString { response in
             if let content = response.result.value {
                 let stocks = self.parseSinaResponseText(content)
                 completion(stocks, nil)

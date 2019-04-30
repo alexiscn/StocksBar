@@ -14,7 +14,7 @@ class StockHeaderView: NSView {
     
     private var searchField: NSSearchField!
     
-    private var addButton: NSButton!
+    private var listButton: NSButton!
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -36,16 +36,16 @@ class StockHeaderView: NSView {
         searchField.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
-            make.height.equalTo(32)
+            make.height.equalTo(28)
             make.trailing.equalToSuperview().offset(-50)
         }
                 
-        addButton = NSButton(image: NSImage(named: "icon_add")!, target: self, action: #selector(handleTapAddButton(_:)))
-        addButton.isBordered = false
-        addButton.setButtonType(.momentaryPushIn)
-        addButton.refusesFirstResponder = true
-        addSubview(addButton)
-        addButton.snp.makeConstraints { make in
+        listButton = NSButton(image: NSImage(named: "icon_list")!, target: self, action: #selector(handleTapListButton(_:)))
+        listButton.isBordered = false
+        listButton.setButtonType(.momentaryPushIn)
+        listButton.refusesFirstResponder = true
+        addSubview(listButton)
+        listButton.snp.makeConstraints { make in
             make.height.width.equalTo(24)
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-12)
@@ -55,7 +55,7 @@ class StockHeaderView: NSView {
         layer?.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0).cgColor
     }
     
-    @objc private func handleTapAddButton(_ sender: Any) {
+    @objc private func handleTapListButton(_ sender: Any) {
         addCommand?()
     }
     

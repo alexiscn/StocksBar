@@ -30,6 +30,10 @@ class Stock: NSObject, Codable {
     /// 最低成交价
     var low: Float = 0.0
     
+    var lastUpdatedDate: String = ""
+    
+    var lastUpdatedTime: String = ""
+    
     init(code: String) {
         self.code = code
     }
@@ -59,6 +63,11 @@ class Stock: NSObject, Codable {
         stock.openPrice = Float(components[1]) ?? 0.0
         stock.lastClosedPrice = Float(components[2]) ?? 0.0
         stock.current = Float(components[3]) ?? 0.0
+        
+        if components.count >= 32 {
+            stock.lastUpdatedDate = components[30]
+            stock.lastUpdatedTime = components[31]
+        }
         
         return stock
     }

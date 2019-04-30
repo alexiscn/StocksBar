@@ -42,6 +42,8 @@ class StocksTableViewController: NSViewController {
         setupFooterView()
         StockDataSource.shared.updatedHandler = { [weak self] in
             self?.tableView.reloadData()
+            let stock = StockDataSource.shared.data(atIndex: 0)
+            self?.footerView.update(stock: stock)
         }
         tableView.reloadData()
     }

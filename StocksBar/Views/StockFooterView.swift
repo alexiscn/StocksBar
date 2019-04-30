@@ -43,8 +43,8 @@ class StockFooterView: NSView {
         lastUpdatedLabel.isEditable = false
         lastUpdatedLabel.alignment = .center
         lastUpdatedLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize, weight: .light)
-        lastUpdatedLabel.stringValue = "最新更新时间：2019-04-29"
-        lastUpdatedLabel.textColor = NSColor.textColor
+        lastUpdatedLabel.stringValue = "更新时间：2019-04-29"
+        lastUpdatedLabel.textColor = NSColor.systemGray
         addSubview(lastUpdatedLabel)
         lastUpdatedLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -73,6 +73,10 @@ class StockFooterView: NSView {
         super.draw(dirtyRect)
 
         // Drawing code here.
+    }
+    
+    func update(stock: Stock) {
+        lastUpdatedLabel.stringValue = "更新时间：" + stock.lastUpdatedTime
     }
     
 }

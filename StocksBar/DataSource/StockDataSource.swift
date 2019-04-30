@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import Alamofire
 import UserNotifications
 
 class StockDataSource: NSObject {
@@ -21,6 +22,8 @@ class StockDataSource: NSObject {
     private var content: [Stock] = []
     
     private let api = StocksAPI()
+    
+    private var request: DataRequest?
     
     private override init() {
         super.init()
@@ -52,7 +55,7 @@ class StockDataSource: NSObject {
             return
         }
         let codes = content.map { return $0.code }
-        api.request(codes: codes) { (stocks, error) in
+        request = api.request(codes: codes) { (stocks, error) in
             if let error = error {
                 print(error)
             } else {
@@ -81,5 +84,13 @@ class StockDataSource: NSObject {
         } catch {
             print(error)
         }
+    }
+    
+    func stickToTop(at index: Int) {
+        request?.cancel()
+        var array = content
+        let stock = array.remove(at: index)
+        array.insert(stock, at: 0)
+        update()
     }
 }
