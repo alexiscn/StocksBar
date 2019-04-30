@@ -10,7 +10,7 @@ import Cocoa
 
 class StockHeaderView: NSView {
 
-    var addCommand: RelayCommand?
+    var headerCommand: RelayCommand?
     
     private var searchField: NSSearchField!
     
@@ -42,11 +42,12 @@ class StockHeaderView: NSView {
                 
         listButton = NSButton(image: NSImage(named: "icon_list")!, target: self, action: #selector(handleTapListButton(_:)))
         listButton.isBordered = false
+        
         listButton.setButtonType(.momentaryPushIn)
         listButton.refusesFirstResponder = true
         addSubview(listButton)
         listButton.snp.makeConstraints { make in
-            make.height.width.equalTo(24)
+            make.height.width.equalTo(20)
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-12)
         }
@@ -56,7 +57,7 @@ class StockHeaderView: NSView {
     }
     
     @objc private func handleTapListButton(_ sender: Any) {
-        addCommand?()
+        headerCommand?()
     }
     
     override func draw(_ dirtyRect: NSRect) {

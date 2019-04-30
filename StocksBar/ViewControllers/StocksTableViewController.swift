@@ -21,6 +21,8 @@ class StocksTableViewController: NSViewController {
     
     internal let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockTableViewCellIdentifier")
     
+    private var isEditing = false
+    
     override func loadView() {
         self.view = NSView(frame: NSRect(x: 0, y: 0, width: 280, height: 450))
     }
@@ -32,10 +34,10 @@ class StocksTableViewController: NSViewController {
         effectView.material = .menu
 //        effectView.blendingMode = .withinWindow
         view.addSubview(effectView)
-//        effectView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(40)
-//            make.leading.bottom.trailing.equalToSuperview()
-//        }
+        effectView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(40)
+            make.leading.bottom.trailing.equalToSuperview()
+        }
         
         setupHeaderView()
         setupTableView()
@@ -48,12 +50,24 @@ class StocksTableViewController: NSViewController {
         tableView.reloadData()
     }
     
+    private func editTableView() {
+        isEditing = !isEditing
+        
+        for i in 0 ..< self.tableView.numberOfRows {
+            let view = self.tableView.view(atColumn: 0, row: i, makeIfNecessary: true) as! StockTableCellView
+            isEditing ? view.beginEditing(): view.endEditing()
+        }
+    }
+    
     private func setupHeaderView() {
         headerView = StockHeaderView(frame: NSRect(x: 0, y: 0, width: view.bounds.width, height: 50))
         view.addSubview(headerView)
         headerView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
             make.height.equalTo(50)
+        }
+        headerView.headerCommand = { [weak self] in
+            self?.editTableView()
         }
     }
     

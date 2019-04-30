@@ -63,4 +63,8 @@ extension AppDelegate {
         let title = String(format: "%@ %.2f %@", stock.symbol, stock.current, stock.percentString)
         statusItem.title = title
     }
+    
+    @objc func changeRefreshInterval(_ sender: NSMenuItem) {
+        
+    }
 }

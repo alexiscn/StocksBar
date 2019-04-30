@@ -10,6 +10,8 @@ import Cocoa
 
 class StockTableCellView: NSTableCellView {
 
+    @IBOutlet weak var deleteButton: NSButton!
+    
     @IBOutlet weak var symbolLabel: NSTextField!
 
     @IBOutlet weak var priceLabel: NSTextField!
@@ -17,6 +19,17 @@ class StockTableCellView: NSTableCellView {
     @IBOutlet weak var percentView: NSView!
     
     @IBOutlet weak var percentLabel: NSTextField!
+    
+    @IBOutlet weak var dragButton: NSButton!
+    
+    @IBOutlet weak var deleteButtonLeadingConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var contentViewLeadingConstaint: NSLayoutConstraint!
+    
+    @IBOutlet weak var contentViewTrailingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var dragButtonTraillingConstraint: NSLayoutConstraint!
+    
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -47,4 +60,35 @@ class StockTableCellView: NSTableCellView {
         percentView.layer?.backgroundColor = color.cgColor
     }
     
+    func beginEditing() {
+        deleteButtonLeadingConstraint.constant = 6
+        contentViewLeadingConstaint.constant = 24
+        contentViewTrailingConstraint.constant = 12
+        dragButtonTraillingConstraint.constant = 0
+        
+        NSAnimationContext.runAnimationGroup { context in
+            context.allowsImplicitAnimation = true
+            context.duration = 0.5
+            self.deleteButton.alphaValue = 1.0
+            self.layoutSubtreeIfNeeded()
+        }
+    }
+    
+    func endEditing() {
+        deleteButtonLeadingConstraint.constant = -24
+        contentViewLeadingConstaint.constant = 0
+        contentViewTrailingConstraint.constant = 0
+        dragButtonTraillingConstraint.constant = -24
+        
+        NSAnimationContext.runAnimationGroup { context in
+            context.allowsImplicitAnimation = true
+            context.duration = 0.5
+            self.deleteButton.alphaValue = 0.0
+            self.layoutSubtreeIfNeeded()
+        }
+    }
+    
+    @IBAction func tapDeleteButton(_ sender: Any) {
+        
+    }
 }
