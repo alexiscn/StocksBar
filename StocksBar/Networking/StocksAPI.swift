@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import RxSwift
 
 typealias StocksAPICompletion = ((_ stocks: [Stock], _ error: Error?) -> Void)
 
@@ -68,19 +67,15 @@ class StocksAPI {
         return stocks
     }
     
-    func suggestion(key: String) -> Observable<[Stock]> {
-        return Observable.create { observer -> Disposable in
-            let url = self.suggestionURL.appending(key)
-            Alamofire.request(url).responseString { response in
-                if let error = response.error {
-                    observer.onError(error)
-                } else {
-                    let stocks = self.parseSuggestionString(response.result.value)
-                    observer.onNext(stocks)
-                    observer.onCompleted()
-                }
+    func suggestion(key: String, completion: @escaping StocksAPICompletion) {
+        let url = self.suggestionURL.appending(key)
+        Alamofire.request(url).responseString { response in
+            if let error = response.error {
+                completion([], error)
+            } else {
+                let stocks = self.parseSuggestionString(response.result.value)
+                completion(stocks, nil)
             }
-            return Disposables.create()
         }
     }
 }

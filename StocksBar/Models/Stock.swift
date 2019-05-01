@@ -71,4 +71,14 @@ class Stock: NSObject, Codable {
         
         return stock
     }
+    
+    func update(with newStock: Stock) {
+        self.openPrice = newStock.openPrice
+        self.lastClosedPrice = newStock.lastClosedPrice
+        self.current = newStock.current
+        self.high = newStock.high
+        self.low = newStock.low
+        self.lastUpdatedDate = newStock.lastUpdatedDate
+        self.lastUpdatedTime = newStock.lastUpdatedTime
+    }
 }

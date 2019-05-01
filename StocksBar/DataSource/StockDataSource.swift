@@ -10,15 +10,12 @@ import Foundation
 import Cocoa
 import Alamofire
 import UserNotifications
-import RxSwift
 
 class StockDataSource: NSObject {
     
     static let shared = StockDataSource()
     
     var updatedHandler: RelayCommand?
-    
-    private var shouldUpdateDataSource = true
     
     private var content: [Stock] = []
     
@@ -60,12 +57,14 @@ class StockDataSource: NSObject {
             if let error = error {
                 print(error)
             } else {
-                if self.shouldUpdateDataSource {
-                    self.content = stocks
-                    self.updatedHandler?()
-                    if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
-                        appDelegate.update(stock: self.content.first)
+                for stock in self.content {
+                    if let newStock = stocks.first(where: { $0.code == stock.code }) {
+                        stock.update(with: newStock)
                     }
+                }
+                self.updatedHandler?()
+                if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+                    appDelegate.update(stock: self.content.first)
                 }
             }
             self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
@@ -90,36 +89,30 @@ class StockDataSource: NSObject {
     }
     
     func stickToTop(at index: Int) {
-        shouldUpdateDataSource = false
         var array = content
         let stock = array.remove(at: index)
         array.insert(stock, at: 0)
         content = array
         save()
-        shouldUpdateDataSource = true
     }
     
     func remove(stock: Stock) {
-        shouldUpdateDataSource = false
         var array = content
         if let index = array.firstIndex(where: { $0.code == stock.code }) {
             array.remove(at: index)
             content = array
             save()
         }
-        shouldUpdateDataSource = true
     }
     
     func remove(at index: Int) {
-        shouldUpdateDataSource = false
         var array = content
         array.remove(at: index)
         content = array
         save()
-        shouldUpdateDataSource = true
     }
     
-    func search(key: String) -> Observable<[Stock]> {
-        return api.suggestion(key: key)
+    func search(suggestion: String, completion: @escaping StocksAPICompletion) {
+        api.suggestion(key: suggestion, completion: completion)
     }
 }

@@ -21,6 +21,14 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-5p-Cd5" userLabel="Code Label">
+                    <rect key="frame" x="18" y="9" width="55" height="14"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="SH00000" id="dan-j8-dxv">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="5Si-q9-2qn">
                     <rect key="frame" x="463" y="13" width="24" height="24"/>
                     <constraints>
@@ -32,14 +40,6 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-5p-Cd5">
-                    <rect key="frame" x="18" y="9" width="55" height="14"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="SH00000" id="dan-j8-dxv">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="5Si-q9-2qn" secondAttribute="trailing" constant="20" id="5yI-nc-xbT"/>
@@ -49,6 +49,10 @@
                 <constraint firstItem="5Si-q9-2qn" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="oeW-5X-Nxa"/>
                 <constraint firstItem="6rb-5p-Cd5" firstAttribute="top" secondItem="vAR-mK-xdE" secondAttribute="bottom" constant="2" id="wtT-Ke-tvV"/>
             </constraints>
+            <connections>
+                <outlet property="codeLabel" destination="6rb-5p-Cd5" id="6lW-bP-Ozw"/>
+                <outlet property="symbolLabel" destination="vAR-mK-xdE" id="zEA-5h-hm2"/>
+            </connections>
             <point key="canvasLocation" x="152.5" y="54.5"/>
         </customView>
     </objects>

@@ -7,8 +7,6 @@
 //
 
 import Cocoa
-import RxSwift
-import RxCocoa
 
 class MainViewController: NSViewController {
     
@@ -18,7 +16,7 @@ class MainViewController: NSViewController {
     
     private var footerView: StockFooterView!
     
-    private var disposeBag = DisposeBag()
+    private let throttler = Throttler(seconds: 0.3)
     
     private lazy var stocksViewController: StocksTableViewController = {
         let controller = StocksTableViewController()
@@ -71,6 +69,7 @@ class MainViewController: NSViewController {
         headerView.headerCommand = { [weak self] in
             self?.stocksViewController.editTableView()
         }
+        headerView.searchField.delegate = self
     }
     
     private func setupContainerView() {
@@ -92,23 +91,41 @@ class MainViewController: NSViewController {
         }
     }
     
-    private func addStocksViewController () {
+    private func addStocksViewController() {
         addChild(stocksViewController)
         stocksViewController.view.frame = containerView.bounds
         containerView.addSubview(stocksViewController.view)
     }
     
-    private func bind() {
-        
-        let result = headerView.searchField.rx.text.orEmpty
-            .throttle(300, scheduler: MainScheduler.instance)
-            .distinctUntilChanged().flatMapLatest { query -> Observable<[Stock]> in
-                if query.isEmpty {
-                    return .just([])
-                }
-                return StockDataSource.shared.search(key: query)
-        }.observeOn(MainScheduler.instance)
-        
-        //result.bind(to: searchViewController.tableView.rx.)
+    private func addSearchViewController() {
+        addChild(searchViewController)
+        searchViewController.view.frame = containerView.bounds
+        containerView.addSubview(searchViewController.view)
     }
+    
+    private func doSearch(key: String) {
+        if key.count == 0 {
+            
+        } else {
+            StockDataSource.shared.search(suggestion: key) { (stocks, error) in
+                self.searchViewController.updateDataSource(stocks)
+            }
+        }
+    }
+}
+
+extension MainViewController: NSSearchFieldDelegate {
+    
+    func controlTextDidChange(_ obj: Notification) {
+        guard let textField = obj.object as? NSTextField else {
+            return
+        }
+        
+        throttler.throttle {
+            DispatchQueue.main.async {
+                self.doSearch(key: textField.stringValue)
+            }
+        }
+    }
+    
 }

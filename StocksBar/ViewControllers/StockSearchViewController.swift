@@ -54,6 +54,11 @@ class StockSearchViewController: NSViewController {
         tableView.headerView = nil
         tableView.addTableColumn(column)
     }
+    
+    func updateDataSource(_ dataSource: [Stock]) {
+        self.dataSource = dataSource
+        tableView.reloadData()
+    }
 }
 
 extension StockSearchViewController: NSTableViewDataSource, NSTableViewDelegate {

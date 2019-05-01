@@ -15,6 +15,7 @@
 		A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33A2275A70400A2327B /* StockFooterView.swift */; };
 		A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33C2275B7F000A2327B /* StockHeaderView.swift */; };
 		A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */; };
+		A3148DD42279229C008B2A7B /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3148DD32279229C008B2A7B /* Throttler.swift */; };
 		A349894F22700BED002F7898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349894E22700BED002F7898 /* AppDelegate.swift */; };
 		A349895322700BEF002F7898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A349895222700BEF002F7898 /* Assets.xcassets */; };
 		A349895622700BEF002F7898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A349895422700BEF002F7898 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		A301F33A2275A70400A2327B /* StockFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFooterView.swift; sourceTree = "<group>"; };
 		A301F33C2275B7F000A2327B /* StockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHeaderView.swift; sourceTree = "<group>"; };
 		A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSettingMenuAction.swift; sourceTree = "<group>"; };
+		A3148DD32279229C008B2A7B /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		A349894B22700BED002F7898 /* StocksBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A349894E22700BED002F7898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A349895222700BEF002F7898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				A301F3382275A03800A2327B /* Colors.swift */,
+				A3148DD32279229C008B2A7B /* Throttler.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -312,8 +315,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-StocksBar/Pods-StocksBar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/LaunchAtLogin/LaunchAtLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -322,8 +323,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LaunchAtLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +339,7 @@
 			files = (
 				A3C968E32277FEA300130EDF /* NSPopover+SB.swift in Sources */,
 				A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */,
+				A3148DD42279229C008B2A7B /* Throttler.swift in Sources */,
 				A301F3392275A03800A2327B /* Colors.swift in Sources */,
 				A301F33422759BAF00A2327B /* StockTableCellView.swift in Sources */,
 				A3DEF20D2273084700FBE176 /* PopoverAction.swift in Sources */,

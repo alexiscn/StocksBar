@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import RxSwift
 
 class StockHeaderView: NSView {
 
@@ -55,8 +54,6 @@ class StockHeaderView: NSView {
         
         wantsLayer = true
         layer?.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0).cgColor
-        
-        
     }
     
     @objc private func handleTapListButton(_ sender: Any) {

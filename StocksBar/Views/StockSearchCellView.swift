@@ -10,6 +10,10 @@ import Cocoa
 
 class StockSearchCellView: NSTableCellView {
 
+    @IBOutlet weak var symbolLabel: NSTextField!
+    
+    @IBOutlet weak var codeLabel: NSTextField!
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -17,7 +21,8 @@ class StockSearchCellView: NSTableCellView {
     }
     
     func update(_ stock: Stock) {
-        
+        symbolLabel.stringValue = stock.symbol
+        codeLabel.stringValue = stock.code
     }
     
 }
