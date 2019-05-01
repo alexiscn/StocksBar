@@ -73,6 +73,7 @@ class Stock: NSObject, Codable {
     }
     
     func update(with newStock: Stock) {
+        self.symbol = newStock.symbol
         self.openPrice = newStock.openPrice
         self.lastClosedPrice = newStock.lastClosedPrice
         self.current = newStock.current

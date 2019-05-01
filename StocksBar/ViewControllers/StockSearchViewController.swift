@@ -57,7 +57,8 @@ class StockSearchViewController: NSViewController {
     
     func updateDataSource(_ dataSource: [Stock]) {
         self.dataSource = dataSource
-        tableView.reloadData()
+        print(dataSource.count)
+        //tableView.reloadData()
     }
 }
 

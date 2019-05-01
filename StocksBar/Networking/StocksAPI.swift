@@ -54,8 +54,8 @@ class StocksAPI {
             return []
         }
         let value = content.replacingOccurrences(of: "var suggestvalue=", with: "")
-            .replacingOccurrences(of: ";", with: "")
             .replacingOccurrences(of: "\"", with: "")
+        let _ = value.dropLast()
         let components = value.split(separator: ";").map { return String($0) }
         var stocks: [Stock] = []
         for item in components {
@@ -68,9 +68,10 @@ class StocksAPI {
     }
     
     func suggestion(key: String, completion: @escaping StocksAPICompletion) {
-        let url = self.suggestionURL.appending(key)
-        Alamofire.request(url).responseString { response in
+        let urlString = self.suggestionURL.appending(key).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        Alamofire.request(urlString!).responseString { response in
             if let error = response.error {
+                print(error)
                 completion([], error)
             } else {
                 let stocks = self.parseSuggestionString(response.result.value)

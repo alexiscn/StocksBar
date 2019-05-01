@@ -112,6 +112,14 @@ class StockDataSource: NSObject {
         save()
     }
     
+    func add(stock: Stock) {
+        var array = content
+        if !array.contains(where: { $0.code == stock.code }) {
+            array.insert(stock, at: 0)
+            content = array
+        }
+    }
+    
     func search(suggestion: String, completion: @escaping StocksAPICompletion) {
         api.suggestion(key: suggestion, completion: completion)
     }
