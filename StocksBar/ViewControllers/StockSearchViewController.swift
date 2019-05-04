@@ -17,6 +17,10 @@ class StockSearchViewController: NSViewController {
     
     private var dataSource: [Stock] = []
     
+    override func loadView() {
+        self.view = NSView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,12 +38,12 @@ class StockSearchViewController: NSViewController {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(50)
-            make.bottom.equalToSuperview().offset(-50)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
 
         tableView = NSTableView()
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = NSColor(white: 1, alpha: 0.3)
         tableView.register(NSNib(nibNamed: "StockSearchCellView", bundle: nil), forIdentifier: reuseIdentifier)
         tableView.selectionHighlightStyle = .none
         tableView.dataSource = self
@@ -57,8 +61,7 @@ class StockSearchViewController: NSViewController {
     
     func updateDataSource(_ dataSource: [Stock]) {
         self.dataSource = dataSource
-        print(dataSource.count)
-        //tableView.reloadData()
+        tableView.reloadData()
     }
 }
 
@@ -68,9 +71,12 @@ extension StockSearchViewController: NSTableViewDataSource, NSTableViewDelegate 
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let stock = StockDataSource.shared.data(atIndex: row)
+        let stock = dataSource[row]
         if let cell = tableView.makeView(withIdentifier: reuseIdentifier, owner: self) as? StockSearchCellView {
             cell.update(stock)
+            cell.favoriteButtonHandler = {
+                
+            }
             return cell
         }
         return nil

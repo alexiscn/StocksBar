@@ -36,6 +36,7 @@ class MainViewController: NSViewController {
         setupContainerView()
         setupFooterView()
         addStocksViewController()
+        addSearchViewController()
         
         StockDataSource.shared.updatedHandler = {
             self.stocksViewController.reloadData()
@@ -101,12 +102,16 @@ class MainViewController: NSViewController {
         addChild(searchViewController)
         searchViewController.view.frame = containerView.bounds
         containerView.addSubview(searchViewController.view)
+        searchViewController.view.isHidden = true
     }
     
     private func doSearch(key: String) {
         if key.count == 0 {
-            
+            searchViewController.view.isHidden = true
+            stocksViewController.view.isHidden = false
         } else {
+            stocksViewController.view.isHidden = true
+            searchViewController.view.isHidden = false
             StockDataSource.shared.search(suggestion: key) { (stocks, error) in
                 self.searchViewController.updateDataSource(stocks)
             }

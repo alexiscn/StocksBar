@@ -14,6 +14,10 @@ class StockSearchCellView: NSTableCellView {
     
     @IBOutlet weak var codeLabel: NSTextField!
     
+    @IBOutlet weak var favoriteButton: NSButton!
+    
+    var favoriteButtonHandler: RelayCommand?
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -23,6 +27,12 @@ class StockSearchCellView: NSTableCellView {
     func update(_ stock: Stock) {
         symbolLabel.stringValue = stock.symbol
         codeLabel.stringValue = stock.code
+        favoriteButton.state = .on
     }
+    
+    @IBAction func tapFavoriteButton(_ sender: Any) {
+        favoriteButtonHandler?()
+    }
+    
     
 }

@@ -38,6 +38,8 @@ class Stock: NSObject, Codable {
         self.code = code
     }
     
+    var isFavorited = false
+    
     var percent: Float {
         if lastClosedPrice == 0.0 {
             return 0.0

@@ -189,9 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				A301F33C2275B7F000A2327B /* StockHeaderView.swift */,
+				A301F33A2275A70400A2327B /* StockFooterView.swift */,
 				A301F33322759BAF00A2327B /* StockTableCellView.swift */,
 				A301F33522759BBC00A2327B /* StockTableCellView.xib */,
-				A301F33A2275A70400A2327B /* StockFooterView.swift */,
 				A3503F562278504500215360 /* StockSearchCellView.swift */,
 				A3503F582278505100215360 /* StockSearchCellView.xib */,
 			);
