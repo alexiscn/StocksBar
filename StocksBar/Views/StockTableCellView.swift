@@ -56,7 +56,7 @@ class StockTableCellView: NSTableCellView {
             percent = String(format: "%.2f%%", stock.percent * 100.0)
         } else {
             color = Colors.gray
-            percent = "-"
+            percent = "0.0%"
         }
         percentLabel.stringValue = percent
         percentView.layer?.backgroundColor = color.cgColor

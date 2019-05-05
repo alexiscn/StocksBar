@@ -117,6 +117,8 @@ class StockDataSource: NSObject {
         if !array.contains(where: { $0.code == stock.code }) {
             array.insert(stock, at: 0)
             content = array
+            save()
+            updatedHandler?()
         }
     }
     

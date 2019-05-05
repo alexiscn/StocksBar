@@ -54,7 +54,7 @@ class Stock: NSObject, Codable {
         } else if p < 0 {
             return String(format: "%.2f%%", p * 100.0)
         } else {
-            return "-"
+            return "0.0%"
         }
     }
     

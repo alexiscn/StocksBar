@@ -14,7 +14,8 @@ typealias RelayCommand = () -> Void
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: 160)
+    //let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     let api = StocksAPI()
     
@@ -22,7 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        
         if let button = statusItem.button {
             button.title = "StocksBar"
             button.action = #selector(toggle)
