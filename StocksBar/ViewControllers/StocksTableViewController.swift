@@ -140,6 +140,7 @@ extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate 
             let indexes = NSKeyedUnarchiver.unarchiveObject(with: itemData) as? IndexSet {
             for index in indexes {
                 StockDataSource.shared.move(from: index, to: row)
+                tableView.moveRow(at: index, to: row)
             }
             return true
         }
@@ -160,7 +161,7 @@ extension StocksTableViewController: NSMenuDelegate {
         menu.removeAllItems()
         
         menu.addItem(NSMenuItem(title: "Delete", action: #selector(handleDeleteRow), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Top", action: #selector(handleTopRow), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Stick To Top", action: #selector(handleTopRow), keyEquivalent: ""))
     }
     
     @objc private func handleDeleteRow() {

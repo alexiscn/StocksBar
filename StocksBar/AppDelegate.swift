@@ -42,6 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.appearance = NSAppearance(named: .aqua)
         popover.animates = false
         popover.behavior = .transient
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -53,10 +54,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate {
     
     @objc func openAbout() {
-        
+        if let controller = preferenceWindow?.contentViewController as? PreferencesViewController {
+            controller.tabView.selectTabViewItem(at: 1)
+        }
+        preferenceWindow?.showWindow(nil)
     }
     
     @objc func openPreference() {
+        if let controller = preferenceWindow?.contentViewController as? PreferencesViewController {
+            controller.tabView.selectTabViewItem(at: 0)
+        }
         preferenceWindow?.showWindow(nil)
     }
     
