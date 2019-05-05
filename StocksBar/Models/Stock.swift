@@ -10,6 +10,18 @@ import Foundation
 
 class Stock: NSObject, Codable {
     
+    enum CodingKeys: String, CodingKey {
+        case code
+        case symbol
+        case openPrice
+        case lastClosedPrice
+        case current
+        case high
+        case low
+        case lastUpdatedDate
+        case lastUpdatedTime
+    }
+    
     var code: String
     
     /// 股票简称
@@ -34,6 +46,8 @@ class Stock: NSObject, Codable {
     
     var lastUpdatedTime: String = ""
     
+    var reminder = Reminder()
+    
     init(code: String) {
         self.code = code
     }
@@ -56,6 +70,13 @@ class Stock: NSObject, Codable {
         } else {
             return "0.0%"
         }
+    }
+    
+    var shouldToastNotification: Bool {
+        if !reminder.toasted && percent != 0.0 && (percent >= reminder.up || percent <= reminder.down) {
+            return true
+        }
+        return false
     }
     
     class func parseSinaCode(_ code: String, value: String) -> Stock? {

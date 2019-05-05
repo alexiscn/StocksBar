@@ -160,8 +160,9 @@ extension StocksTableViewController: NSMenuDelegate {
     func menuNeedsUpdate(_ menu: NSMenu) {
         menu.removeAllItems()
         
-        menu.addItem(NSMenuItem(title: "Delete", action: #selector(handleDeleteRow), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Stick To Top", action: #selector(handleTopRow), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "股价提醒", action: #selector(priceReminder), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "删除", action: #selector(handleDeleteRow), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "置顶", action: #selector(handleTopRow), keyEquivalent: ""))
     }
     
     @objc private func handleDeleteRow() {
@@ -176,5 +177,9 @@ extension StocksTableViewController: NSMenuDelegate {
         if clickedRow > 0 {
             StockDataSource.shared.stickToTop(at: clickedRow)
         }
+    }
+    
+    @objc private func priceReminder() {
+        
     }
 }

@@ -25,6 +25,7 @@
 		A3503F572278504500215360 /* StockSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3503F562278504500215360 /* StockSearchCellView.swift */; };
 		A3503F592278505100215360 /* StockSearchCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3503F582278505100215360 /* StockSearchCellView.xib */; };
 		A3503F5B2278559F00215360 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3503F5A2278559F00215360 /* MainViewController.swift */; };
+		A3A67FCD227F10B200313A0D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A67FCC227F10B200313A0D /* Reminder.swift */; };
 		A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */; };
 		A3C968E32277FEA300130EDF /* NSPopover+SB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968E22277FEA300130EDF /* NSPopover+SB.swift */; };
 		A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF1FE2272D21800FBE176 /* Stock.swift */; };
@@ -55,6 +56,7 @@
 		A3503F562278504500215360 /* StockSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchCellView.swift; sourceTree = "<group>"; };
 		A3503F582278505100215360 /* StockSearchCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockSearchCellView.xib; sourceTree = "<group>"; };
 		A3503F5A2278559F00215360 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A3A67FCC227F10B200313A0D /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewController.swift; sourceTree = "<group>"; };
 		A3C968E22277FEA300130EDF /* NSPopover+SB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopover+SB.swift"; sourceTree = "<group>"; };
 		A3DEF1FE2272D21800FBE176 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		A3DEF1FD2272D20D00FBE176 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A3A67FCC227F10B200313A0D /* Reminder.swift */,
 				A3DEF1FE2272D21800FBE176 /* Stock.swift */,
 			);
 			path = Models;
@@ -351,6 +354,7 @@
 				A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */,
 				A3148DD42279229C008B2A7B /* Throttler.swift in Sources */,
 				A301F3392275A03800A2327B /* Colors.swift in Sources */,
+				A3A67FCD227F10B200313A0D /* Reminder.swift in Sources */,
 				A301F33422759BAF00A2327B /* StockTableCellView.swift in Sources */,
 				A3DEF20D2273084700FBE176 /* PopoverAction.swift in Sources */,
 				A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */,

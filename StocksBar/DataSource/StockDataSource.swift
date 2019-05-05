@@ -60,6 +60,9 @@ class StockDataSource: NSObject {
                 for stock in self.content {
                     if let newStock = stocks.first(where: { $0.code == stock.code }) {
                         stock.update(with: newStock)
+                        if stock.shouldToastNotification {
+                            self.toastStockRemind(stock)
+                        }
                     }
                 }
                 self.updatedHandler?()
@@ -133,5 +136,16 @@ class StockDataSource: NSObject {
     
     func search(suggestion: String, completion: @escaping StocksAPICompletion) {
         api.suggestion(key: suggestion, completion: completion)
+    }
+    
+    func toastStockRemind(_ stock: Stock) {
+        stock.reminder.toasted = true
+        let price = String(format: "%.2f", stock.current)
+        let notification = NSUserNotification()
+        notification.title = "股价提醒"
+        notification.contentImage = NSImage(named: "icon_stock")
+        notification.subtitle = "您关注的股票:\(stock.symbol)已经达到您的目标价了，当前价格:\(price)"
+        notification.deliveryDate = Date(timeInterval: 0.1, since: Date())
+        NSUserNotificationCenter.default.scheduleNotification(notification)
     }
 }
