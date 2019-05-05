@@ -32,6 +32,12 @@ class StockTableCellView: NSTableCellView {
     
     @IBOutlet weak var dragButtonTraillingConstraint: NSLayoutConstraint!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        wantsLayer = true
+        layer?.backgroundColor = NSColor(white: 1.0, alpha: 0.3).cgColor
+    }
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)

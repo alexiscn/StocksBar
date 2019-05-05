@@ -17,6 +17,8 @@ class StocksTableViewController: NSViewController {
     
     let reuseIdentifier = NSUserInterfaceItemIdentifier(rawValue: "StockTableViewCellIdentifier")
     
+    let dragType = NSPasteboard.PasteboardType("stock.public.data")
+    
     private var isEditing = false
     
     override func loadView() {
@@ -61,6 +63,7 @@ class StocksTableViewController: NSViewController {
         }
         
         tableView = NSTableView()
+        tableView.rowHeight = 40.0
         tableView.backgroundColor = NSColor(white: 1, alpha: 0.3)
         tableView.register(NSNib(nibNamed: "StockTableCellView", bundle: nil), forIdentifier: reuseIdentifier)
         tableView.selectionHighlightStyle = .none
@@ -68,7 +71,8 @@ class StocksTableViewController: NSViewController {
         tableView.delegate = self
         tableView.floatsGroupRows = true
         tableView.intercellSpacing = NSSize.zero
-        
+        tableView.registerForDraggedTypes([dragType])
+        tableView.draggingDestinationFeedbackStyle = .gap
         scrollView.documentView = tableView
         
         let column = NSTableColumn()
@@ -111,7 +115,44 @@ extension StocksTableViewController: NSTableViewDataSource, NSTableViewDelegate 
         }
         return nil
     }
+    
+    func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
+        let data = NSKeyedArchiver.archivedData(withRootObject: rowIndexes)
+        let item = NSPasteboardItem()
+        item.setData(data, forType: dragType)
+        pboard.writeObjects([item])
+        return true
+    }
 
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        guard let source = info.draggingSource as? NSTableView, source == tableView else {
+            return []
+        }
+        if dropOperation == .above || dropOperation == .on {
+            return .move
+        }
+        return []
+    }
+
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        let pb = info.draggingPasteboard
+        if let itemData = pb.pasteboardItems?.first?.data(forType: dragType),
+            let indexes = NSKeyedUnarchiver.unarchiveObject(with: itemData) as? IndexSet {
+            for index in indexes {
+                StockDataSource.shared.move(from: index, to: row)
+            }
+            return true
+        }
+        return false
+    }
+    
+    func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
+        isEditing = false
+    }
+    
+    func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forRowIndexes rowIndexes: IndexSet) {
+        isEditing = true
+    }
 }
 
 extension StocksTableViewController: NSMenuDelegate {

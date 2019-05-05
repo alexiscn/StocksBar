@@ -35,9 +35,9 @@ class StockHeaderView: NSView {
         addSubview(searchField)
         searchField.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset(10)
             make.height.equalTo(28)
-            make.trailing.equalToSuperview().offset(-50)
+            make.trailing.equalToSuperview().offset(-40)
         }
                 
         listButton = NSButton(image: NSImage(named: "icon_list")!, target: self, action: #selector(handleTapListButton(_:)))

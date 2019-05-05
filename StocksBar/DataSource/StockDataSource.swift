@@ -112,6 +112,15 @@ class StockDataSource: NSObject {
         save()
     }
     
+    func move(from index: Int, to row: Int) {
+        var array = content
+        //(array[index], array[row]) = (array[row], array[index])
+        array.insert(array.remove(at: index), at: row)
+        content = array
+        save()
+        updatedHandler?()
+    }
+    
     func add(stock: Stock) {
         var array = content
         if !array.contains(where: { $0.code == stock.code }) {
