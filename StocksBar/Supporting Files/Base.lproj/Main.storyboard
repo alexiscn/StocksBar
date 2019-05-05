@@ -3,11 +3,15 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="StocksBar" customModuleProvider="target"/>
+                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
@@ -674,11 +678,121 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="StocksBar" customModuleProvider="target"/>
-                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="XTm-dZ-nT7">
+            <objects>
+                <viewController id="b2N-cg-UJ2" customClass="PreferencesViewController" customModule="StocksBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gRf-oC-wca">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <tabView translatesAutoresizingMaskIntoConstraints="NO" id="BPo-7K-ncx">
+                                <rect key="frame" x="8" y="5" width="484" height="286"/>
+                                <font key="font" metaFont="system"/>
+                                <tabViewItems>
+                                    <tabViewItem label="General" identifier="" id="xx1-Au-mqw">
+                                        <view key="view" id="u62-h0-bwX">
+                                            <rect key="frame" x="10" y="33" width="464" height="240"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GmU-5L-ELo">
+                                                    <rect key="frame" x="10" y="212" width="444" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Run on system startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hPj-8m-qIN">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GmU-5L-ELo" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="GHL-rJ-xC9"/>
+                                                <constraint firstAttribute="trailing" secondItem="GmU-5L-ELo" secondAttribute="trailing" constant="12" id="Hb3-Zk-hrH"/>
+                                                <constraint firstItem="GmU-5L-ELo" firstAttribute="top" secondItem="u62-h0-bwX" secondAttribute="top" constant="12" id="zHA-zg-df8"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="About" identifier="" id="9bI-OO-8d3">
+                                        <view key="view" id="2aP-DY-K49">
+                                            <rect key="frame" x="10" y="33" width="464" height="240"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zie-JP-Jar" userLabel="Info View">
+                                                    <rect key="frame" x="5" y="141" width="459" height="96"/>
+                                                    <subviews>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GTY-i0-IYN">
+                                                            <rect key="frame" x="0.0" y="64" width="32" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="32" id="3zh-sg-0qX"/>
+                                                                <constraint firstAttribute="height" constant="32" id="Qix-MH-xeB"/>
+                                                            </constraints>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo_about" id="d2U-H6-Eql"/>
+                                                        </imageView>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eLl-ha-rnJ">
+                                                            <rect key="frame" x="42" y="70" width="419" height="20"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="StocksBar" id="vf9-Pe-yES">
+                                                                <font key="font" size="14" name="HelveticaNeue"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="96" id="0Bd-v5-3Ll"/>
+                                                        <constraint firstAttribute="trailing" secondItem="eLl-ha-rnJ" secondAttribute="trailing" id="3Xd-Sv-2V7"/>
+                                                        <constraint firstItem="GTY-i0-IYN" firstAttribute="top" secondItem="Zie-JP-Jar" secondAttribute="top" id="4Hl-v3-dZG"/>
+                                                        <constraint firstItem="GTY-i0-IYN" firstAttribute="leading" secondItem="Zie-JP-Jar" secondAttribute="leading" id="6rQ-MK-D6o"/>
+                                                        <constraint firstItem="eLl-ha-rnJ" firstAttribute="leading" secondItem="GTY-i0-IYN" secondAttribute="trailing" constant="12" id="KIc-q8-V2z"/>
+                                                        <constraint firstItem="eLl-ha-rnJ" firstAttribute="centerY" secondItem="GTY-i0-IYN" secondAttribute="centerY" id="Y0R-gm-3pM"/>
+                                                    </constraints>
+                                                </customView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Zie-JP-Jar" secondAttribute="trailing" id="TLu-vI-GX4"/>
+                                                <constraint firstItem="Zie-JP-Jar" firstAttribute="leading" secondItem="2aP-DY-K49" secondAttribute="leading" constant="5" id="ezW-kb-7Nb"/>
+                                                <constraint firstItem="Zie-JP-Jar" firstAttribute="top" secondItem="2aP-DY-K49" secondAttribute="top" constant="3" id="qJK-2B-e4d"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
+                                </tabViewItems>
+                            </tabView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="BPo-7K-ncx" firstAttribute="top" secondItem="gRf-oC-wca" secondAttribute="top" constant="15" id="Jzo-9Y-Rg4"/>
+                            <constraint firstAttribute="bottom" secondItem="BPo-7K-ncx" secondAttribute="bottom" constant="15" id="fTv-Ic-D6E"/>
+                            <constraint firstAttribute="trailing" secondItem="BPo-7K-ncx" secondAttribute="trailing" constant="15" id="lhg-6F-pef"/>
+                            <constraint firstItem="BPo-7K-ncx" firstAttribute="leading" secondItem="gRf-oC-wca" secondAttribute="leading" constant="15" id="ll0-3w-U3D"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="j5Y-8D-fK3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37" y="315"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="ksy-ew-zD6">
+            <objects>
+                <windowController storyboardIdentifier="PreferenceWindowController" id="gRs-Ph-Oy2" customClass="PreferenceWindowController" customModule="StocksBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="wyk-mU-Z86">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="310" width="317" height="221"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+                        <connections>
+                            <outlet property="delegate" destination="gRs-Ph-Oy2" id="Peh-Kb-nEI"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="b2N-cg-UJ2" kind="relationship" relationship="window.shadowedContentViewController" id="nqC-K9-fsZ"/>
+                    </connections>
+                </windowController>
+                <customObject id="7Fi-OE-SgI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-454" y="316"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="logo_about" width="32" height="32"/>
+    </resources>
 </document>

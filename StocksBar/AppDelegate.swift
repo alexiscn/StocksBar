@@ -17,6 +17,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: 160)
     //let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
+    lazy var preferenceWindow: NSWindowController? = {
+        return NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "PreferenceWindowController") as? PreferenceWindowController
+        
+    }()
+    
     let api = StocksAPI()
     
     let popover = NSPopover()
@@ -52,7 +57,7 @@ extension AppDelegate {
     }
     
     @objc func openPreference() {
-        
+        preferenceWindow?.showWindow(nil)
     }
     
     @objc func quit() {

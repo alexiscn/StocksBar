@@ -36,7 +36,7 @@ class StockTableCellView: NSTableCellView {
         super.awakeFromNib()
         
         wantsLayer = true
-        layer?.backgroundColor = NSColor(white: 1.0, alpha: 0.3).cgColor
+        layer?.backgroundColor = NSColor(white: 1.0, alpha: 0.6).cgColor
     }
     
     override func draw(_ dirtyRect: NSRect) {

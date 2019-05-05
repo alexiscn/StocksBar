@@ -16,6 +16,9 @@
 		A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33C2275B7F000A2327B /* StockHeaderView.swift */; };
 		A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */; };
 		A3148DD42279229C008B2A7B /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3148DD32279229C008B2A7B /* Throttler.swift */; };
+		A3307413227EBEDF006A9311 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */; };
+		A3307419227EC030006A9311 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3307418227EC030006A9311 /* PreferencesViewController.swift */; };
+		A330741B227EC49A006A9311 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330741A227EC49A006A9311 /* Preferences.swift */; };
 		A349894F22700BED002F7898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349894E22700BED002F7898 /* AppDelegate.swift */; };
 		A349895322700BEF002F7898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A349895222700BEF002F7898 /* Assets.xcassets */; };
 		A349895622700BEF002F7898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A349895422700BEF002F7898 /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 		A301F33C2275B7F000A2327B /* StockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHeaderView.swift; sourceTree = "<group>"; };
 		A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSettingMenuAction.swift; sourceTree = "<group>"; };
 		A3148DD32279229C008B2A7B /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
+		A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
+		A3307418227EC030006A9311 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		A330741A227EC49A006A9311 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		A349894B22700BED002F7898 /* StocksBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A349894E22700BED002F7898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A349895222700BEF002F7898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A301F32F2275982600A2327B /* StockDataSource.swift */,
+				A330741A227EC49A006A9311 /* Preferences.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -157,6 +164,8 @@
 				A3503F5A2278559F00215360 /* MainViewController.swift */,
 				A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */,
 				A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */,
+				A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */,
+				A3307418227EC030006A9311 /* PreferencesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -337,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3307413227EBEDF006A9311 /* PreferenceWindowController.swift in Sources */,
 				A3C968E32277FEA300130EDF /* NSPopover+SB.swift in Sources */,
 				A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */,
 				A3148DD42279229C008B2A7B /* Throttler.swift in Sources */,
@@ -346,7 +356,9 @@
 				A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */,
 				A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */,
 				A349894F22700BED002F7898 /* AppDelegate.swift in Sources */,
+				A330741B227EC49A006A9311 /* Preferences.swift in Sources */,
 				A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */,
+				A3307419227EC030006A9311 /* PreferencesViewController.swift in Sources */,
 				A3503F5B2278559F00215360 /* MainViewController.swift in Sources */,
 				A3503F572278504500215360 /* StockSearchCellView.swift in Sources */,
 				A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */,

@@ -64,7 +64,7 @@ class StocksTableViewController: NSViewController {
         
         tableView = NSTableView()
         tableView.rowHeight = 40.0
-        tableView.backgroundColor = NSColor(white: 1, alpha: 0.3)
+        tableView.backgroundColor = NSColor(white: 1, alpha: 0.6)
         tableView.register(NSNib(nibNamed: "StockTableCellView", bundle: nil), forIdentifier: reuseIdentifier)
         tableView.selectionHighlightStyle = .none
         tableView.dataSource = self

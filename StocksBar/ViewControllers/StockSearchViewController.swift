@@ -42,7 +42,7 @@ class StockSearchViewController: NSViewController {
         }
 
         tableView = NSTableView()
-        tableView.backgroundColor = NSColor(white: 1, alpha: 0.3)
+        tableView.backgroundColor = NSColor(white: 1, alpha: 0.6)
         tableView.register(NSNib(nibNamed: "StockSearchCellView", bundle: nil), forIdentifier: reuseIdentifier)
         tableView.selectionHighlightStyle = .none
         tableView.dataSource = self
