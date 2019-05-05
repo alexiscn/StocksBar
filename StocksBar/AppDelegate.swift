@@ -47,6 +47,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension AppDelegate {
     
+    @objc func openAbout() {
+        
+    }
+    
+    @objc func openPreference() {
+        
+    }
+    
     @objc func quit() {
         StockDataSource.shared.save()
         NSApplication.shared.terminate(self)
@@ -62,9 +70,5 @@ extension AppDelegate {
         }
         let title = String(format: "%@ %.2f %@", stock.symbol, stock.current, stock.percentString)
         statusItem.title = title
-    }
-    
-    @objc func changeRefreshInterval(_ sender: NSMenuItem) {
-        
     }
 }

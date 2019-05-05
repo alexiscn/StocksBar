@@ -31,7 +31,6 @@ class StockSearchViewController: NSViewController {
         scrollView = NSScrollView(frame: .zero)
         scrollView.automaticallyAdjustsContentInsets = false
         scrollView.drawsBackground = false
-        scrollView.contentInsets = NSEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
         scrollView.hasVerticalScroller = true
         scrollView.borderType = .noBorder
         scrollView.backgroundColor = .clear

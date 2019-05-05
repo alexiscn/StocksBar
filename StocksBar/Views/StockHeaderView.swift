@@ -53,7 +53,7 @@ class StockHeaderView: NSView {
         }
         
         wantsLayer = true
-        layer?.backgroundColor = NSColor(white: 247.0/255, alpha: 1.0).cgColor
+        layer?.backgroundColor = NSColor(white: 1, alpha: 0.3).cgColor
     }
     
     @objc private func handleTapListButton(_ sender: Any) {

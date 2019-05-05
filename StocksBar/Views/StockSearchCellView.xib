@@ -43,12 +43,18 @@
                         <action selector="tapFavoriteButton:" target="c22-O7-iKe" id="UI5-bX-Pbr"/>
                     </connections>
                 </button>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="m1X-df-hjT">
+                    <rect key="frame" x="0.0" y="-2" width="507" height="5"/>
+                </box>
             </subviews>
             <constraints>
+                <constraint firstItem="m1X-df-hjT" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="55e-q8-Xqb"/>
                 <constraint firstAttribute="trailing" secondItem="5Si-q9-2qn" secondAttribute="trailing" constant="20" id="5yI-nc-xbT"/>
                 <constraint firstItem="6rb-5p-Cd5" firstAttribute="leading" secondItem="vAR-mK-xdE" secondAttribute="leading" id="AfE-L4-2iT"/>
                 <constraint firstItem="5Si-q9-2qn" firstAttribute="leading" secondItem="vAR-mK-xdE" secondAttribute="trailing" constant="10" id="ZFN-wB-YdL"/>
+                <constraint firstAttribute="trailing" secondItem="m1X-df-hjT" secondAttribute="trailing" id="gIz-Hg-r6w"/>
                 <constraint firstItem="vAR-mK-xdE" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" constant="-10" id="gnJ-nk-qpi"/>
+                <constraint firstAttribute="bottom" secondItem="m1X-df-hjT" secondAttribute="bottom" id="izz-qi-ToW"/>
                 <constraint firstItem="vAR-mK-xdE" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="luq-ID-Ufp"/>
                 <constraint firstItem="5Si-q9-2qn" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="oeW-5X-Nxa"/>
                 <constraint firstItem="6rb-5p-Cd5" firstAttribute="top" secondItem="vAR-mK-xdE" secondAttribute="bottom" constant="2" id="wtT-Ke-tvV"/>
