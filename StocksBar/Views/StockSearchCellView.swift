@@ -18,6 +18,13 @@ class StockSearchCellView: NSTableCellView {
     
     var favoriteButtonHandler: RelayCommand?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let area = NSTrackingArea(rect: favoriteButton.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
+        favoriteButton.addTrackingArea(area)
+    }
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -27,12 +34,27 @@ class StockSearchCellView: NSTableCellView {
     func update(_ stock: Stock) {
         symbolLabel.stringValue = stock.symbol
         codeLabel.stringValue = stock.code
-        favoriteButton.state = .on
+        favoriteButton.state = stock.isFavorited ? .on : .off
+    }
+    
+    private func toggle() {
+        if favoriteButton.state == .on {
+            favoriteButton.state = .off
+        } else {
+            favoriteButton.state = .on
+        }
     }
     
     @IBAction func tapFavoriteButton(_ sender: Any) {
         favoriteButtonHandler?()
     }
     
+    override func mouseExited(with event: NSEvent) {
+        toggle()
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+        toggle()
+    }
     
 }

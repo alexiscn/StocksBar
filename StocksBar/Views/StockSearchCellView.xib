@@ -35,8 +35,8 @@
                         <constraint firstAttribute="height" constant="24" id="5Wy-BV-6bZ"/>
                         <constraint firstAttribute="width" constant="24" id="WSx-vn-ZiE"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_fav" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="eL6-nF-XXI">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_fav" imagePosition="only" alignment="center" alternateImage="icon_fav_on" imageScaling="proportionallyUpOrDown" inset="2" id="eL6-nF-XXI">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
@@ -69,5 +69,6 @@
     </objects>
     <resources>
         <image name="icon_fav" width="24" height="24"/>
+        <image name="icon_fav_on" width="24" height="24"/>
     </resources>
 </document>

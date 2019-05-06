@@ -73,8 +73,15 @@ extension StockSearchViewController: NSTableViewDataSource, NSTableViewDelegate 
         let stock = dataSource[row]
         if let cell = tableView.makeView(withIdentifier: reuseIdentifier, owner: self) as? StockSearchCellView {
             cell.update(stock)
-            cell.favoriteButtonHandler = {
-                StockDataSource.shared.add(stock: stock)
+            cell.favoriteButtonHandler = { [weak self] in
+                if stock.isFavorited {
+                    stock.isFavorited = false
+                    StockDataSource.shared.remove(stock: stock)
+                } else {
+                    stock.isFavorited = true
+                    StockDataSource.shared.add(stock: stock)
+                }
+                self?.tableView.reloadData()
             }
             return cell
         }

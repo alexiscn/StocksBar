@@ -100,6 +100,10 @@ class StockDataSource: NSObject {
         save()
     }
     
+    func contains(_ stock: Stock) -> Bool {
+        return content.contains(where: { $0.code == stock.code })
+    }
+    
     func remove(stock: Stock) {
         var array = content
         if let index = array.firstIndex(where: { $0.code == stock.code }) {

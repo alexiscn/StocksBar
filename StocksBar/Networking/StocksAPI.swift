@@ -61,6 +61,7 @@ class StocksAPI {
         for item in components {
             let array = item.split(separator: ",").map { return String($0) }
             let stock = Stock(code: array[3])
+            stock.isFavorited = StockDataSource.shared.contains(stock)
             stock.symbol = array[0]
             stocks.append(stock)
         }
