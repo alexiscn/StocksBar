@@ -39,7 +39,7 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6UP-nM-gu6">
-                            <rect key="frame" x="222" y="11" width="74" height="17"/>
+                            <rect key="frame" x="362" y="11" width="74" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="6Fd-Uh-Bhq"/>
                             </constraints>
@@ -73,12 +73,12 @@
                         <constraint firstAttribute="trailing" secondItem="RfE-IP-eon" secondAttribute="trailing" constant="20" id="7SG-jR-i0S"/>
                         <constraint firstItem="Omx-Ry-3ao" firstAttribute="leading" secondItem="13t-yq-vRe" secondAttribute="leading" constant="15" id="Pmf-Zb-A7h"/>
                         <constraint firstItem="6UP-nM-gu6" firstAttribute="centerY" secondItem="13t-yq-vRe" secondAttribute="centerY" id="VD5-mV-SN9"/>
+                        <constraint firstItem="RfE-IP-eon" firstAttribute="leading" secondItem="6UP-nM-gu6" secondAttribute="trailing" id="YMC-Cz-TId"/>
                         <constraint firstItem="RfE-IP-eon" firstAttribute="centerY" secondItem="13t-yq-vRe" secondAttribute="centerY" id="fRi-hn-abj"/>
                         <constraint firstItem="Omx-Ry-3ao" firstAttribute="centerY" secondItem="13t-yq-vRe" secondAttribute="centerY" id="o9Q-yb-EsU"/>
-                        <constraint firstItem="6UP-nM-gu6" firstAttribute="centerX" secondItem="13t-yq-vRe" secondAttribute="centerX" id="tb9-w4-HMS"/>
                     </constraints>
                 </customView>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="haZ-VN-86Z" userLabel="Drag Button">
+                <button hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haZ-VN-86Z" userLabel="Drag Button">
                     <rect key="frame" x="522" y="9" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="0qQ-pb-SpD"/>
