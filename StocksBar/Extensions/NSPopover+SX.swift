@@ -1,5 +1,5 @@
 //
-//  NSPopover+SB.swift
+//  NSPopover+SX.swift
 //  StocksBar
 //
 //  Created by xu.shuifeng on 2019/4/30.
