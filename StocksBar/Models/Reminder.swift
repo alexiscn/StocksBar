@@ -11,7 +11,7 @@ import Cocoa
 class Reminder: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case up, down, percent
+        case up, down, percent, toastDate
     }
     
     var up: Float = 0.0
@@ -20,12 +20,15 @@ class Reminder: Codable {
     
     var percent: Float = 0.07
     
+    var toastDate: Date = Date.distantPast
+    
     var toasted: Bool = false
     
     init() {}
     
     func shouldToast(percent: Float, price: Float) -> Bool {
-        if toasted {
+        
+        if toasted || NSCalendar.current.isDateInToday(toastDate) {
             return false
         }
         if up != 0.0 && price >= up {

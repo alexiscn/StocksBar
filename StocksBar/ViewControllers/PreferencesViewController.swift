@@ -12,12 +12,17 @@ import LaunchAtLogin
 class PreferencesViewController: NSViewController {
     
     @IBOutlet weak var launchOnSystemStartButton: NSButton!
-    
     @IBOutlet weak var tabView: NSTabView!
+    @IBOutlet weak var plainStyleButton: NSButton!
+    @IBOutlet weak var richStyleButton: NSButton!
+    @IBOutlet weak var percentView: NSView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        percentView.wantsLayer = true
+        percentView.layer?.cornerRadius = 4
+        percentView.layer?.backgroundColor = Colors.red.cgColor
         
         launchOnSystemStartButton.state = LaunchAtLogin.isEnabled ? .on: .off
     }
@@ -32,4 +37,8 @@ class PreferencesViewController: NSViewController {
         }
     }
     
+    @IBAction func tapStyleRadioButton(_ sender: NSButton) {
+        let buttons = [plainStyleButton, richStyleButton]
+        buttons.forEach { $0?.state = $0 == sender ? .on: .off }
+    }
 }

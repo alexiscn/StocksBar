@@ -36,6 +36,7 @@ class StockDataSource: NSObject {
             content.append(Stock(code: "sz002594"))
             content.append(Stock(code: "sh601318"))
             content.append(Stock(code: "sh601360"))
+            save()
         }
         update()
     }
@@ -117,7 +118,6 @@ class StockDataSource: NSObject {
     
     func move(from index: Int, to row: Int) {
         var array = content
-        //(array[index], array[row]) = (array[row], array[index])
         array.insert(array.remove(at: index), at: row)
         content = array
         save()
@@ -140,6 +140,9 @@ class StockDataSource: NSObject {
     
     func toastStockRemind(_ stock: Stock) {
         stock.reminder.toasted = true
+        stock.reminder.toastDate = Date()
+        save()
+        
         let price = String(format: "%.2f", stock.current)
         
         let notification = NSUserNotification()

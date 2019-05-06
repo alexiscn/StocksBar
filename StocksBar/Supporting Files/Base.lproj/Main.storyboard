@@ -708,20 +708,96 @@
                                                         <action selector="tapLaunchOnSystemStartButton:" target="b2N-cg-UJ2" id="xcW-36-soG"/>
                                                     </connections>
                                                 </button>
-                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PRp-hx-EfX">
-                                                    <rect key="frame" x="10" y="183" width="444" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="显示涨跌颜色" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="QWB-at-IMU">
-                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="IKf-Qg-Yzb" userLabel="Percent Style View">
+                                                    <rect key="frame" x="12" y="140" width="440" height="62"/>
+                                                    <subviews>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-6J-C0n">
+                                                            <rect key="frame" x="14" y="23" width="75" height="17"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="涨跌幅样式:" id="ts4-ba-VT8">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nRq-OT-oMw" userLabel="Plain Style Button">
+                                                            <rect key="frame" x="110" y="22" width="63" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="UAu-oT-bKo"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="J09-jN-eLF">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="tapStyleRadioButton:" target="b2N-cg-UJ2" id="Da2-Ma-ZWG"/>
+                                                            </connections>
+                                                        </button>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Skh-Xm-FO7">
+                                                            <rect key="frame" x="129" y="23" width="51" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="z2I-Uf-tGN"/>
+                                                            </constraints>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="+2.33%" id="eie-FA-b92">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qBF-bS-jiA" userLabel="Rich Style Button">
+                                                            <rect key="frame" x="194" y="22" width="83" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="8AZ-5f-89N"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="0ZK-uf-wOJ">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="tapStyleRadioButton:" target="b2N-cg-UJ2" id="TB9-75-KkS"/>
+                                                            </connections>
+                                                        </button>
+                                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="b1u-bP-ZdH" userLabel="Percent View">
+                                                            <rect key="frame" x="219" y="19" width="64" height="24"/>
+                                                            <subviews>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y5P-xw-yfa">
+                                                                    <rect key="frame" x="10" y="5" width="44" height="14"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="+2.33%" id="JAu-Nd-Dx1">
+                                                                        <font key="font" metaFont="smallSystem"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Y5P-xw-yfa" firstAttribute="centerX" secondItem="b1u-bP-ZdH" secondAttribute="centerX" id="7VM-aZ-bq9"/>
+                                                                <constraint firstAttribute="height" constant="24" id="is2-4Z-c7u"/>
+                                                                <constraint firstAttribute="width" constant="64" id="ulu-bw-bjI"/>
+                                                                <constraint firstItem="Y5P-xw-yfa" firstAttribute="centerY" secondItem="b1u-bP-ZdH" secondAttribute="centerY" id="z7O-GN-F65"/>
+                                                            </constraints>
+                                                        </customView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="qBF-bS-jiA" firstAttribute="centerY" secondItem="IKf-Qg-Yzb" secondAttribute="centerY" id="1nC-DN-N77"/>
+                                                        <constraint firstItem="b1u-bP-ZdH" firstAttribute="centerY" secondItem="IKf-Qg-Yzb" secondAttribute="centerY" id="458-Bv-67S"/>
+                                                        <constraint firstItem="Skh-Xm-FO7" firstAttribute="centerY" secondItem="IKf-Qg-Yzb" secondAttribute="centerY" id="8UU-CJ-tOR"/>
+                                                        <constraint firstItem="qBF-bS-jiA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Skh-Xm-FO7" secondAttribute="trailing" constant="6" symbolic="YES" id="NNH-AD-AQE"/>
+                                                        <constraint firstItem="qBF-bS-jiA" firstAttribute="leading" secondItem="nRq-OT-oMw" secondAttribute="trailing" constant="24" id="T4D-H9-e8g"/>
+                                                        <constraint firstAttribute="height" constant="62" id="V5H-No-XnO"/>
+                                                        <constraint firstItem="EP2-6J-C0n" firstAttribute="leading" secondItem="IKf-Qg-Yzb" secondAttribute="leading" constant="16" id="eAW-bJ-6KN"/>
+                                                        <constraint firstItem="nRq-OT-oMw" firstAttribute="leading" secondItem="EP2-6J-C0n" secondAttribute="trailing" constant="24" id="fJb-ee-x2K"/>
+                                                        <constraint firstItem="nRq-OT-oMw" firstAttribute="centerY" secondItem="IKf-Qg-Yzb" secondAttribute="centerY" id="iES-65-aPK"/>
+                                                        <constraint firstItem="Skh-Xm-FO7" firstAttribute="leading" secondItem="nRq-OT-oMw" secondAttribute="trailing" constant="-40" id="lXt-zC-qKz"/>
+                                                        <constraint firstItem="b1u-bP-ZdH" firstAttribute="leading" secondItem="qBF-bS-jiA" secondAttribute="trailing" constant="-56" id="rip-8d-vw4"/>
+                                                        <constraint firstItem="EP2-6J-C0n" firstAttribute="centerY" secondItem="IKf-Qg-Yzb" secondAttribute="centerY" id="zpm-Ig-4EV"/>
+                                                    </constraints>
+                                                </customView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="PRp-hx-EfX" secondAttribute="trailing" constant="12" id="DEe-N8-eSi"/>
+                                                <constraint firstItem="IKf-Qg-Yzb" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="F6L-Ac-amd"/>
                                                 <constraint firstItem="GmU-5L-ELo" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="GHL-rJ-xC9"/>
                                                 <constraint firstAttribute="trailing" secondItem="GmU-5L-ELo" secondAttribute="trailing" constant="12" id="Hb3-Zk-hrH"/>
-                                                <constraint firstItem="PRp-hx-EfX" firstAttribute="top" secondItem="GmU-5L-ELo" secondAttribute="bottom" constant="15" id="Ozp-xa-fhQ"/>
-                                                <constraint firstItem="PRp-hx-EfX" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="SLL-x3-qlF"/>
+                                                <constraint firstAttribute="trailing" secondItem="IKf-Qg-Yzb" secondAttribute="trailing" constant="12" id="dAs-uv-3MO"/>
+                                                <constraint firstItem="IKf-Qg-Yzb" firstAttribute="top" secondItem="GmU-5L-ELo" secondAttribute="bottom" constant="12" id="tUJ-cU-fSz"/>
                                                 <constraint firstItem="GmU-5L-ELo" firstAttribute="top" secondItem="u62-h0-bwX" secondAttribute="top" constant="12" id="zHA-zg-df8"/>
                                             </constraints>
                                         </view>
@@ -776,21 +852,21 @@
                                                                     <rect key="frame" x="0.0" y="-1" width="114" height="19"/>
                                                                     <buttonCell key="cell" type="recessed" title="Alamofire" bezelStyle="recessed" alignment="center" refusesFirstResponder="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wq6-ds-aTv">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                                        <font key="font" metaFont="system" size="12"/>
+                                                                        <font key="font" metaFont="cellTitle"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r2Q-5P-KpK">
                                                                     <rect key="frame" x="122" y="-1" width="115" height="19"/>
                                                                     <buttonCell key="cell" type="recessed" title="LaunchAtLogin" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wdH-M1-DrU">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                                        <font key="font" metaFont="system" size="12"/>
+                                                                        <font key="font" metaFont="cellTitle"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="05H-5p-og0">
                                                                     <rect key="frame" x="245" y="-1" width="114" height="19"/>
                                                                     <buttonCell key="cell" type="recessed" title="SnapKit" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J0c-rR-xNt">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                                        <font key="font" metaFont="system" size="12"/>
+                                                                        <font key="font" metaFont="cellTitle"/>
                                                                     </buttonCell>
                                                                 </button>
                                                             </subviews>
@@ -853,6 +929,9 @@
                     </view>
                     <connections>
                         <outlet property="launchOnSystemStartButton" destination="GmU-5L-ELo" id="GTG-fO-BU9"/>
+                        <outlet property="percentView" destination="b1u-bP-ZdH" id="u9g-pA-qls"/>
+                        <outlet property="plainStyleButton" destination="nRq-OT-oMw" id="hTN-e3-k3h"/>
+                        <outlet property="richStyleButton" destination="qBF-bS-jiA" id="CLn-kB-p5c"/>
                         <outlet property="tabView" destination="BPo-7K-ncx" id="8rW-8t-EFT"/>
                     </connections>
                 </viewController>
