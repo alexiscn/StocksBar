@@ -37,6 +37,8 @@ class StockTableCellView: NSTableCellView {
         
         wantsLayer = true
         layer?.backgroundColor = NSColor(white: 1.0, alpha: 0.6).cgColor
+        percentView.wantsLayer = true
+        percentView.layer?.cornerRadius = 4
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -47,11 +49,8 @@ class StockTableCellView: NSTableCellView {
     
     func update(_ stock: Stock) {
         symbolLabel.stringValue = stock.symbol
-        priceLabel.stringValue = String(stock.current)
+        priceLabel.stringValue = String(format: "%.2f", stock.current)
         
-        percentView.wantsLayer = true
-        percentView.layer?.cornerRadius = 4
-    
         let color: NSColor
         let percent: String
         if stock.percent > 0 {

@@ -61,10 +61,7 @@ class Stock: NSObject, Codable {
     }
     
     var shouldToastNotification: Bool {
-        if percent != 0.0 && reminder.shouldToast(percent) {
-            return true
-        }
-        return false
+        return reminder.shouldToast(percent: percent, price: current)
     }
     
     class func parseSinaCode(_ code: String, value: String) -> Stock? {

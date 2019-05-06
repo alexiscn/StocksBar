@@ -14,7 +14,7 @@ typealias RelayCommand = () -> Void
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system.statusItem(withLength: 160)
+    let statusItem = NSStatusBar.system.statusItem(withLength: 170)
     
     lazy var preferenceWindow: NSWindowController? = {
         let sb = NSStoryboard(name: "Main", bundle: nil)

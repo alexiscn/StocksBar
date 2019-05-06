@@ -10,6 +10,10 @@ import Cocoa
 
 class Reminder: Codable {
     
+    enum CodingKeys: String, CodingKey {
+        case up, down, percent
+    }
+    
     var up: Float = 0.0
     
     var down: Float = 0.0
@@ -20,14 +24,17 @@ class Reminder: Codable {
     
     init() {}
     
-    func shouldToast(_ percent: Float) -> Bool {
+    func shouldToast(percent: Float, price: Float) -> Bool {
         if toasted {
             return false
         }
-        if up != 0.0 && percent >= up {
+        if up != 0.0 && price >= up {
             return true
         }
-        if down != 0.0 && percent >= down {
+        if down != 0.0 && price <= down {
+            return true
+        }
+        if percent > self.percent || percent <= self.percent {
             return true
         }
         return false

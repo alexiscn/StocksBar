@@ -141,11 +141,12 @@ class StockDataSource: NSObject {
     func toastStockRemind(_ stock: Stock) {
         stock.reminder.toasted = true
         let price = String(format: "%.2f", stock.current)
+        
         let notification = NSUserNotification()
         notification.title = "股价提醒"
-        //notification.contentImage = NSImage(named: "icon_stock")
-        notification.subtitle = "您关注的股票:\(stock.symbol)已经达到您的目标价了\n当前价格:\(price)"
-        notification.deliveryDate = Date(timeInterval: 0.1, since: Date())
+        notification.subtitle = "\(stock.symbol)已经达到您的目标价了"
+        notification.informativeText = "当前价格:\(price)"
+        notification.deliveryDate = Date(timeInterval: 0.5, since: Date())
         NSUserNotificationCenter.default.scheduleNotification(notification)
     }
 }
