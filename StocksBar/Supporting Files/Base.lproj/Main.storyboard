@@ -686,20 +686,20 @@
             <objects>
                 <viewController id="b2N-cg-UJ2" customClass="PreferencesViewController" customModule="StocksBar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="gRf-oC-wca">
-                        <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="BPo-7K-ncx">
-                                <rect key="frame" x="8" y="5" width="484" height="286"/>
+                                <rect key="frame" x="8" y="5" width="434" height="286"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="General" identifier="" id="xx1-Au-mqw">
                                         <view key="view" id="u62-h0-bwX">
-                                            <rect key="frame" x="10" y="33" width="464" height="240"/>
+                                            <rect key="frame" x="10" y="33" width="364" height="240"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GmU-5L-ELo">
-                                                    <rect key="frame" x="10" y="212" width="444" height="18"/>
+                                                    <rect key="frame" x="10" y="212" width="344" height="18"/>
                                                     <buttonCell key="cell" type="check" title="系统开机时自动自动" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hPj-8m-qIN">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -709,7 +709,7 @@
                                                     </connections>
                                                 </button>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="IKf-Qg-Yzb" userLabel="Percent Style View">
-                                                    <rect key="frame" x="12" y="140" width="440" height="62"/>
+                                                    <rect key="frame" x="12" y="140" width="340" height="62"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-6J-C0n">
                                                             <rect key="frame" x="14" y="23" width="75" height="17"/>
@@ -804,11 +804,11 @@
                                     </tabViewItem>
                                     <tabViewItem label="About" identifier="" id="9bI-OO-8d3">
                                         <view key="view" id="2aP-DY-K49">
-                                            <rect key="frame" x="10" y="33" width="464" height="240"/>
+                                            <rect key="frame" x="10" y="33" width="414" height="240"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zie-JP-Jar" userLabel="Info View">
-                                                    <rect key="frame" x="5" y="37" width="459" height="200"/>
+                                                    <rect key="frame" x="5" y="37" width="409" height="200"/>
                                                     <subviews>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GTY-i0-IYN">
                                                             <rect key="frame" x="0.0" y="168" width="32" height="32"/>
@@ -816,54 +816,54 @@
                                                                 <constraint firstAttribute="width" constant="32" id="3zh-sg-0qX"/>
                                                                 <constraint firstAttribute="height" constant="32" id="Qix-MH-xeB"/>
                                                             </constraints>
-                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo_about" id="d2U-H6-Eql"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon_stock" id="d2U-H6-Eql"/>
                                                         </imageView>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eLl-ha-rnJ">
-                                                            <rect key="frame" x="42" y="172" width="419" height="25"/>
-                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="StocksBar" id="vf9-Pe-yES">
+                                                            <rect key="frame" x="42" y="172" width="369" height="25"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="StocksX" id="vf9-Pe-yES">
                                                                 <font key="font" size="17" name="HelveticaNeue"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="izt-k7-eVX">
-                                                            <rect key="frame" x="-2" y="138" width="451" height="18"/>
+                                                            <rect key="frame" x="-2" y="100" width="401" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Version 1.0 (2019-05-05)" id="mPK-vU-9Uc">
-                                                                <font key="font" metaFont="system" size="14"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="font" metaFont="system" size="12"/>
+                                                                <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
                                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="XOa-6g-hST">
-                                                            <rect key="frame" x="0.0" y="123" width="447" height="5"/>
+                                                            <rect key="frame" x="0.0" y="85" width="397" height="5"/>
                                                         </box>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ywY-pr-kiD">
-                                                            <rect key="frame" x="0.0" y="100" width="461" height="17"/>
-                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Open Source Library" id="ool-lr-p4G">
+                                                            <rect key="frame" x="0.0" y="62" width="411" height="17"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="第三方开源项目" id="ool-lr-p4G">
                                                                 <font key="font" metaFont="systemMedium" size="13"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
                                                         <stackView distribution="fillEqually" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PEN-a6-2xs">
-                                                            <rect key="frame" x="0.0" y="70" width="359" height="18"/>
+                                                            <rect key="frame" x="0.0" y="32" width="309" height="18"/>
                                                             <subviews>
                                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wb4-Xt-skh">
-                                                                    <rect key="frame" x="0.0" y="-1" width="114" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="-1" width="97" height="19"/>
                                                                     <buttonCell key="cell" type="recessed" title="Alamofire" bezelStyle="recessed" alignment="center" refusesFirstResponder="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wq6-ds-aTv">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                         <font key="font" metaFont="cellTitle"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r2Q-5P-KpK">
-                                                                    <rect key="frame" x="122" y="-1" width="115" height="19"/>
+                                                                    <rect key="frame" x="105" y="-1" width="99" height="19"/>
                                                                     <buttonCell key="cell" type="recessed" title="LaunchAtLogin" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wdH-M1-DrU">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                         <font key="font" metaFont="cellTitle"/>
                                                                     </buttonCell>
                                                                 </button>
                                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="05H-5p-og0">
-                                                                    <rect key="frame" x="245" y="-1" width="114" height="19"/>
+                                                                    <rect key="frame" x="212" y="-1" width="97" height="19"/>
                                                                     <buttonCell key="cell" type="recessed" title="SnapKit" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J0c-rR-xNt">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                         <font key="font" metaFont="cellTitle"/>
@@ -882,27 +882,38 @@
                                                             </customSpacing>
                                                         </stackView>
                                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="G9M-zq-jvt">
-                                                            <rect key="frame" x="0.0" y="55" width="459" height="5"/>
+                                                            <rect key="frame" x="0.0" y="17" width="409" height="5"/>
                                                         </box>
+                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nDg-iQ-Zkr">
+                                                            <rect key="frame" x="-2" y="124" width="393" height="32"/>
+                                                            <textFieldCell key="cell" selectable="YES" title="StockX是一款查看A股行情的状态栏应用。提供搜索股票代码、排序、设置股价提醒。" id="bmG-JX-SuD">
+                                                                <font key="font" metaFont="system" size="12"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="0Bd-v5-3Ll"/>
+                                                        <constraint firstItem="nDg-iQ-Zkr" firstAttribute="leading" secondItem="Zie-JP-Jar" secondAttribute="leading" id="1gg-cn-XJT"/>
                                                         <constraint firstAttribute="trailing" secondItem="eLl-ha-rnJ" secondAttribute="trailing" id="3Xd-Sv-2V7"/>
                                                         <constraint firstItem="ywY-pr-kiD" firstAttribute="leading" secondItem="Zie-JP-Jar" secondAttribute="leading" constant="2" id="3mq-yR-1Nn"/>
                                                         <constraint firstItem="GTY-i0-IYN" firstAttribute="top" secondItem="Zie-JP-Jar" secondAttribute="top" id="4Hl-v3-dZG"/>
                                                         <constraint firstItem="PEN-a6-2xs" firstAttribute="leading" secondItem="Zie-JP-Jar" secondAttribute="leading" id="5o2-ZJ-FY7"/>
                                                         <constraint firstItem="GTY-i0-IYN" firstAttribute="leading" secondItem="Zie-JP-Jar" secondAttribute="leading" id="6rQ-MK-D6o"/>
-                                                        <constraint firstItem="izt-k7-eVX" firstAttribute="top" secondItem="GTY-i0-IYN" secondAttribute="bottom" constant="12" id="9xq-qB-KXb"/>
                                                         <constraint firstItem="izt-k7-eVX" firstAttribute="leading" secondItem="Zie-JP-Jar" secondAttribute="leading" id="AHm-M1-npM"/>
                                                         <constraint firstAttribute="trailing" secondItem="izt-k7-eVX" secondAttribute="trailing" constant="12" id="H89-Jz-Mtg"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nDg-iQ-Zkr" secondAttribute="trailing" constant="20" id="J8d-jo-z0H"/>
                                                         <constraint firstItem="XOa-6g-hST" firstAttribute="leading" secondItem="Zie-JP-Jar" secondAttribute="leading" id="JXD-my-RLI"/>
                                                         <constraint firstItem="eLl-ha-rnJ" firstAttribute="leading" secondItem="GTY-i0-IYN" secondAttribute="trailing" constant="12" id="KIc-q8-V2z"/>
                                                         <constraint firstAttribute="trailing" secondItem="PEN-a6-2xs" secondAttribute="trailing" constant="100" id="OGU-4u-exi"/>
                                                         <constraint firstItem="XOa-6g-hST" firstAttribute="top" secondItem="izt-k7-eVX" secondAttribute="bottom" constant="12" id="OcQ-fF-YbW"/>
                                                         <constraint firstItem="ywY-pr-kiD" firstAttribute="top" secondItem="XOa-6g-hST" secondAttribute="bottom" constant="8" id="QX0-vD-VfU"/>
+                                                        <constraint firstItem="nDg-iQ-Zkr" firstAttribute="top" secondItem="GTY-i0-IYN" secondAttribute="bottom" constant="12" id="Whf-Mw-R7h"/>
                                                         <constraint firstItem="PEN-a6-2xs" firstAttribute="top" secondItem="ywY-pr-kiD" secondAttribute="bottom" constant="12" id="X8b-rb-rHQ"/>
                                                         <constraint firstItem="eLl-ha-rnJ" firstAttribute="centerY" secondItem="GTY-i0-IYN" secondAttribute="centerY" id="Y0R-gm-3pM"/>
                                                         <constraint firstItem="G9M-zq-jvt" firstAttribute="leading" secondItem="Zie-JP-Jar" secondAttribute="leading" id="a0m-3V-aQE"/>
+                                                        <constraint firstItem="izt-k7-eVX" firstAttribute="top" secondItem="nDg-iQ-Zkr" secondAttribute="bottom" constant="8" id="jmc-5U-DuG"/>
                                                         <constraint firstAttribute="trailing" secondItem="XOa-6g-hST" secondAttribute="trailing" constant="12" id="tYn-VZ-3gv"/>
                                                         <constraint firstAttribute="trailing" secondItem="G9M-zq-jvt" secondAttribute="trailing" id="tkM-1r-ypD"/>
                                                         <constraint firstAttribute="trailing" secondItem="ywY-pr-kiD" secondAttribute="trailing" id="uCr-rU-Lcl"/>
@@ -962,6 +973,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_about" width="32" height="32"/>
+        <image name="icon_stock" width="30" height="30"/>
     </resources>
 </document>
