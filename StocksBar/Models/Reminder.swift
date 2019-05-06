@@ -42,4 +42,20 @@ class Reminder: Codable {
         }
         return false
     }
+    
+    func remindText(percent: Float, price: Float) -> String? {
+        if up != 0.0 && price >= up {
+            return "高于卖出目标价\(up)了"
+        }
+        if down != 0.0 && price <= down {
+            return "低于买入目标价\(down)了"
+        }
+        if percent >= 0.07 {
+            return "涨幅为\(percent)%，超过7%了"
+        }
+        if percent <= 0.07 {
+            return "跌幅为\(percent)%，超过7%了"
+        }
+        return nil
+    }
 }

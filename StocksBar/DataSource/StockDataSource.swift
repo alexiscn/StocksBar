@@ -144,11 +144,11 @@ class StockDataSource: NSObject {
         save()
         
         let price = String(format: "%.2f", stock.current)
-        
+    
         let notification = NSUserNotification()
         notification.title = "股价提醒"
-        notification.subtitle = "\(stock.symbol)已经达到您的目标价了"
-        notification.informativeText = "当前价格:\(price)"
+        notification.subtitle = "你关注的\(stock.symbol) 达到\(price)"
+        notification.informativeText = stock.reminder.remindText(percent: stock.percent, price: stock.current)
         notification.deliveryDate = Date(timeInterval: 0.5, since: Date())
         NSUserNotificationCenter.default.scheduleNotification(notification)
     }
