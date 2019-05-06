@@ -10,18 +10,6 @@ import Foundation
 
 class Stock: NSObject, Codable {
     
-    enum CodingKeys: String, CodingKey {
-        case code
-        case symbol
-        case openPrice
-        case lastClosedPrice
-        case current
-        case high
-        case low
-        case lastUpdatedDate
-        case lastUpdatedTime
-    }
-    
     var code: String
     
     /// 股票简称
@@ -55,7 +43,7 @@ class Stock: NSObject, Codable {
     var isFavorited = false
     
     var percent: Float {
-        if lastClosedPrice == 0.0 {
+        if lastClosedPrice == 0.0 || current == 0.0 {
             return 0.0
         }
         return (current - lastClosedPrice)/lastClosedPrice
@@ -73,7 +61,7 @@ class Stock: NSObject, Codable {
     }
     
     var shouldToastNotification: Bool {
-        if !reminder.toasted && percent != 0.0 && (percent >= reminder.up || percent <= reminder.down) {
+        if percent != 0.0 && reminder.shouldToast(percent) {
             return true
         }
         return false
@@ -85,7 +73,7 @@ class Stock: NSObject, Codable {
         stock.symbol = components[0]
         stock.openPrice = Float(components[1]) ?? 0.0
         stock.lastClosedPrice = Float(components[2]) ?? 0.0
-        stock.current = Float(components[3]) ?? 0.0
+        stock.current = Float(components[3]) ?? stock.lastClosedPrice
         
         if components.count >= 32 {
             stock.lastUpdatedDate = components[30]
@@ -99,7 +87,11 @@ class Stock: NSObject, Codable {
         self.symbol = newStock.symbol
         self.openPrice = newStock.openPrice
         self.lastClosedPrice = newStock.lastClosedPrice
-        self.current = newStock.current
+        if newStock.current == 0 {
+            self.current = newStock.lastClosedPrice
+        } else {
+            self.current = newStock.current
+        }
         self.high = newStock.high
         self.low = newStock.low
         self.lastUpdatedDate = newStock.lastUpdatedDate

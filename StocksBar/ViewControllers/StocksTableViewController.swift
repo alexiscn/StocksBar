@@ -180,6 +180,9 @@ extension StocksTableViewController: NSMenuDelegate {
     }
     
     @objc private func priceReminder() {
-        
+        let controller = StockRemindViewController()
+        let window = NSWindowController()
+        window.contentViewController = controller
+        window.showWindow(self)
     }
 }

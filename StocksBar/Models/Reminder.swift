@@ -19,4 +19,17 @@ class Reminder: Codable {
     var toasted: Bool = false
     
     init() {}
+    
+    func shouldToast(_ percent: Float) -> Bool {
+        if toasted {
+            return false
+        }
+        if up != 0.0 && percent >= up {
+            return true
+        }
+        if down != 0.0 && percent >= down {
+            return true
+        }
+        return false
+    }
 }

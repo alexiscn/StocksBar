@@ -16,6 +16,8 @@
 		A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33C2275B7F000A2327B /* StockHeaderView.swift */; };
 		A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */; };
 		A3148DD42279229C008B2A7B /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3148DD32279229C008B2A7B /* Throttler.swift */; };
+		A3191010227FBB6000D162A9 /* StockRemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319100E227FBB6000D162A9 /* StockRemindViewController.swift */; };
+		A3191011227FBB6000D162A9 /* StockRemindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A319100F227FBB6000D162A9 /* StockRemindViewController.xib */; };
 		A3307413227EBEDF006A9311 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */; };
 		A3307419227EC030006A9311 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3307418227EC030006A9311 /* PreferencesViewController.swift */; };
 		A330741B227EC49A006A9311 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330741A227EC49A006A9311 /* Preferences.swift */; };
@@ -44,6 +46,8 @@
 		A301F33C2275B7F000A2327B /* StockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHeaderView.swift; sourceTree = "<group>"; };
 		A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSettingMenuAction.swift; sourceTree = "<group>"; };
 		A3148DD32279229C008B2A7B /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
+		A319100E227FBB6000D162A9 /* StockRemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRemindViewController.swift; sourceTree = "<group>"; };
+		A319100F227FBB6000D162A9 /* StockRemindViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockRemindViewController.xib; sourceTree = "<group>"; };
 		A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		A3307418227EC030006A9311 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		A330741A227EC49A006A9311 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */,
 				A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */,
 				A3307418227EC030006A9311 /* PreferencesViewController.swift */,
+				A319100E227FBB6000D162A9 /* StockRemindViewController.swift */,
+				A319100F227FBB6000D162A9 /* StockRemindViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A301F33622759BBC00A2327B /* StockTableCellView.xib in Resources */,
+				A3191011227FBB6000D162A9 /* StockRemindViewController.xib in Resources */,
 				A3503F592278505100215360 /* StockSearchCellView.xib in Resources */,
 				A349895322700BEF002F7898 /* Assets.xcassets in Resources */,
 				A349895622700BEF002F7898 /* Main.storyboard in Resources */,
@@ -368,6 +375,7 @@
 				A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */,
 				A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */,
 				A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */,
+				A3191010227FBB6000D162A9 /* StockRemindViewController.swift in Sources */,
 				A301F3302275982600A2327B /* StockDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
