@@ -51,10 +51,10 @@ class Reminder: Codable {
             return "低于买入目标价\(down)了"
         }
         if percent >= 0.07 {
-            return "涨幅为\(percent)%，超过7%了"
+            return String(format: "涨幅为%.2f%%，超过7%了", percent)
         }
         if percent <= 0.07 {
-            return "跌幅为\(percent)%，超过7%了"
+            return String(format: "跌幅为%.2f%%，超过7%了", percent)
         }
         return nil
     }
