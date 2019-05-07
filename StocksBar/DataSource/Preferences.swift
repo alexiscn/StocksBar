@@ -8,18 +8,26 @@
 
 import Foundation
 
+enum PercentViewStyle: Int {
+    case rich = 0
+    case plain
+}
+
 class Preferences {
     
     private struct Keys {
-        static let showBackgroundOfChangePercent = "showBackgroundOfChangePercent"
+        static let PercentViewStyle = "PercentViewStyle"
     }
     
     static let shared = Preferences()
     
-    private init() {}
+    var percentViewStyle: PercentViewStyle = .rich {
+        didSet {
+            UserDefaults.standard.set(percentViewStyle.rawValue, forKey: Keys.PercentViewStyle)
+        }
+    }
     
-    var showBackgroundOfChangePercent: Bool {
-        get { return (UserDefaults.standard.value(forKey: Keys.showBackgroundOfChangePercent) as? Bool) ?? true }
-        set { UserDefaults.standard.set(newValue, forKey: Keys.showBackgroundOfChangePercent) }
+    private init() {
+        percentViewStyle = PercentViewStyle(rawValue: UserDefaults.standard.integer(forKey: Keys.PercentViewStyle)) ?? .rich
     }
 }

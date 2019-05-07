@@ -40,5 +40,10 @@ class PreferencesViewController: NSViewController {
     @IBAction func tapStyleRadioButton(_ sender: NSButton) {
         let buttons = [plainStyleButton, richStyleButton]
         buttons.forEach { $0?.state = $0 == sender ? .on: .off }
+        if sender == plainStyleButton {
+            Preferences.shared.percentViewStyle = .plain
+        } else {
+            Preferences.shared.percentViewStyle = .rich
+        }
     }
 }

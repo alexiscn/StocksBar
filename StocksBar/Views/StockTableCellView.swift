@@ -64,7 +64,17 @@ class StockTableCellView: NSTableCellView {
             percent = "0.0%"
         }
         percentLabel.stringValue = percent
-        percentView.layer?.backgroundColor = color.cgColor
+        
+        switch Preferences.shared.percentViewStyle {
+        case .rich:
+            percentLabel.textColor = NSColor.white
+            percentLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
+            percentView.layer?.backgroundColor = color.cgColor
+        case .plain:
+            percentLabel.textColor = color
+            percentLabel.font = NSFont.systemFont(ofSize: NSFont.systemFontSize)
+            percentView.layer?.backgroundColor = NSColor.clear.cgColor
+        }
     }
     
     func beginEditing() {
