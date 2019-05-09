@@ -137,7 +137,8 @@ class StockDataSource: NSObject {
                 self.updatedHandler?()
                 self.updateStatusBar()
             }
-            self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
+            let time = Preferences.shared.refreshInterval
+            self.perform(#selector(self.update), with: nil, afterDelay: TimeInterval(time), inModes: [.default])
         }
     }
     

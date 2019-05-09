@@ -18,6 +18,7 @@ class Preferences {
     private struct Keys {
         static let PercentViewStyle = "PercentViewStyle"
         static let LoopDisplayStocks = "LoopDisplayStocks"
+        static let RefreshInterval = "RefreshInterval"
     }
     
     static let shared = Preferences()
@@ -34,8 +35,16 @@ class Preferences {
         }
     }
     
+    var refreshInterval: Int = 1 {
+        didSet {
+            UserDefaults.standard.set(refreshInterval, forKey: Keys.RefreshInterval)
+        }
+    }
+    
     private init() {
         percentViewStyle = PercentViewStyle(rawValue: UserDefaults.standard.integer(forKey: Keys.PercentViewStyle)) ?? .rich
         loopDisplayStocks = UserDefaults.standard.bool(forKey: Keys.LoopDisplayStocks)
+        let interval = UserDefaults.standard.integer(forKey: Keys.RefreshInterval)
+        refreshInterval = interval == 0 ? 1: interval
     }
 }

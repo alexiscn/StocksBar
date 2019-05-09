@@ -17,6 +17,9 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var plainStyleButton: NSButton!
     @IBOutlet weak var richStyleButton: NSButton!
     @IBOutlet weak var percentView: NSView!
+    @IBOutlet weak var intervalComboBox: NSComboBox!
+    
+    private let intervals: [Int] = [1, 2, 3, 5, 10]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +33,18 @@ class PreferencesViewController: NSViewController {
         let isRich = Preferences.shared.percentViewStyle == .rich
         plainStyleButton.state = isRich ? .off : .on
         richStyleButton.state = isRich ? .on : .off
+        
+        intervalComboBox.removeAllItems()
+        intervalComboBox.addItems(withObjectValues: intervals)
+        if let index = intervals.firstIndex(where: { $0 == Preferences.shared.refreshInterval }) {
+            intervalComboBox.selectItem(at: index)
+        } else {
+            intervalComboBox.selectItem(at: 0)
+        }
     }
     
     @IBAction func tapLaunchOnSystemStartButton(_ sender: Any) {
-        if launchOnSystemStartButton.state == .on {
-            launchOnSystemStartButton.state = .off
-            LaunchAtLogin.isEnabled = false
-        } else {
-            launchOnSystemStartButton.state = .on
-            LaunchAtLogin.isEnabled = true
-        }
+        LaunchAtLogin.isEnabled = !LaunchAtLogin.isEnabled
     }
     
     @IBAction func tapStyleRadioButton(_ sender: NSButton) {
@@ -54,6 +59,13 @@ class PreferencesViewController: NSViewController {
     
     @IBAction func tapLoopDisplayStockButton(_ sender: Any) {
         Preferences.shared.loopDisplayStocks = !Preferences.shared.loopDisplayStocks
+    }
+    
+    @IBAction func intervalComboBoxValueChanged(_ sender: Any) {
+        let index = intervalComboBox.indexOfSelectedItem
+        if let interval = intervalComboBox.itemObjectValue(at: index) as? Int {
+            Preferences.shared.refreshInterval = interval
+        }
     }
     
 }

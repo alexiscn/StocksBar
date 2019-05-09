@@ -709,7 +709,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WZt-PP-KsL">
-                                                    <rect key="frame" x="10" y="182" width="406" height="18"/>
+                                                    <rect key="frame" x="10" y="183" width="406" height="18"/>
                                                     <buttonCell key="cell" type="check" title="状态栏顺序显示关注的股票" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="QDk-Tz-ick">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -718,8 +718,37 @@
                                                         <action selector="tapLoopDisplayStockButton:" target="b2N-cg-UJ2" id="vMa-aK-I77"/>
                                                     </connections>
                                                 </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ccs-ey-K2X">
+                                                    <rect key="frame" x="10" y="153" width="111" height="17"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="刷新间隔（秒）：" id="nkr-uy-ceU">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PvQ-3d-yg2">
+                                                    <rect key="frame" x="119" y="148" width="53" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Dyr-ck-gG7"/>
+                                                    </constraints>
+                                                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="1" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="bGO-dO-8lH">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <objectValues>
+                                                            <string>1</string>
+                                                            <string>2</string>
+                                                            <string>3</string>
+                                                            <string>5</string>
+                                                            <string>10</string>
+                                                        </objectValues>
+                                                    </comboBoxCell>
+                                                    <connections>
+                                                        <action selector="intervalComboBoxValueChanged:" target="b2N-cg-UJ2" id="8KU-uD-PaC"/>
+                                                    </connections>
+                                                </comboBox>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="IKf-Qg-Yzb" userLabel="Percent Style View">
-                                                    <rect key="frame" x="12" y="72" width="390" height="62"/>
+                                                    <rect key="frame" x="12" y="73" width="390" height="62"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-6J-C0n">
                                                             <rect key="frame" x="14" y="23" width="75" height="17"/>
@@ -807,10 +836,15 @@
                                                 <constraint firstItem="IKf-Qg-Yzb" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="F6L-Ac-amd"/>
                                                 <constraint firstItem="WZt-PP-KsL" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="Fes-Zu-n8h"/>
                                                 <constraint firstItem="GmU-5L-ELo" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="GHL-rJ-xC9"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PvQ-3d-yg2" secondAttribute="trailing" constant="20" symbolic="YES" id="HAo-89-w62"/>
                                                 <constraint firstAttribute="trailing" secondItem="GmU-5L-ELo" secondAttribute="trailing" constant="12" id="Hb3-Zk-hrH"/>
-                                                <constraint firstItem="IKf-Qg-Yzb" firstAttribute="top" secondItem="WZt-PP-KsL" secondAttribute="bottom" constant="50" id="MxB-9P-0Om"/>
+                                                <constraint firstItem="IKf-Qg-Yzb" firstAttribute="top" secondItem="Ccs-ey-K2X" secondAttribute="bottom" constant="18" id="NcI-N8-dMU"/>
+                                                <constraint firstItem="Ccs-ey-K2X" firstAttribute="top" secondItem="WZt-PP-KsL" secondAttribute="bottom" constant="15" id="SzZ-MI-kuS"/>
+                                                <constraint firstItem="Ccs-ey-K2X" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="WGR-pT-gYc"/>
+                                                <constraint firstItem="PvQ-3d-yg2" firstAttribute="centerY" secondItem="Ccs-ey-K2X" secondAttribute="centerY" id="ZZs-0d-KJ7"/>
                                                 <constraint firstAttribute="trailing" secondItem="IKf-Qg-Yzb" secondAttribute="trailing" constant="12" id="dAs-uv-3MO"/>
-                                                <constraint firstItem="WZt-PP-KsL" firstAttribute="top" secondItem="GmU-5L-ELo" secondAttribute="bottom" constant="16" id="gZe-R0-tze"/>
+                                                <constraint firstItem="PvQ-3d-yg2" firstAttribute="leading" secondItem="Ccs-ey-K2X" secondAttribute="trailing" id="dtQ-3M-OhH"/>
+                                                <constraint firstItem="WZt-PP-KsL" firstAttribute="top" secondItem="GmU-5L-ELo" secondAttribute="bottom" constant="15" id="gZe-R0-tze"/>
                                                 <constraint firstItem="GmU-5L-ELo" firstAttribute="top" secondItem="u62-h0-bwX" secondAttribute="top" constant="12" id="zHA-zg-df8"/>
                                             </constraints>
                                         </view>
@@ -952,6 +986,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="intervalComboBox" destination="PvQ-3d-yg2" id="Vxb-I4-egF"/>
                         <outlet property="launchOnSystemStartButton" destination="GmU-5L-ELo" id="GTG-fO-BU9"/>
                         <outlet property="loopDisplayStockButton" destination="WZt-PP-KsL" id="0zy-p1-Hz7"/>
                         <outlet property="percentView" destination="b1u-bP-ZdH" id="u9g-pA-qls"/>
