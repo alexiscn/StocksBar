@@ -17,6 +17,7 @@ class Preferences {
     
     private struct Keys {
         static let PercentViewStyle = "PercentViewStyle"
+        static let LoopDisplayStocks = "LoopDisplayStocks"
     }
     
     static let shared = Preferences()
@@ -27,7 +28,14 @@ class Preferences {
         }
     }
     
+    var loopDisplayStocks: Bool = false {
+        didSet {
+            UserDefaults.standard.set(loopDisplayStocks, forKey: Keys.LoopDisplayStocks)
+        }
+    }
+    
     private init() {
         percentViewStyle = PercentViewStyle(rawValue: UserDefaults.standard.integer(forKey: Keys.PercentViewStyle)) ?? .rich
+        loopDisplayStocks = UserDefaults.standard.bool(forKey: Keys.LoopDisplayStocks)
     }
 }

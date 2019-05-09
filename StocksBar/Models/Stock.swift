@@ -60,10 +60,6 @@ class Stock: NSObject, Codable {
         }
     }
     
-    var shouldToastNotification: Bool {
-        return reminder.shouldToast(percent: percent, price: current)
-    }
-    
     class func parseSinaCode(_ code: String, value: String) -> Stock? {
         let components = value.split(separator: ",").map { return String($0) }
         let stock = Stock(code: code)

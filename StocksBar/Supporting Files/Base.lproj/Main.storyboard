@@ -693,7 +693,7 @@
                                 <rect key="frame" x="8" y="5" width="434" height="286"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
-                                    <tabViewItem label="General" identifier="" id="xx1-Au-mqw">
+                                    <tabViewItem label="常规" identifier="" id="xx1-Au-mqw">
                                         <view key="view" id="u62-h0-bwX">
                                             <rect key="frame" x="10" y="33" width="414" height="240"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -708,8 +708,18 @@
                                                         <action selector="tapLaunchOnSystemStartButton:" target="b2N-cg-UJ2" id="xcW-36-soG"/>
                                                     </connections>
                                                 </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WZt-PP-KsL">
+                                                    <rect key="frame" x="10" y="182" width="406" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="状态栏顺序显示关注的股票" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="QDk-Tz-ick">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="tapLoopDisplayStockButton:" target="b2N-cg-UJ2" id="vMa-aK-I77"/>
+                                                    </connections>
+                                                </button>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="IKf-Qg-Yzb" userLabel="Percent Style View">
-                                                    <rect key="frame" x="12" y="140" width="390" height="62"/>
+                                                    <rect key="frame" x="12" y="72" width="390" height="62"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-6J-C0n">
                                                             <rect key="frame" x="14" y="23" width="75" height="17"/>
@@ -793,16 +803,19 @@
                                                 </customView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="WZt-PP-KsL" secondAttribute="trailing" id="6IT-Zb-HQ8"/>
                                                 <constraint firstItem="IKf-Qg-Yzb" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="F6L-Ac-amd"/>
+                                                <constraint firstItem="WZt-PP-KsL" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="Fes-Zu-n8h"/>
                                                 <constraint firstItem="GmU-5L-ELo" firstAttribute="leading" secondItem="u62-h0-bwX" secondAttribute="leading" constant="12" id="GHL-rJ-xC9"/>
                                                 <constraint firstAttribute="trailing" secondItem="GmU-5L-ELo" secondAttribute="trailing" constant="12" id="Hb3-Zk-hrH"/>
+                                                <constraint firstItem="IKf-Qg-Yzb" firstAttribute="top" secondItem="WZt-PP-KsL" secondAttribute="bottom" constant="50" id="MxB-9P-0Om"/>
                                                 <constraint firstAttribute="trailing" secondItem="IKf-Qg-Yzb" secondAttribute="trailing" constant="12" id="dAs-uv-3MO"/>
-                                                <constraint firstItem="IKf-Qg-Yzb" firstAttribute="top" secondItem="GmU-5L-ELo" secondAttribute="bottom" constant="12" id="tUJ-cU-fSz"/>
+                                                <constraint firstItem="WZt-PP-KsL" firstAttribute="top" secondItem="GmU-5L-ELo" secondAttribute="bottom" constant="16" id="gZe-R0-tze"/>
                                                 <constraint firstItem="GmU-5L-ELo" firstAttribute="top" secondItem="u62-h0-bwX" secondAttribute="top" constant="12" id="zHA-zg-df8"/>
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="About" identifier="" id="9bI-OO-8d3">
+                                    <tabViewItem label="关于" identifier="" id="9bI-OO-8d3">
                                         <view key="view" id="2aP-DY-K49">
                                             <rect key="frame" x="10" y="33" width="414" height="240"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -940,6 +953,7 @@
                     </view>
                     <connections>
                         <outlet property="launchOnSystemStartButton" destination="GmU-5L-ELo" id="GTG-fO-BU9"/>
+                        <outlet property="loopDisplayStockButton" destination="WZt-PP-KsL" id="0zy-p1-Hz7"/>
                         <outlet property="percentView" destination="b1u-bP-ZdH" id="u9g-pA-qls"/>
                         <outlet property="plainStyleButton" destination="nRq-OT-oMw" id="hTN-e3-k3h"/>
                         <outlet property="richStyleButton" destination="qBF-bS-jiA" id="CLn-kB-p5c"/>
@@ -990,7 +1004,7 @@
                 </windowController>
                 <customObject id="L5L-65-mdh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-483.5" y="720"/>
+            <point key="canvasLocation" x="-450" y="710"/>
         </scene>
         <!--Stock Remind View Controller-->
         <scene sceneID="Hgg-vS-GIH">
@@ -1070,7 +1084,7 @@
                                             <rect key="frame" x="0.0" y="96" width="272" height="45"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bYR-hF-2Od">
-                                                    <rect key="frame" x="10" y="14" width="51" height="17"/>
+                                                    <rect key="frame" x="10" y="14" width="78" height="17"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="股价涨到：" id="1Mv-QE-5eg">
                                                         <font key="font" usesAppearanceFont="YES"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1096,7 +1110,7 @@
                                                 <constraint firstAttribute="height" constant="45" id="T3o-nO-I3u"/>
                                                 <constraint firstItem="oMb-mU-Xq7" firstAttribute="height" secondItem="H2E-vT-EFe" secondAttribute="height" multiplier="0.5" id="htE-5U-TZL"/>
                                                 <constraint firstItem="oMb-mU-Xq7" firstAttribute="centerX" secondItem="H2E-vT-EFe" secondAttribute="centerX" id="u3g-Hn-yQV"/>
-                                                <constraint firstItem="oMb-mU-Xq7" firstAttribute="leading" secondItem="bYR-hF-2Od" secondAttribute="trailing" constant="27" id="w5v-mM-4NQ"/>
+                                                <constraint firstItem="oMb-mU-Xq7" firstAttribute="leading" secondItem="bYR-hF-2Od" secondAttribute="trailing" id="w5v-mM-4NQ"/>
                                             </constraints>
                                         </customView>
                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-gf-xxM">
@@ -1184,7 +1198,7 @@
                 </viewController>
                 <customObject id="g3L-Hd-3lL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-75" y="710"/>
+            <point key="canvasLocation" x="-32" y="702"/>
         </scene>
     </scenes>
     <resources>

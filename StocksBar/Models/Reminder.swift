@@ -26,7 +26,7 @@ class Reminder: Codable {
     
     init() {}
     
-    func shouldToast(percent: Float, price: Float) -> Bool {
+    func checkRemind(percent: Float, price: Float) -> Bool {
         
         if toasted || NSCalendar.current.isDateInToday(toastDate) {
             return false
@@ -37,7 +37,7 @@ class Reminder: Codable {
         if down != 0.0 && price <= down {
             return true
         }
-        if percent > self.percent || percent <= self.percent {
+        if percent > self.percent || percent <= -self.percent {
             return true
         }
         return false

@@ -21,7 +21,16 @@ class StockDataSource: NSObject {
     
     private let api = StocksAPI()
     
-    private var request: DataRequest?
+    private var currentIndex = 0
+    
+    private var fileURL: URL {
+        let path = NSHomeDirectory().appending("/Documents/stocks.data")
+        return URL(fileURLWithPath: path)
+    }
+    
+    private var appDelegate: AppDelegate? {
+        return NSApplication.shared.delegate as? AppDelegate
+    }
     
     private override init() {
         super.init()
@@ -41,6 +50,8 @@ class StockDataSource: NSObject {
         update()
     }
     
+    // MARK: - Public functions
+    
     func numberOfRows() -> Int {
         return content.count
     }
@@ -48,36 +59,31 @@ class StockDataSource: NSObject {
     func data(atIndex index: Int) -> Stock {
         return content[index]
     }
- 
-    @objc private func update() {
-        if content.count == 0 {
-            return
-        }
-        let codes = content.map { return $0.code }
-        request = api.request(codes: codes) { (stocks, error) in
-            if let error = error {
-                print(error)
-            } else {
-                for stock in self.content {
-                    if let newStock = stocks.first(where: { $0.code == stock.code }) {
-                        stock.update(with: newStock)
-                        if stock.shouldToastNotification {
-                            self.toastStockRemind(stock)
-                        }
-                    }
-                }
-                self.updatedHandler?()
-                if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
-                    appDelegate.update(stock: self.content.first)
-                }
-            }
-            self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
+    
+    func add(stock: Stock) {
+        var array = content
+        if !array.contains(where: { $0.code == stock.code }) {
+            array.insert(stock, at: 0)
+            content = array
+            save()
+            updatedHandler?()
         }
     }
     
-    private var fileURL: URL {
-        let path = NSHomeDirectory().appending("/Documents/stocks.data")
-        return URL(fileURLWithPath: path)
+    func remove(stock: Stock) {
+        var array = content
+        if let index = array.firstIndex(where: { $0.code == stock.code }) {
+            array.remove(at: index)
+            content = array
+            save()
+        }
+    }
+    
+    func remove(at index: Int) {
+        var array = content
+        array.remove(at: index)
+        content = array
+        save()
     }
     
     func save() {
@@ -104,22 +110,6 @@ class StockDataSource: NSObject {
         return content.contains(where: { $0.code == stock.code })
     }
     
-    func remove(stock: Stock) {
-        var array = content
-        if let index = array.firstIndex(where: { $0.code == stock.code }) {
-            array.remove(at: index)
-            content = array
-            save()
-        }
-    }
-    
-    func remove(at index: Int) {
-        var array = content
-        array.remove(at: index)
-        content = array
-        save()
-    }
-    
     func move(from index: Int, to row: Int) {
         var array = content
         array.insert(array.remove(at: index), at: row)
@@ -128,32 +118,62 @@ class StockDataSource: NSObject {
         updatedHandler?()
     }
     
-    func add(stock: Stock) {
-        var array = content
-        if !array.contains(where: { $0.code == stock.code }) {
-            array.insert(stock, at: 0)
-            content = array
-            save()
-            updatedHandler?()
-        }
-    }
-    
     func search(suggestion: String, completion: @escaping StocksAPICompletion) {
         api.suggestion(key: suggestion, completion: completion)
     }
     
-    func toastStockRemind(_ stock: Stock) {
-        stock.reminder.toasted = true
-        stock.reminder.toastDate = Date()
-        save()
-        
-        let price = String(format: "%.2f", stock.current)
+    // MARK: - Private functions
     
-        let notification = NSUserNotification()
-        notification.title = "股价提醒"
-        notification.subtitle = "你关注的\(stock.symbol) 达到\(price)"
-        notification.informativeText = stock.reminder.remindText(percent: stock.percent, price: stock.current)
-        notification.deliveryDate = Date(timeInterval: 0.5, since: Date())
-        NSUserNotificationCenter.default.scheduleNotification(notification)
+    @objc private func update() {
+        if content.count == 0 {
+            return
+        }
+        let codes = content.map { return $0.code }
+        api.request(codes: codes) { (stocks, error) in
+            if let error = error {
+                print(error)
+            } else {
+                self.updateStocks(stocks)
+                self.updatedHandler?()
+                self.updateStatusBar()
+            }
+            self.perform(#selector(self.update), with: nil, afterDelay: 1.0, inModes: [.default])
+        }
+    }
+    
+    private func updateStocks(_ newStocks: [Stock]) {
+        for stock in content {
+            if let n = newStocks.first(where: { $0.code == stock.code }) {
+                stock.update(with: n)
+            }
+            checkRemind(stock: stock)
+        }
+    }
+    
+    private func checkRemind(stock: Stock) {
+        if stock.reminder.checkRemind(percent: stock.percent, price: stock.current) {
+            stock.reminder.toasted = true
+            stock.reminder.toastDate = Date()
+            save()
+            
+            let price = String(format: "%.2f", stock.current)
+            
+            let notification = NSUserNotification()
+            notification.title = "股价提醒"
+            notification.subtitle = "你关注的\(stock.symbol) 达到\(price)"
+            notification.informativeText = stock.reminder.remindText(percent: stock.percent, price: stock.current)
+            notification.deliveryDate = Date(timeInterval: 0.5, since: Date())
+            NSUserNotificationCenter.default.scheduleNotification(notification)
+        }
+    }
+    
+    private func updateStatusBar() {
+        if Preferences.shared.loopDisplayStocks {
+            currentIndex = currentIndex % content.count
+            appDelegate?.update(stock: content[currentIndex])
+            currentIndex += 1
+        } else {
+            appDelegate?.update(stock: content.first)
+        }
     }
 }

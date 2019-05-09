@@ -19,6 +19,7 @@ class StocksAPI {
     
     private let suggestionURL = "https://suggest3.sinajs.cn/suggest/type=&key="
     
+    @discardableResult
     func request(codes: [String], completion: @escaping StocksAPICompletion) -> DataRequest {
         let code = codes.joined(separator: ",")
         let url = aURL.appending(code)

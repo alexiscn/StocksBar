@@ -12,6 +12,7 @@ import LaunchAtLogin
 class PreferencesViewController: NSViewController {
     
     @IBOutlet weak var launchOnSystemStartButton: NSButton!
+    @IBOutlet weak var loopDisplayStockButton: NSButton!
     @IBOutlet weak var tabView: NSTabView!
     @IBOutlet weak var plainStyleButton: NSButton!
     @IBOutlet weak var richStyleButton: NSButton!
@@ -24,7 +25,11 @@ class PreferencesViewController: NSViewController {
         percentView.layer?.cornerRadius = 4
         percentView.layer?.backgroundColor = Colors.red.cgColor
         
-        launchOnSystemStartButton.state = LaunchAtLogin.isEnabled ? .on: .off
+        launchOnSystemStartButton.state = LaunchAtLogin.isEnabled ? .on : .off
+        loopDisplayStockButton.state = Preferences.shared.loopDisplayStocks ? .on : .off
+        let isRich = Preferences.shared.percentViewStyle == .rich
+        plainStyleButton.state = isRich ? .off : .on
+        richStyleButton.state = isRich ? .on : .off
     }
     
     @IBAction func tapLaunchOnSystemStartButton(_ sender: Any) {
@@ -46,4 +51,9 @@ class PreferencesViewController: NSViewController {
             Preferences.shared.percentViewStyle = .rich
         }
     }
+    
+    @IBAction func tapLoopDisplayStockButton(_ sender: Any) {
+        Preferences.shared.loopDisplayStocks = !Preferences.shared.loopDisplayStocks
+    }
+    
 }
