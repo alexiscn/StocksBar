@@ -77,7 +77,7 @@ extension AppDelegate {
         guard let stock = stock else {
             return
         }
-        let title = String(format: "%@ %.2f %@", stock.symbol, stock.current, stock.percentString)
+        let title = String(format: "%@ %.2f %@", stock.symbol, stock.current, stock.displayPercent)
         statusItem.title = title
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 class Stock: NSObject, Codable {
     
@@ -36,44 +37,10 @@ class Stock: NSObject, Codable {
     
     var reminder = Reminder()
     
-    init(code: String) {
-        self.code = code
-    }
-    
     var isFavorited = false
     
-    var percent: Float {
-        if lastClosedPrice == 0.0 || current == 0.0 {
-            return 0.0
-        }
-        return (current - lastClosedPrice)/lastClosedPrice
-    }
-    
-    var percentString: String {
-        let p = percent
-        if p > 0 {
-            return String(format: "+%.2f%%", p * 100.0)
-        } else if p < 0 {
-            return String(format: "%.2f%%", p * 100.0)
-        } else {
-            return "0.0%"
-        }
-    }
-    
-    class func parseSinaCode(_ code: String, value: String) -> Stock? {
-        let components = value.split(separator: ",").map { return String($0) }
-        let stock = Stock(code: code)
-        stock.symbol = components[0]
-        stock.openPrice = Float(components[1]) ?? 0.0
-        stock.lastClosedPrice = Float(components[2]) ?? 0.0
-        stock.current = Float(components[3]) ?? stock.lastClosedPrice
-        
-        if components.count >= 32 {
-            stock.lastUpdatedDate = components[30]
-            stock.lastUpdatedTime = components[31]
-        }
-        
-        return stock
+    init(code: String) {
+        self.code = code
     }
     
     func update(with newStock: Stock) {
@@ -89,5 +56,53 @@ class Stock: NSObject, Codable {
         self.low = newStock.low
         self.lastUpdatedDate = newStock.lastUpdatedDate
         self.lastUpdatedTime = newStock.lastUpdatedTime
+    }
+}
+
+extension Stock {
+    
+    var percent: Float {
+        if lastClosedPrice == 0.0 || current == 0.0 {
+            return 0.0
+        }
+        return (current - lastClosedPrice)/lastClosedPrice
+    }
+    
+    var displayPercent: String {
+        let p = percent
+        if p > 0 {
+            return String(format: "+%.2f%%", p * 100.0)
+        } else if p < 0 {
+            return String(format: "%.2f%%", p * 100.0)
+        } else {
+            return "0.0%"
+        }
+    }
+    
+    var displayColor: NSColor {
+        if percent > 0 {
+            return Colors.red
+        } else if percent < 0 {
+            return Colors.green
+        } else {
+            return Colors.gray
+        }
+    }
+}
+
+extension Stock {
+    
+    class func parseSinaCode(_ code: String, value: String) -> Stock? {
+        let components = value.split(separator: ",").map { return String($0) }
+        let stock = Stock(code: code)
+        stock.symbol = components[0]
+        stock.openPrice = Float(components[1]) ?? 0.0
+        stock.lastClosedPrice = Float(components[2]) ?? 0.0
+        stock.current = Float(components[3]) ?? stock.lastClosedPrice
+        if components.count >= 32 {
+            stock.lastUpdatedDate = components[30]
+            stock.lastUpdatedTime = components[31]
+        }
+        return stock
     }
 }

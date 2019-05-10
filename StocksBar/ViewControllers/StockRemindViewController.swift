@@ -19,7 +19,13 @@ class StockRemindViewController: NSViewController {
     @IBOutlet weak var priceLabel: NSTextField!
     
     @IBOutlet weak var percentLabel: NSTextField!
-
+    
+    @IBOutlet weak var highPriceTextField: NSTextField!
+    
+    @IBOutlet weak var lowPriceTextField: NSTextField!
+    
+    @IBOutlet weak var percentTextField: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -29,7 +35,20 @@ class StockRemindViewController: NSViewController {
         symbolLabel.stringValue = stock.symbol
         codeLabel.stringValue = stock.code
         priceLabel.stringValue = String(format: "%.2f", stock.current)
-        percentLabel.stringValue = stock.percentString
+        percentLabel.stringValue = stock.displayPercent
+        percentLabel.textColor = stock.displayColor
+        
+        let remind = stock.reminder
+        if remind.up > 0 {
+            highPriceTextField.stringValue = String(format: "%.2f", remind.up)
+        }
+        if remind.down > 0 {
+            lowPriceTextField.stringValue = String(format: "%.2f", remind.down)
+        }
+    }
+    
+    @IBAction func tapSaveButton(_ sender: Any) {
+        
     }
     
 }

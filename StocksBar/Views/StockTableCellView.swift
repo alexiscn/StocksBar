@@ -50,28 +50,15 @@ class StockTableCellView: NSTableCellView {
     func update(_ stock: Stock) {
         symbolLabel.stringValue = stock.symbol
         priceLabel.stringValue = String(format: "%.2f", stock.current)
-        
-        let color: NSColor
-        let percent: String
-        if stock.percent > 0 {
-            color = Colors.red
-            percent = String(format: "+%.2f%%", stock.percent * 100.0)
-        } else if stock.percent < 0 {
-            color = Colors.green
-            percent = String(format: "%.2f%%", stock.percent * 100.0)
-        } else {
-            color = Colors.gray
-            percent = "0.0%"
-        }
-        percentLabel.stringValue = percent
+        percentLabel.stringValue = stock.displayPercent
         
         switch Preferences.shared.percentViewStyle {
         case .rich:
             percentLabel.textColor = NSColor.white
             percentLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
-            percentView.layer?.backgroundColor = color.cgColor
+            percentView.layer?.backgroundColor = stock.displayColor.cgColor
         case .plain:
-            percentLabel.textColor = color
+            percentLabel.textColor = stock.displayColor
             percentLabel.font = NSFont.systemFont(ofSize: NSFont.systemFontSize)
             percentView.layer?.backgroundColor = NSColor.clear.cgColor
         }
