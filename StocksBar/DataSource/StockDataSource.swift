@@ -137,7 +137,7 @@ class StockDataSource: NSObject {
                 self.updatedHandler?()
                 self.updateStatusBar()
             }
-            let time = Preferences.shared.refreshInterval
+            let time = AppPreferences.shared.refreshInterval
             self.perform(#selector(self.update), with: nil, afterDelay: TimeInterval(time), inModes: [.default])
         }
     }
@@ -169,7 +169,7 @@ class StockDataSource: NSObject {
     }
     
     private func updateStatusBar() {
-        if Preferences.shared.loopDisplayStocks {
+        if AppPreferences.shared.loopDisplayStocks {
             currentIndex = currentIndex % content.count
             appDelegate?.update(stock: content[currentIndex])
             currentIndex += 1

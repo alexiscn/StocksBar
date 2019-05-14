@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (4.8.2)
   - LaunchAtLogin (2.5.0)
+  - Preferences (0.3.0)
   - SnapKit (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - LaunchAtLogin
+  - Preferences (from `https://github.com/sindresorhus/Preferences.git`, tag `v0.3.0`)
   - SnapKit
 
 SPEC REPOS:
@@ -14,11 +16,22 @@ SPEC REPOS:
     - LaunchAtLogin
     - SnapKit
 
+EXTERNAL SOURCES:
+  Preferences:
+    :git: https://github.com/sindresorhus/Preferences.git
+    :tag: v0.3.0
+
+CHECKOUT OPTIONS:
+  Preferences:
+    :git: https://github.com/sindresorhus/Preferences.git
+    :tag: v0.3.0
+
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   LaunchAtLogin: 550b0cbbdaf1b13f87a0fab6a3f8e2fbafe067fe
+  Preferences: 865793c3914c4de086c809a504a4157b8968cb90
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: c7898b2a0820bb48ce6cc76663b25ead2fc3a9ea
+PODFILE CHECKSUM: 14b29fed0422a7a1a82c892fed012d20c88e4f1e
 
 COCOAPODS: 1.6.0.beta.2

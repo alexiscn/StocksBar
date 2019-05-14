@@ -29,14 +29,14 @@ class PreferencesViewController: NSViewController {
         percentView.layer?.backgroundColor = Colors.red.cgColor
         
         launchOnSystemStartButton.state = LaunchAtLogin.isEnabled ? .on : .off
-        loopDisplayStockButton.state = Preferences.shared.loopDisplayStocks ? .on : .off
-        let isRich = Preferences.shared.percentViewStyle == .rich
+        loopDisplayStockButton.state = AppPreferences.shared.loopDisplayStocks ? .on : .off
+        let isRich = AppPreferences.shared.percentViewStyle == .rich
         plainStyleButton.state = isRich ? .off : .on
         richStyleButton.state = isRich ? .on : .off
         
         intervalComboBox.removeAllItems()
         intervalComboBox.addItems(withObjectValues: intervals)
-        if let index = intervals.firstIndex(where: { $0 == Preferences.shared.refreshInterval }) {
+        if let index = intervals.firstIndex(where: { $0 == AppPreferences.shared.refreshInterval }) {
             intervalComboBox.selectItem(at: index)
         } else {
             intervalComboBox.selectItem(at: 0)
@@ -51,20 +51,20 @@ class PreferencesViewController: NSViewController {
         let buttons = [plainStyleButton, richStyleButton]
         buttons.forEach { $0?.state = $0 == sender ? .on: .off }
         if sender == plainStyleButton {
-            Preferences.shared.percentViewStyle = .plain
+            AppPreferences.shared.percentViewStyle = .plain
         } else {
-            Preferences.shared.percentViewStyle = .rich
+            AppPreferences.shared.percentViewStyle = .rich
         }
     }
     
     @IBAction func tapLoopDisplayStockButton(_ sender: Any) {
-        Preferences.shared.loopDisplayStocks = !Preferences.shared.loopDisplayStocks
+        AppPreferences.shared.loopDisplayStocks = !AppPreferences.shared.loopDisplayStocks
     }
     
     @IBAction func intervalComboBoxValueChanged(_ sender: Any) {
         let index = intervalComboBox.indexOfSelectedItem
         if let interval = intervalComboBox.itemObjectValue(at: index) as? Int {
-            Preferences.shared.refreshInterval = interval
+            AppPreferences.shared.refreshInterval = interval
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  Preferences.swift
+//  AppPreferences.swift
 //  StocksBar
 //
 //  Created by xu.shuifeng on 2019/5/5.
@@ -13,7 +13,7 @@ enum PercentViewStyle: Int {
     case plain
 }
 
-class Preferences {
+class AppPreferences {
     
     private struct Keys {
         static let PercentViewStyle = "PercentViewStyle"
@@ -21,7 +21,7 @@ class Preferences {
         static let RefreshInterval = "RefreshInterval"
     }
     
-    static let shared = Preferences()
+    static let shared = AppPreferences()
     
     var percentViewStyle: PercentViewStyle = .rich {
         didSet {

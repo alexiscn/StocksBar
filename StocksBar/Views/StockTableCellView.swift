@@ -52,7 +52,7 @@ class StockTableCellView: NSTableCellView {
         priceLabel.stringValue = String(format: "%.2f", stock.current)
         percentLabel.stringValue = stock.displayPercent
         
-        switch Preferences.shared.percentViewStyle {
+        switch AppPreferences.shared.percentViewStyle {
         case .rich:
             percentLabel.textColor = NSColor.white
             percentLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
