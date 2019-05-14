@@ -51,10 +51,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate {
     
     @objc func openAbout() {
-        if let controller = preferenceWindow?.contentViewController as? PreferencesViewController {
-            controller.tabView.selectTabViewItem(at: 1)
-        }
-        preferenceWindow?.showWindow(nil)
+//        if let controller = preferenceWindow?.contentViewController as? PreferencesViewController {
+//            controller.tabView.selectTabViewItem(at: 1)
+//        }
+//        preferenceWindow?.showWindow(nil)
+        toggle()
+        AboutWindowController.default.window?.orderFront(nil)
     }
     
     @objc func openPreference() {

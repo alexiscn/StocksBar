@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="HN3-sQ-F4u">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="ist-Dy-KVq">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="HN3-sQ-F4u" customClass="AboutWindowController" customModule="StocksBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="p7b-Ec-45k">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <connections>
+                            <outlet property="delegate" destination="HN3-sQ-F4u" id="8Q4-g6-ETc"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="d2L-eU-eRT" kind="relationship" relationship="window.shadowedContentViewController" id="foc-oQ-gcT"/>
+                    </connections>
+                </windowController>
+                <customObject id="p7G-TT-Php" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-357" y="173"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="jmC-Jy-lIL">
+            <objects>
+                <viewController id="d2L-eU-eRT" customClass="AboutViewController" customModule="StocksBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="JjG-w3-XFZ">
+                        <rect key="frame" x="0.0" y="0.0" width="284" height="226"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDn-dv-jbC">
+                                <rect key="frame" x="127" y="124" width="30" height="30"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon_stock" id="Nz2-hE-ihT"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FYl-zV-E9I">
+                                <rect key="frame" x="114" y="85" width="56" height="19"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="StockX" id="1xS-dv-Rsn">
+                                    <font key="font" metaFont="systemSemibold" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G7Y-Oi-afQ">
+                                <rect key="frame" x="133" y="61" width="19" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="1.0" id="fwc-EO-rwS">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WS1-Y1-nFd">
+                                <rect key="frame" x="16" y="20" width="253" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Copyright © 2019 Shuifeng. All rights reserved." id="6C2-Fd-k3s">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="FYl-zV-E9I" firstAttribute="centerX" secondItem="JjG-w3-XFZ" secondAttribute="centerX" id="0PB-Ek-U5d"/>
+                            <constraint firstItem="G7Y-Oi-afQ" firstAttribute="top" secondItem="FYl-zV-E9I" secondAttribute="bottom" constant="10" id="1ZG-xB-eZ5"/>
+                            <constraint firstItem="eDn-dv-jbC" firstAttribute="top" secondItem="JjG-w3-XFZ" secondAttribute="top" constant="72" id="7Qb-QF-qyw"/>
+                            <constraint firstItem="WS1-Y1-nFd" firstAttribute="centerX" secondItem="JjG-w3-XFZ" secondAttribute="centerX" id="HPD-m2-rri"/>
+                            <constraint firstItem="G7Y-Oi-afQ" firstAttribute="centerX" secondItem="JjG-w3-XFZ" secondAttribute="centerX" id="kAf-ia-Wcb"/>
+                            <constraint firstAttribute="bottom" secondItem="WS1-Y1-nFd" secondAttribute="bottom" constant="20" id="mfX-ii-T98"/>
+                            <constraint firstItem="FYl-zV-E9I" firstAttribute="top" secondItem="eDn-dv-jbC" secondAttribute="bottom" constant="20" id="nD3-hg-9fd"/>
+                            <constraint firstItem="eDn-dv-jbC" firstAttribute="centerX" secondItem="JjG-w3-XFZ" secondAttribute="centerX" id="uLx-ga-QKy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="UPD-xH-cZ2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.5" y="173"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_stock" width="30" height="30"/>
+    </resources>
+</document>

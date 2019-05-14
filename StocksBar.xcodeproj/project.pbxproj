@@ -15,6 +15,8 @@
 		A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33A2275A70400A2327B /* StockFooterView.swift */; };
 		A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33C2275B7F000A2327B /* StockHeaderView.swift */; };
 		A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */; };
+		A30D52D2228AE94600F80BB8 /* AboutWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30D52D1228AE94600F80BB8 /* AboutWindow.storyboard */; };
+		A30D52D4228AEB5D00F80BB8 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30D52D3228AEB5D00F80BB8 /* AboutWindowController.swift */; };
 		A3148DD42279229C008B2A7B /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3148DD32279229C008B2A7B /* Throttler.swift */; };
 		A3191010227FBB6000D162A9 /* StockRemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319100E227FBB6000D162A9 /* StockRemindViewController.swift */; };
 		A3191015228063ED00D162A9 /* StockRemindWinowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3191014228063ED00D162A9 /* StockRemindWinowController.swift */; };
@@ -25,6 +27,7 @@
 		A349894F22700BED002F7898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349894E22700BED002F7898 /* AppDelegate.swift */; };
 		A349895322700BEF002F7898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A349895222700BEF002F7898 /* Assets.xcassets */; };
 		A349895622700BEF002F7898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A349895422700BEF002F7898 /* Main.storyboard */; };
+		A34A1115228AEE89007A1323 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A1114228AEE89007A1323 /* AboutViewController.swift */; };
 		A3503F572278504500215360 /* StockSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3503F562278504500215360 /* StockSearchCellView.swift */; };
 		A3503F592278505100215360 /* StockSearchCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3503F582278505100215360 /* StockSearchCellView.xib */; };
 		A3503F5B2278559F00215360 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3503F5A2278559F00215360 /* MainViewController.swift */; };
@@ -47,6 +50,8 @@
 		A301F33A2275A70400A2327B /* StockFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFooterView.swift; sourceTree = "<group>"; };
 		A301F33C2275B7F000A2327B /* StockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHeaderView.swift; sourceTree = "<group>"; };
 		A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSettingMenuAction.swift; sourceTree = "<group>"; };
+		A30D52D1228AE94600F80BB8 /* AboutWindow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutWindow.storyboard; sourceTree = "<group>"; };
+		A30D52D3228AEB5D00F80BB8 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		A3148DD32279229C008B2A7B /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		A319100E227FBB6000D162A9 /* StockRemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRemindViewController.swift; sourceTree = "<group>"; };
 		A3191014228063ED00D162A9 /* StockRemindWinowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRemindWinowController.swift; sourceTree = "<group>"; };
@@ -60,6 +65,7 @@
 		A349895522700BEF002F7898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A349895722700BEF002F7898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A349895822700BEF002F7898 /* StocksBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StocksBar.entitlements; sourceTree = "<group>"; };
+		A34A1114228AEE89007A1323 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A3503F562278504500215360 /* StockSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchCellView.swift; sourceTree = "<group>"; };
 		A3503F582278505100215360 /* StockSearchCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockSearchCellView.xib; sourceTree = "<group>"; };
 		A3503F5A2278559F00215360 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +128,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		A30D52D0228AE91B00F80BB8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A30D52D1228AE94600F80BB8 /* AboutWindow.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		A349894222700BED002F7898 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +165,7 @@
 				A3DEF1FC2272D20300FBE176 /* Networking */,
 				A349895F227010E2002F7898 /* ViewControllers */,
 				A3DEF2022272D48900FBE176 /* Views */,
+				A30D52D0228AE91B00F80BB8 /* Storyboards */,
 				A349895E227010BE002F7898 /* Supporting Files */,
 				A349894E22700BED002F7898 /* AppDelegate.swift */,
 				A349895822700BEF002F7898 /* StocksBar.entitlements */,
@@ -178,6 +193,8 @@
 				A3307418227EC030006A9311 /* PreferencesViewController.swift */,
 				A319100E227FBB6000D162A9 /* StockRemindViewController.swift */,
 				A3191014228063ED00D162A9 /* StockRemindWinowController.swift */,
+				A30D52D3228AEB5D00F80BB8 /* AboutWindowController.swift */,
+				A34A1114228AEE89007A1323 /* AboutViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +316,7 @@
 			files = (
 				A301F33622759BBC00A2327B /* StockTableCellView.xib in Resources */,
 				A3503F592278505100215360 /* StockSearchCellView.xib in Resources */,
+				A30D52D2228AE94600F80BB8 /* AboutWindow.storyboard in Resources */,
 				A349895322700BEF002F7898 /* Assets.xcassets in Resources */,
 				A349895622700BEF002F7898 /* Main.storyboard in Resources */,
 			);
@@ -392,6 +410,7 @@
 				A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */,
 				A385D1292289262B004E1778 /* KLine.swift in Sources */,
 				A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */,
+				A30D52D4228AEB5D00F80BB8 /* AboutWindowController.swift in Sources */,
 				A349894F22700BED002F7898 /* AppDelegate.swift in Sources */,
 				A3191015228063ED00D162A9 /* StockRemindWinowController.swift in Sources */,
 				A330741B227EC49A006A9311 /* AppPreferences.swift in Sources */,
@@ -404,6 +423,7 @@
 				A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */,
 				A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */,
 				A3191010227FBB6000D162A9 /* StockRemindViewController.swift in Sources */,
+				A34A1115228AEE89007A1323 /* AboutViewController.swift in Sources */,
 				A301F3302275982600A2327B /* StockDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
