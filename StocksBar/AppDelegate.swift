@@ -8,6 +8,7 @@
 
 import Cocoa
 import SnapKit
+import Preferences
 
 typealias RelayCommand = () -> Void
 
@@ -16,10 +17,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: 170)
     
-    lazy var preferenceWindow: NSWindowController? = {
-        let sb = NSStoryboard(name: "Main", bundle: nil)
-        return sb.instantiateController(withIdentifier: "PreferenceWindowController") as? PreferenceWindowController
-    }()
+    lazy var preferencesWindowController = PreferencesWindowController(
+        preferencePanes: [
+            GeneralPreferenceViewController(),
+            AdvancedPreferenceViewController()
+        ]
+    )
     
     let popover = NSPopover()
 
@@ -51,19 +54,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate {
     
     @objc func openAbout() {
-//        if let controller = preferenceWindow?.contentViewController as? PreferencesViewController {
-//            controller.tabView.selectTabViewItem(at: 1)
-//        }
-//        preferenceWindow?.showWindow(nil)
         toggle()
         AboutWindowController.default.window?.orderFront(nil)
     }
     
     @objc func openPreference() {
-        if let controller = preferenceWindow?.contentViewController as? PreferencesViewController {
-            controller.tabView.selectTabViewItem(at: 0)
-        }
-        preferenceWindow?.showWindow(nil)
+        preferencesWindowController.show()
     }
     
     @objc func quit() {

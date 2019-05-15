@@ -33,6 +33,10 @@
 		A3503F5B2278559F00215360 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3503F5A2278559F00215360 /* MainViewController.swift */; };
 		A385D1292289262B004E1778 /* KLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385D1282289262B004E1778 /* KLine.swift */; };
 		A3A67FCD227F10B200313A0D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A67FCC227F10B200313A0D /* Reminder.swift */; };
+		A3BF12A3228C34E60063BCA3 /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF12A1228C34E50063BCA3 /* GeneralPreferenceViewController.swift */; };
+		A3BF12A4228C34E60063BCA3 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BF12A2228C34E50063BCA3 /* GeneralPreferenceViewController.xib */; };
+		A3BF12A7228C35CE0063BCA3 /* AdvancedPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF12A5228C35CE0063BCA3 /* AdvancedPreferenceViewController.swift */; };
+		A3BF12A8228C35CE0063BCA3 /* AdvancedPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BF12A6228C35CE0063BCA3 /* AdvancedPreferenceViewController.xib */; };
 		A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */; };
 		A3C968E32277FEA300130EDF /* NSPopover+SX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968E22277FEA300130EDF /* NSPopover+SX.swift */; };
 		A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF1FE2272D21800FBE176 /* Stock.swift */; };
@@ -71,6 +75,10 @@
 		A3503F5A2278559F00215360 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A385D1282289262B004E1778 /* KLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLine.swift; sourceTree = "<group>"; };
 		A3A67FCC227F10B200313A0D /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		A3BF12A1228C34E50063BCA3 /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
+		A3BF12A2228C34E50063BCA3 /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
+		A3BF12A5228C35CE0063BCA3 /* AdvancedPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedPreferenceViewController.swift; sourceTree = "<group>"; };
+		A3BF12A6228C35CE0063BCA3 /* AdvancedPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvancedPreferenceViewController.xib; sourceTree = "<group>"; };
 		A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewController.swift; sourceTree = "<group>"; };
 		A3C968E22277FEA300130EDF /* NSPopover+SX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopover+SX.swift"; sourceTree = "<group>"; };
 		A3DEF1FE2272D21800FBE176 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
@@ -195,6 +203,10 @@
 				A3191014228063ED00D162A9 /* StockRemindWinowController.swift */,
 				A30D52D3228AEB5D00F80BB8 /* AboutWindowController.swift */,
 				A34A1114228AEE89007A1323 /* AboutViewController.swift */,
+				A3BF12A1228C34E50063BCA3 /* GeneralPreferenceViewController.swift */,
+				A3BF12A2228C34E50063BCA3 /* GeneralPreferenceViewController.xib */,
+				A3BF12A5228C35CE0063BCA3 /* AdvancedPreferenceViewController.swift */,
+				A3BF12A6228C35CE0063BCA3 /* AdvancedPreferenceViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -316,7 +328,9 @@
 			files = (
 				A301F33622759BBC00A2327B /* StockTableCellView.xib in Resources */,
 				A3503F592278505100215360 /* StockSearchCellView.xib in Resources */,
+				A3BF12A4228C34E60063BCA3 /* GeneralPreferenceViewController.xib in Resources */,
 				A30D52D2228AE94600F80BB8 /* AboutWindow.storyboard in Resources */,
+				A3BF12A8228C35CE0063BCA3 /* AdvancedPreferenceViewController.xib in Resources */,
 				A349895322700BEF002F7898 /* Assets.xcassets in Resources */,
 				A349895622700BEF002F7898 /* Main.storyboard in Resources */,
 			);
@@ -412,6 +426,7 @@
 				A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */,
 				A30D52D4228AEB5D00F80BB8 /* AboutWindowController.swift in Sources */,
 				A349894F22700BED002F7898 /* AppDelegate.swift in Sources */,
+				A3BF12A3228C34E60063BCA3 /* GeneralPreferenceViewController.swift in Sources */,
 				A3191015228063ED00D162A9 /* StockRemindWinowController.swift in Sources */,
 				A330741B227EC49A006A9311 /* AppPreferences.swift in Sources */,
 				A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */,
@@ -419,6 +434,7 @@
 				A3503F5B2278559F00215360 /* MainViewController.swift in Sources */,
 				A3503F572278504500215360 /* StockSearchCellView.swift in Sources */,
 				A3191017228064D400D162A9 /* NSStoryboard+SX.swift in Sources */,
+				A3BF12A7228C35CE0063BCA3 /* AdvancedPreferenceViewController.swift in Sources */,
 				A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */,
 				A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */,
 				A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */,
