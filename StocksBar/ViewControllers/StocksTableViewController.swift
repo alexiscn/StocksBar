@@ -161,7 +161,7 @@ extension StocksTableViewController: NSMenuDelegate {
         menu.removeAllItems()
         menu.addItem(NSMenuItem(title: "置顶", action: #selector(handleTopRow), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "删除", action: #selector(handleDeleteRow), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "股价提醒", action: #selector(priceReminder), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "提醒", action: #selector(priceReminder), keyEquivalent: ""))
     }
     
     @objc private func handleDeleteRow() {
@@ -184,6 +184,9 @@ extension StocksTableViewController: NSMenuDelegate {
             let stock = StockDataSource.shared.data(atIndex: clickedRow)
             let window = NSStoryboard.main.instantiateViewController(ofType: StockRemindWinowController.self)
             let controller = window.contentViewController as! StockRemindViewController
+            controller.closeCommand = {
+                window.close()
+            }
             controller.update(stock: stock)
             window.showWindow(self)
         }

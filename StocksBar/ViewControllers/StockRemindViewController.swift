@@ -12,6 +12,8 @@ class StockRemindViewController: NSViewController {
 
     var stock: Stock?
     
+    var closeCommand: RelayCommand?
+    
     @IBOutlet weak var symbolLabel: NSTextField!
     
     @IBOutlet weak var codeLabel: NSTextField!
@@ -45,10 +47,15 @@ class StockRemindViewController: NSViewController {
         if remind.down > 0 {
             lowPriceTextField.stringValue = String(format: "%.2f", remind.down)
         }
+        percentTextField.stringValue =  String(stock.reminder.percent * 100)
     }
     
     @IBAction func tapSaveButton(_ sender: Any) {
-        
+        closeCommand?()
+    }
+    
+    @IBAction func tapCancelButton(_ sender: Any) {
+        closeCommand?()
     }
     
 }
