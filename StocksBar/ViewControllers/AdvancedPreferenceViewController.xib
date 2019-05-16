@@ -18,14 +18,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="96"/>
+            <rect key="frame" x="0.0" y="0.0" width="409" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UYo-vp-47U">
-                    <rect key="frame" x="-2" y="59" width="184" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="180" id="DjR-68-ygT"/>
-                    </constraints>
+                    <rect key="frame" x="71" y="54" width="111" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="刷新间隔（秒）：" id="4nx-ik-bre">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -33,9 +30,9 @@
                     </textFieldCell>
                 </textField>
                 <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DDv-9H-i5U">
-                    <rect key="frame" x="180" y="54" width="53" height="26"/>
+                    <rect key="frame" x="180" y="49" width="43" height="26"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="1yl-N9-Js5"/>
+                        <constraint firstAttribute="width" constant="40" id="QOv-i0-83F"/>
                     </constraints>
                     <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="1" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="Qn2-n1-4gQ">
                         <font key="font" metaFont="system"/>
@@ -54,100 +51,77 @@
                     </connections>
                 </comboBox>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="swd-cz-Rko">
-                    <rect key="frame" x="-2" y="22" width="184" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="180" id="ybq-bz-2Gy"/>
-                    </constraints>
+                    <rect key="frame" x="94" y="22" width="88" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="涨跌幅样式 ：" id="Knt-gd-zqI">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hrn-nB-rD3" userLabel="Percent Style View">
-                    <rect key="frame" x="180" y="13" width="200" height="36"/>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xKn-cY-Fmg" userLabel="Plain Style Button">
+                    <rect key="frame" x="179" y="22" width="22" height="18"/>
+                    <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="mRO-IE-c7w">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="tapStyleRadioButton:" target="-2" id="Hct-xY-uCf"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="02E-CB-DEO">
+                    <rect key="frame" x="202" y="22" width="51" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="+2.33%" id="iT7-NW-mH4">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="255-iX-Rm9" userLabel="Rich Style Button">
+                    <rect key="frame" x="270" y="22" width="22" height="18"/>
+                    <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="fTm-WN-Bbh">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="tapStyleRadioButton:" target="-2" id="nm7-s8-wj5"/>
+                    </connections>
+                </button>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="jYj-2x-2S9" userLabel="Percent View">
+                    <rect key="frame" x="296" y="19" width="64" height="24"/>
                     <subviews>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xKn-cY-Fmg" userLabel="Plain Style Button">
-                            <rect key="frame" x="-1" y="9" width="63" height="18"/>
-                            <constraints>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="99z-4y-rsD"/>
-                            </constraints>
-                            <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="mRO-IE-c7w">
-                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="tapStyleRadioButton:" target="-2" id="Hct-xY-uCf"/>
-                            </connections>
-                        </button>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="02E-CB-DEO">
-                            <rect key="frame" x="18" y="9" width="51" height="17"/>
-                            <constraints>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="jji-o0-jSh"/>
-                            </constraints>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="+2.33%" id="iT7-NW-mH4">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-I7-A9o">
+                            <rect key="frame" x="10" y="5" width="44" height="14"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="+2.33%" id="7Xq-rR-2HV">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="255-iX-Rm9" userLabel="Rich Style Button">
-                            <rect key="frame" x="99" y="9" width="83" height="18"/>
-                            <constraints>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="QFS-gm-X3w"/>
-                            </constraints>
-                            <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="fTm-WN-Bbh">
-                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="tapStyleRadioButton:" target="-2" id="nm7-s8-wj5"/>
-                            </connections>
-                        </button>
-                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="jYj-2x-2S9" userLabel="Percent View">
-                            <rect key="frame" x="124" y="6" width="64" height="24"/>
-                            <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-I7-A9o">
-                                    <rect key="frame" x="10" y="5" width="44" height="14"/>
-                                    <textFieldCell key="cell" lineBreakMode="clipping" title="+2.33%" id="7Xq-rR-2HV">
-                                        <font key="font" metaFont="smallSystem"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="64" id="Ill-nX-9A4"/>
-                                <constraint firstItem="pDc-I7-A9o" firstAttribute="centerX" secondItem="jYj-2x-2S9" secondAttribute="centerX" id="PRs-2d-bAf"/>
-                                <constraint firstItem="pDc-I7-A9o" firstAttribute="centerY" secondItem="jYj-2x-2S9" secondAttribute="centerY" id="Sl1-9G-2x0"/>
-                                <constraint firstAttribute="height" constant="24" id="imR-wh-va1"/>
-                            </constraints>
-                        </customView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="255-iX-Rm9" firstAttribute="centerY" secondItem="Hrn-nB-rD3" secondAttribute="centerY" id="PX4-6d-Hpb"/>
-                        <constraint firstItem="255-iX-Rm9" firstAttribute="leading" secondItem="Hrn-nB-rD3" secondAttribute="leading" constant="100" id="Pwe-af-Ox8"/>
-                        <constraint firstItem="xKn-cY-Fmg" firstAttribute="leading" secondItem="Hrn-nB-rD3" secondAttribute="leading" id="TRp-Vn-9RO"/>
-                        <constraint firstItem="02E-CB-DEO" firstAttribute="leading" secondItem="xKn-cY-Fmg" secondAttribute="leading" constant="20" id="Vyb-cb-euc"/>
-                        <constraint firstItem="xKn-cY-Fmg" firstAttribute="centerY" secondItem="Hrn-nB-rD3" secondAttribute="centerY" id="a8P-Z7-oWe"/>
-                        <constraint firstItem="jYj-2x-2S9" firstAttribute="leading" secondItem="255-iX-Rm9" secondAttribute="trailing" constant="-56" id="bMc-hU-ik0"/>
-                        <constraint firstAttribute="height" constant="36" id="dQP-pJ-TP7"/>
-                        <constraint firstAttribute="trailing" secondItem="jYj-2x-2S9" secondAttribute="trailing" constant="12" id="h8N-w7-Nl0"/>
-                        <constraint firstItem="02E-CB-DEO" firstAttribute="centerY" secondItem="Hrn-nB-rD3" secondAttribute="centerY" id="kxm-zN-8TG"/>
-                        <constraint firstItem="jYj-2x-2S9" firstAttribute="centerY" secondItem="Hrn-nB-rD3" secondAttribute="centerY" id="tje-jg-ozm"/>
+                        <constraint firstAttribute="width" constant="64" id="Ill-nX-9A4"/>
+                        <constraint firstItem="pDc-I7-A9o" firstAttribute="centerX" secondItem="jYj-2x-2S9" secondAttribute="centerX" id="PRs-2d-bAf"/>
+                        <constraint firstItem="pDc-I7-A9o" firstAttribute="centerY" secondItem="jYj-2x-2S9" secondAttribute="centerY" id="Sl1-9G-2x0"/>
+                        <constraint firstAttribute="height" constant="24" id="imR-wh-va1"/>
                     </constraints>
                 </customView>
             </subviews>
             <constraints>
+                <constraint firstItem="xKn-cY-Fmg" firstAttribute="centerY" secondItem="swd-cz-Rko" secondAttribute="centerY" id="2Ge-5X-roO"/>
                 <constraint firstItem="DDv-9H-i5U" firstAttribute="centerY" secondItem="UYo-vp-47U" secondAttribute="centerY" id="3Pt-Xu-e3H"/>
                 <constraint firstItem="UYo-vp-47U" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="6Vy-9x-2Ti"/>
-                <constraint firstItem="swd-cz-Rko" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="7sg-Sr-JmH"/>
-                <constraint firstItem="Hrn-nB-rD3" firstAttribute="leading" secondItem="swd-cz-Rko" secondAttribute="trailing" id="99e-F0-OQ7"/>
-                <constraint firstAttribute="trailing" secondItem="Hrn-nB-rD3" secondAttribute="trailing" constant="100" id="A4X-go-rtL"/>
-                <constraint firstItem="Hrn-nB-rD3" firstAttribute="centerY" secondItem="swd-cz-Rko" secondAttribute="centerY" id="HFT-xE-yXk"/>
+                <constraint firstItem="255-iX-Rm9" firstAttribute="leading" secondItem="02E-CB-DEO" secondAttribute="trailing" constant="20" id="BRL-L8-ltb"/>
+                <constraint firstItem="255-iX-Rm9" firstAttribute="centerY" secondItem="02E-CB-DEO" secondAttribute="centerY" id="H6X-gf-8or"/>
                 <constraint firstItem="DDv-9H-i5U" firstAttribute="leading" secondItem="UYo-vp-47U" secondAttribute="trailing" id="Nvx-oz-d36"/>
-                <constraint firstItem="UYo-vp-47U" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ZhA-e2-eRW"/>
-                <constraint firstItem="swd-cz-Rko" firstAttribute="top" secondItem="UYo-vp-47U" secondAttribute="bottom" constant="20" id="fGz-nX-8Pp"/>
+                <constraint firstItem="jYj-2x-2S9" firstAttribute="centerY" secondItem="255-iX-Rm9" secondAttribute="centerY" id="OxJ-Bx-iib"/>
+                <constraint firstItem="02E-CB-DEO" firstAttribute="centerY" secondItem="xKn-cY-Fmg" secondAttribute="centerY" id="bOC-Bg-ewq"/>
+                <constraint firstItem="xKn-cY-Fmg" firstAttribute="leading" secondItem="DDv-9H-i5U" secondAttribute="leading" id="c2Q-mC-1e7"/>
+                <constraint firstAttribute="trailing" secondItem="DDv-9H-i5U" secondAttribute="trailing" priority="750" constant="189" id="cap-XR-Kko"/>
+                <constraint firstItem="UYo-vp-47U" firstAttribute="trailing" secondItem="swd-cz-Rko" secondAttribute="trailing" id="evb-xM-5gu"/>
+                <constraint firstItem="swd-cz-Rko" firstAttribute="top" secondItem="UYo-vp-47U" secondAttribute="bottom" constant="15" id="fGz-nX-8Pp"/>
+                <constraint firstItem="jYj-2x-2S9" firstAttribute="leading" secondItem="255-iX-Rm9" secondAttribute="trailing" constant="6" id="fTM-8a-hPt"/>
+                <constraint firstItem="02E-CB-DEO" firstAttribute="leading" secondItem="xKn-cY-Fmg" secondAttribute="trailing" constant="5" id="g7T-GN-nzW"/>
+                <constraint firstItem="DDv-9H-i5U" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="180" id="rLJ-vG-8Bu"/>
                 <constraint firstAttribute="bottom" secondItem="swd-cz-Rko" secondAttribute="bottom" constant="22" id="sbR-28-82Y"/>
             </constraints>
             <point key="canvasLocation" x="207" y="70"/>

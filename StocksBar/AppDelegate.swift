@@ -55,7 +55,7 @@ extension AppDelegate {
     
     @objc func openAbout() {
         toggle()
-        AboutWindowController.default.window?.orderFront(nil)
+        OpenAboutWindowAction.perform()
     }
     
     @objc func openPreference() {

@@ -21,8 +21,6 @@
 		A3191010227FBB6000D162A9 /* StockRemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319100E227FBB6000D162A9 /* StockRemindViewController.swift */; };
 		A3191015228063ED00D162A9 /* StockRemindWinowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3191014228063ED00D162A9 /* StockRemindWinowController.swift */; };
 		A3191017228064D400D162A9 /* NSStoryboard+SX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3191016228064D400D162A9 /* NSStoryboard+SX.swift */; };
-		A3307413227EBEDF006A9311 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */; };
-		A3307419227EC030006A9311 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3307418227EC030006A9311 /* PreferencesViewController.swift */; };
 		A330741B227EC49A006A9311 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330741A227EC49A006A9311 /* AppPreferences.swift */; };
 		A349894F22700BED002F7898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349894E22700BED002F7898 /* AppDelegate.swift */; };
 		A349895322700BEF002F7898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A349895222700BEF002F7898 /* Assets.xcassets */; };
@@ -39,6 +37,7 @@
 		A3BF12A8228C35CE0063BCA3 /* AdvancedPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BF12A6228C35CE0063BCA3 /* AdvancedPreferenceViewController.xib */; };
 		A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */; };
 		A3C968E32277FEA300130EDF /* NSPopover+SX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968E22277FEA300130EDF /* NSPopover+SX.swift */; };
+		A3D299BB228D0A030055F60D /* OpenAboutWindowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D299BA228D0A030055F60D /* OpenAboutWindowAction.swift */; };
 		A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF1FE2272D21800FBE176 /* Stock.swift */; };
 		A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2002272D47F00FBE176 /* StocksAPI.swift */; };
 		A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */; };
@@ -60,8 +59,6 @@
 		A319100E227FBB6000D162A9 /* StockRemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRemindViewController.swift; sourceTree = "<group>"; };
 		A3191014228063ED00D162A9 /* StockRemindWinowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRemindWinowController.swift; sourceTree = "<group>"; };
 		A3191016228064D400D162A9 /* NSStoryboard+SX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSStoryboard+SX.swift"; sourceTree = "<group>"; };
-		A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
-		A3307418227EC030006A9311 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		A330741A227EC49A006A9311 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
 		A349894B22700BED002F7898 /* StocksBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A349894E22700BED002F7898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +78,7 @@
 		A3BF12A6228C35CE0063BCA3 /* AdvancedPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvancedPreferenceViewController.xib; sourceTree = "<group>"; };
 		A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewController.swift; sourceTree = "<group>"; };
 		A3C968E22277FEA300130EDF /* NSPopover+SX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopover+SX.swift"; sourceTree = "<group>"; };
+		A3D299BA228D0A030055F60D /* OpenAboutWindowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAboutWindowAction.swift; sourceTree = "<group>"; };
 		A3DEF1FE2272D21800FBE176 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		A3DEF2002272D47F00FBE176 /* StocksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksAPI.swift; sourceTree = "<group>"; };
 		A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTableViewController.swift; sourceTree = "<group>"; };
@@ -197,8 +195,6 @@
 				A3503F5A2278559F00215360 /* MainViewController.swift */,
 				A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */,
 				A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */,
-				A3307412227EBEDF006A9311 /* PreferenceWindowController.swift */,
-				A3307418227EC030006A9311 /* PreferencesViewController.swift */,
 				A319100E227FBB6000D162A9 /* StockRemindViewController.swift */,
 				A3191014228063ED00D162A9 /* StockRemindWinowController.swift */,
 				A30D52D3228AEB5D00F80BB8 /* AboutWindowController.swift */,
@@ -256,6 +252,7 @@
 			children = (
 				A3DEF20C2273084700FBE176 /* PopoverAction.swift */,
 				A301F33E2275DB0200A2327B /* OpenSettingMenuAction.swift */,
+				A3D299BA228D0A030055F60D /* OpenAboutWindowAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -413,11 +410,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3307413227EBEDF006A9311 /* PreferenceWindowController.swift in Sources */,
 				A3C968E32277FEA300130EDF /* NSPopover+SX.swift in Sources */,
 				A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */,
 				A3148DD42279229C008B2A7B /* Throttler.swift in Sources */,
 				A301F3392275A03800A2327B /* Colors.swift in Sources */,
+				A3D299BB228D0A030055F60D /* OpenAboutWindowAction.swift in Sources */,
 				A3A67FCD227F10B200313A0D /* Reminder.swift in Sources */,
 				A301F33422759BAF00A2327B /* StockTableCellView.swift in Sources */,
 				A3DEF20D2273084700FBE176 /* PopoverAction.swift in Sources */,
@@ -430,7 +427,6 @@
 				A3191015228063ED00D162A9 /* StockRemindWinowController.swift in Sources */,
 				A330741B227EC49A006A9311 /* AppPreferences.swift in Sources */,
 				A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */,
-				A3307419227EC030006A9311 /* PreferencesViewController.swift in Sources */,
 				A3503F5B2278559F00215360 /* MainViewController.swift in Sources */,
 				A3503F572278504500215360 /* StockSearchCellView.swift in Sources */,
 				A3191017228064D400D162A9 /* NSStoryboard+SX.swift in Sources */,
