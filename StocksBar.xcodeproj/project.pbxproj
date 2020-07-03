@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,9 @@
 		A3C968E02277F66E00130EDF /* StockSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */; };
 		A3C968E32277FEA300130EDF /* NSPopover+SX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C968E22277FEA300130EDF /* NSPopover+SX.swift */; };
 		A3D299BB228D0A030055F60D /* OpenAboutWindowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D299BA228D0A030055F60D /* OpenAboutWindowAction.swift */; };
+		A3DE7F1524AEF1E900C8FF70 /* TencentStocksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE7F1424AEF1E900C8FF70 /* TencentStocksAPI.swift */; };
+		A3DE7F1724AEF61A00C8FF70 /* SinaStocksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE7F1624AEF61A00C8FF70 /* SinaStocksAPI.swift */; };
+		A3DE7F1924AF0D4000C8FF70 /* String+SX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE7F1824AF0D4000C8FF70 /* String+SX.swift */; };
 		A3DEF1FF2272D21800FBE176 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF1FE2272D21800FBE176 /* Stock.swift */; };
 		A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2002272D47F00FBE176 /* StocksAPI.swift */; };
 		A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */; };
@@ -79,6 +82,9 @@
 		A3C968DF2277F66E00130EDF /* StockSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewController.swift; sourceTree = "<group>"; };
 		A3C968E22277FEA300130EDF /* NSPopover+SX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopover+SX.swift"; sourceTree = "<group>"; };
 		A3D299BA228D0A030055F60D /* OpenAboutWindowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAboutWindowAction.swift; sourceTree = "<group>"; };
+		A3DE7F1424AEF1E900C8FF70 /* TencentStocksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentStocksAPI.swift; sourceTree = "<group>"; };
+		A3DE7F1624AEF61A00C8FF70 /* SinaStocksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinaStocksAPI.swift; sourceTree = "<group>"; };
+		A3DE7F1824AF0D4000C8FF70 /* String+SX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SX.swift"; sourceTree = "<group>"; };
 		A3DEF1FE2272D21800FBE176 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		A3DEF2002272D47F00FBE176 /* StocksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksAPI.swift; sourceTree = "<group>"; };
 		A3DEF2072272D62E00FBE176 /* StocksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTableViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 			children = (
 				A3C968E22277FEA300130EDF /* NSPopover+SX.swift */,
 				A3191016228064D400D162A9 /* NSStoryboard+SX.swift */,
+				A3DE7F1824AF0D4000C8FF70 /* String+SX.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				A3DEF2002272D47F00FBE176 /* StocksAPI.swift */,
+				A3DE7F1424AEF1E900C8FF70 /* TencentStocksAPI.swift */,
+				A3DE7F1624AEF61A00C8FF70 /* SinaStocksAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -381,22 +390,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StocksBar/Pods-StocksBar-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/LaunchAtLogin/LaunchAtLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/Preferences/Preferences.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-StocksBar/Pods-StocksBar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LaunchAtLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Preferences.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-StocksBar/Pods-StocksBar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -413,12 +411,14 @@
 				A3C968E32277FEA300130EDF /* NSPopover+SX.swift in Sources */,
 				A301F33D2275B7F000A2327B /* StockHeaderView.swift in Sources */,
 				A3148DD42279229C008B2A7B /* Throttler.swift in Sources */,
+				A3DE7F1524AEF1E900C8FF70 /* TencentStocksAPI.swift in Sources */,
 				A301F3392275A03800A2327B /* Colors.swift in Sources */,
 				A3D299BB228D0A030055F60D /* OpenAboutWindowAction.swift in Sources */,
 				A3A67FCD227F10B200313A0D /* Reminder.swift in Sources */,
 				A301F33422759BAF00A2327B /* StockTableCellView.swift in Sources */,
 				A3DEF20D2273084700FBE176 /* PopoverAction.swift in Sources */,
 				A3DEF2082272D62E00FBE176 /* StocksTableViewController.swift in Sources */,
+				A3DE7F1724AEF61A00C8FF70 /* SinaStocksAPI.swift in Sources */,
 				A385D1292289262B004E1778 /* KLine.swift in Sources */,
 				A301F33F2275DB0200A2327B /* OpenSettingMenuAction.swift in Sources */,
 				A30D52D4228AEB5D00F80BB8 /* AboutWindowController.swift in Sources */,
@@ -435,6 +435,7 @@
 				A3DEF2012272D47F00FBE176 /* StocksAPI.swift in Sources */,
 				A301F33B2275A70400A2327B /* StockFooterView.swift in Sources */,
 				A3191010227FBB6000D162A9 /* StockRemindViewController.swift in Sources */,
+				A3DE7F1924AF0D4000C8FF70 /* String+SX.swift in Sources */,
 				A34A1115228AEE89007A1323 /* AboutViewController.swift in Sources */,
 				A301F3302275982600A2327B /* StockDataSource.swift in Sources */,
 			);

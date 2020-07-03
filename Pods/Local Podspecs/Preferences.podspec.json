@@ -13,8 +13,9 @@
     "tag": "v0.3.0"
   },
   "source_files": "Sources/**/*.swift",
-  "swift_version": "5",
+  "swift_versions": "5",
   "platforms": {
     "osx": "10.12"
-  }
+  },
+  "swift_version": "5"
 }

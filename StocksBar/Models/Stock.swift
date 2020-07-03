@@ -105,4 +105,19 @@ extension Stock {
         }
         return stock
     }
+    
+    class func parseTencentCode(_ code: String, value: String) -> Stock {
+        let stock = Stock(code: code)
+        let components = value.split(separator: "~").map { String($0) }
+        stock.symbol = components[1]
+        stock.openPrice = Float(components[5]) ?? 0.0
+        stock.lastClosedPrice = Float(components[4]) ?? 0.0
+        stock.current = Float(components[3]) ?? stock.lastClosedPrice
+        let time = components[29]
+        if time.count == 16 {
+            stock.lastUpdatedDate = String(time[time.startIndex..<time.index(time.startIndex, offsetBy: 8)])
+            stock.lastUpdatedTime = String(time[time.index(time.startIndex, offsetBy: 8)..<time.endIndex])
+        }
+        return stock
+    }
 }
