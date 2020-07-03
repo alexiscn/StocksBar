@@ -579,6 +579,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LX863G777H;
 				INFOPLIST_FILE = "$(SRCROOT)/StocksBar/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -586,6 +587,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.shuifeng.StocksBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -602,6 +604,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LX863G777H;
 				INFOPLIST_FILE = "$(SRCROOT)/StocksBar/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,6 +612,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.shuifeng.StocksBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
