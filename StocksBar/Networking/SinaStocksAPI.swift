@@ -58,12 +58,26 @@ extension SinaStocksAPI {
                 let codeText = compoents[0].replacingOccurrences(of: "var ", with: "")
                 let value = compoents[1].replacingOccurrences(of: "\"", with: "")
                 if let code = codeText.split(separator: "_").last,
-                    let stock = Stock.parseSinaCode(String(code), value: value) {
+                    let stock = createStockFromCode(String(code), value: value) {
                     stocks.append(stock)
                 }
             }
         }
         return stocks
+    }
+    
+    private func createStockFromCode(_ code: String, value: String) -> Stock? {
+        let components = value.split(separator: ",").map { return String($0) }
+        let stock = Stock(code: code)
+        stock.symbol = components[0]
+        stock.openPrice = Float(components[1]) ?? 0.0
+        stock.lastClosedPrice = Float(components[2]) ?? 0.0
+        stock.current = Float(components[3]) ?? stock.lastClosedPrice
+        if components.count >= 32 {
+            stock.lastUpdatedDate = components[30]
+            stock.lastUpdatedTime = components[31]
+        }
+        return stock
     }
     
     private func parseSuggestionString(_ content: String?) -> [Stock] {

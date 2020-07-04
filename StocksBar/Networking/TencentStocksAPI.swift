@@ -61,11 +61,26 @@ extension TencentStocksAPI {
                     .replacingOccurrences(of: " ", with: "")
                     .replacingOccurrences(of: "\n", with: "")
                 let value = compoents[1].replacingOccurrences(of: "\"", with: "")
-                let stock = Stock.parseTencentCode(codeText, value: value)
+                let stock = createStockFromCode(codeText, value: value)
                 stocks.append(stock)
             }
         }
         return stocks
+    }
+    
+    private func createStockFromCode(_ code: String, value: String) -> Stock {
+        let stock = Stock(code: code)
+        let components = value.split(separator: "~").map { String($0) }
+        stock.symbol = components[1]
+        stock.openPrice = Float(components[5]) ?? 0.0
+        stock.lastClosedPrice = Float(components[4]) ?? 0.0
+        stock.current = Float(components[3]) ?? stock.lastClosedPrice
+        let time = components[29]
+        if time.count == 14 {
+            stock.lastUpdatedDate = String(time[time.startIndex..<time.index(time.startIndex, offsetBy: 8)])
+            stock.lastUpdatedTime = String(time[time.index(time.startIndex, offsetBy: 8)..<time.endIndex])
+        }
+        return stock
     }
     
     private func parseSuggestionString(_ content: String?) -> [Stock] {

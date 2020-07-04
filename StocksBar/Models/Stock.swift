@@ -31,8 +31,10 @@ class Stock: NSObject, Codable {
     /// 最低成交价
     var low: Float = 0.0
     
+    /// 最后更新日期
     var lastUpdatedDate: String = ""
     
+    /// 最后更新时间
     var lastUpdatedTime: String = ""
     
     var reminder = Reminder()
@@ -87,37 +89,5 @@ extension Stock {
         } else {
             return Colors.gray
         }
-    }
-}
-
-extension Stock {
-    
-    class func parseSinaCode(_ code: String, value: String) -> Stock? {
-        let components = value.split(separator: ",").map { return String($0) }
-        let stock = Stock(code: code)
-        stock.symbol = components[0]
-        stock.openPrice = Float(components[1]) ?? 0.0
-        stock.lastClosedPrice = Float(components[2]) ?? 0.0
-        stock.current = Float(components[3]) ?? stock.lastClosedPrice
-        if components.count >= 32 {
-            stock.lastUpdatedDate = components[30]
-            stock.lastUpdatedTime = components[31]
-        }
-        return stock
-    }
-    
-    class func parseTencentCode(_ code: String, value: String) -> Stock {
-        let stock = Stock(code: code)
-        let components = value.split(separator: "~").map { String($0) }
-        stock.symbol = components[1]
-        stock.openPrice = Float(components[5]) ?? 0.0
-        stock.lastClosedPrice = Float(components[4]) ?? 0.0
-        stock.current = Float(components[3]) ?? stock.lastClosedPrice
-        let time = components[29]
-        if time.count == 16 {
-            stock.lastUpdatedDate = String(time[time.startIndex..<time.index(time.startIndex, offsetBy: 8)])
-            stock.lastUpdatedTime = String(time[time.index(time.startIndex, offsetBy: 8)..<time.endIndex])
-        }
-        return stock
     }
 }
