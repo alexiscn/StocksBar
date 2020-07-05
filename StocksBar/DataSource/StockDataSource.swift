@@ -112,6 +112,13 @@ class StockDataSource: NSObject {
         save()
     }
     
+    func updateReminderOfStock(_ newStock: Stock) {
+        if let stock = content.first(where: { $0.code == newStock.code }) {
+            stock.reminder = newStock.reminder
+            save()
+        }
+    }
+    
     func contains(_ stock: Stock) -> Bool {
         return content.contains(where: { $0.code == stock.code })
     }

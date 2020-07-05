@@ -34,6 +34,7 @@ class StockRemindViewController: NSViewController {
     }
     
     func update(stock: Stock) {
+        self.stock = stock
         symbolLabel.stringValue = stock.symbol
         codeLabel.stringValue = stock.code
         priceLabel.stringValue = String(format: "%.2f", stock.current)
@@ -51,6 +52,31 @@ class StockRemindViewController: NSViewController {
     }
     
     @IBAction func tapSaveButton(_ sender: Any) {
+        guard let stock = stock else { return }
+        
+        var shouldUpdate = false
+        
+        let up = highPriceTextField.floatValue
+        if up > 0 && up > stock.current {
+            stock.reminder.up = up
+            shouldUpdate = true
+        }
+        
+        let down = lowPriceTextField.floatValue
+        if down > 0 && down < stock.current {
+            stock.reminder.down = down
+            shouldUpdate = true
+        }
+        var percent = percentTextField.floatValue
+        if percent > 0 {
+            percent = min(percent, 100)
+            stock.reminder.percent = percent / 100.0
+            shouldUpdate = true
+        }
+        if shouldUpdate {
+            StockDataSource.shared.updateReminderOfStock(stock)
+        }
+        
         closeCommand?()
     }
     

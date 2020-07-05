@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -700,7 +700,7 @@
                 </windowController>
                 <customObject id="L5L-65-mdh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-450" y="710"/>
+            <point key="canvasLocation" x="-461" y="729"/>
         </scene>
         <!--Stock Remind View Controller-->
         <scene sceneID="Hgg-vS-GIH">
@@ -717,7 +717,10 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSw-Eo-cK5">
-                                            <rect key="frame" x="10" y="27" width="51" height="17"/>
+                                            <rect key="frame" x="10" y="27" width="51" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="ZEA-IO-WYZ"/>
+                                            </constraints>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Symbol" id="8OO-nc-9K9">
                                                 <font key="font" metaFont="systemMedium" size="13"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -726,6 +729,9 @@
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Cc-JQ-mxu">
                                             <rect key="frame" x="10" y="10" width="61" height="14"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="57" id="crz-9V-jaD"/>
+                                            </constraints>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="SZ000568" id="bWp-Wh-NW1">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
@@ -733,7 +739,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DvF-as-NJL">
-                                            <rect key="frame" x="263" y="22" width="38" height="17"/>
+                                            <rect key="frame" x="262" y="22" width="38" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="77.88" id="cQh-7q-AtT">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -741,7 +747,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ROH-Zs-aC6">
-                                            <rect key="frame" x="317" y="22" width="49" height="17"/>
+                                            <rect key="frame" x="316" y="22" width="50" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="Nfa-9K-rxu"/>
                                             </constraints>
@@ -774,7 +780,7 @@
                                         <rect key="frame" x="0.0" y="97" width="376" height="45"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Qg-dM-7yi">
-                                                <rect key="frame" x="-2" y="14" width="192" height="17"/>
+                                                <rect key="frame" x="-2" y="15" width="192" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="股价涨到：" id="Ofj-Az-xxT">
                                                     <font key="font" usesAppearanceFont="YES"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -782,12 +788,14 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Rv-hv-h2s">
-                                                <rect key="frame" x="200" y="12" width="90" height="22"/>
+                                                <rect key="frame" x="200" y="12" width="90" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="kg8-Gk-R1l"/>
                                                 </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="输入目标价" drawsBackground="YES" id="LKs-Q1-oqY">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Y9X-Sp-vuH"/>
+                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Y9X-Sp-vuH">
+                                                        <real key="minimum" value="0.0"/>
+                                                    </numberFormatter>
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -810,7 +818,7 @@
                                         <rect key="frame" x="0.0" y="49" width="376" height="45"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Bq-eR-6nx">
-                                                <rect key="frame" x="-2" y="14" width="192" height="17"/>
+                                                <rect key="frame" x="-2" y="15" width="192" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="股价跌到：" id="0XW-Rq-V0x">
                                                     <font key="font" usesAppearanceFont="YES"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -818,7 +826,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uu7-cx-Icp">
-                                                <rect key="frame" x="200" y="12" width="90" height="22"/>
+                                                <rect key="frame" x="200" y="12" width="90" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="NP9-Pf-ra6"/>
                                                 </constraints>
@@ -846,7 +854,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="376" height="45"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bcz-OQ-btA">
-                                                <rect key="frame" x="-2" y="14" width="192" height="17"/>
+                                                <rect key="frame" x="-2" y="15" width="192" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="日涨跌幅超过(%)：" id="zgj-8w-eWr">
                                                     <font key="font" usesAppearanceFont="YES"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -854,7 +862,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JYA-ct-00d">
-                                                <rect key="frame" x="200" y="12" width="90" height="22"/>
+                                                <rect key="frame" x="200" y="12" width="90" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="SgR-jm-1UG"/>
                                                 </constraints>
@@ -902,7 +910,7 @@
                                 </constraints>
                             </view>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BhK-5O-cV8">
-                                <rect key="frame" x="340" y="13" width="67" height="32"/>
+                                <rect key="frame" x="339" y="13" width="69" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="MVi-Ie-hEe"/>
                                 </constraints>
@@ -915,7 +923,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cmh-6c-2q6">
-                                <rect key="frame" x="265" y="13" width="67" height="32"/>
+                                <rect key="frame" x="264" y="13" width="69" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="Tgv-Yb-d4I"/>
                                 </constraints>
