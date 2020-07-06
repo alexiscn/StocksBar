@@ -48,16 +48,16 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G7Y-Oi-afQ">
-                                <rect key="frame" x="133" y="61" width="18" height="14"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="1.1" id="fwc-EO-rwS">
+                                <rect key="frame" x="133" y="61" width="19" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="1.2" id="fwc-EO-rwS">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WS1-Y1-nFd">
-                                <rect key="frame" x="16" y="20" width="253" height="14"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Copyright © 2019 Shuifeng. All rights reserved." id="6C2-Fd-k3s">
+                                <rect key="frame" x="15" y="20" width="254" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Copyright © 2020 Shuifeng. All rights reserved." id="6C2-Fd-k3s">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
