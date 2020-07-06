@@ -78,7 +78,11 @@ extension TencentStocksAPI {
         let time = components[29]
         if time.count == 14 {
             stock.lastUpdatedDate = String(time[time.startIndex..<time.index(time.startIndex, offsetBy: 8)])
-            stock.lastUpdatedTime = String(time[time.index(time.startIndex, offsetBy: 8)..<time.endIndex])
+            
+            var timeText = String(time[time.index(time.startIndex, offsetBy: 8)..<time.endIndex])
+            timeText.insert(":", at: timeText.index(timeText.startIndex, offsetBy: 2))
+            timeText.insert(":", at: timeText.index(timeText.endIndex, offsetBy: -2))
+            stock.lastUpdatedTime = timeText
         }
         return stock
     }

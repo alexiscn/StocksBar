@@ -9,10 +9,15 @@
 import Cocoa
 
 class AboutViewController: NSViewController {
-
+    
+    @IBOutlet weak var versionLabel: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+            versionLabel.stringValue = version
+        }
     }
     
 }
