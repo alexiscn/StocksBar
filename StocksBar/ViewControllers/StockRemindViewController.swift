@@ -54,29 +54,28 @@ class StockRemindViewController: NSViewController {
     @IBAction func tapSaveButton(_ sender: Any) {
         guard let stock = stock else { return }
         
-        var shouldUpdate = false
-        
         let up = highPriceTextField.floatValue
         if up > 0 && up > stock.current {
             stock.reminder.up = up
-            shouldUpdate = true
+        } else {
+            stock.reminder.up = 0.0
         }
         
         let down = lowPriceTextField.floatValue
         if down > 0 && down < stock.current {
             stock.reminder.down = down
-            shouldUpdate = true
+        } else {
+            stock.reminder.down = 0.0
         }
         var percent = percentTextField.floatValue
         if percent > 0 {
             percent = min(percent, 100)
             stock.reminder.percent = percent / 100.0
-            shouldUpdate = true
-        }
-        if shouldUpdate {
-            StockDataSource.shared.updateReminderOfStock(stock)
+        } else {
+            stock.reminder.percent = 0.07
         }
         
+        StockDataSource.shared.updateReminderOfStock(stock)
         closeCommand?()
     }
     

@@ -49,7 +49,7 @@ class StockTableCellView: NSTableCellView {
     
     func update(_ stock: Stock) {
         symbolLabel.stringValue = stock.symbol
-        priceLabel.stringValue = String(format: "%.2f", stock.current)
+        priceLabel.stringValue = String(format: "%.3f", stock.current)
         percentLabel.stringValue = stock.displayPercent
         
         switch AppPreferences.shared.percentViewStyle {

@@ -69,6 +69,9 @@ extension TencentStocksAPI {
     }
     
     private func createStockFromCode(_ code: String, value: String) -> Stock {
+        if code.hasPrefix("jj") {
+            return createJJStock(code: code, value: value)
+        }
         let stock = Stock(code: code)
         let components = value.split(separator: "~").map { String($0) }
         stock.symbol = components[1]
@@ -84,6 +87,24 @@ extension TencentStocksAPI {
             timeText.insert(":", at: timeText.index(timeText.endIndex, offsetBy: -2))
             stock.lastUpdatedTime = timeText
         }
+        return stock
+    }
+    
+    /// 基金
+    /// 110003~易方达上证50指数A~2.1723~0.8449~2020-07-13 14:19:00~2.1541~4.0541~-1.2922~2020-07-10~
+    private func createJJStock(code: String, value: String) -> Stock {
+        let stock = Stock(code: code)
+        let components = value.split(separator: "~").map { String($0) }
+        stock.symbol = components[1]
+        stock.current = Float(components[2]) ?? 0.0
+        //stock.percent = Float(components[3]) ?? 0.0
+        let time = components[4]
+        if time.contains(" ") {
+            let timeArray = time.split(separator: " ").map { String($0) }
+            stock.lastUpdatedDate = timeArray[0]
+            stock.lastUpdatedTime = timeArray[1]
+        }
+        stock.lastClosedPrice = Float(components[5]) ?? 0.0
         return stock
     }
     
