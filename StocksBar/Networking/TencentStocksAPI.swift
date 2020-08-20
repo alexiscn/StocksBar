@@ -61,7 +61,12 @@ extension TencentStocksAPI {
                     .replacingOccurrences(of: " ", with: "")
                     .replacingOccurrences(of: "\n", with: "")
                 let value = compoents[1].replacingOccurrences(of: "\"", with: "")
-                let stock = createStockFromCode(codeText, value: value)
+                let stock: Stock
+                if codeText.hasPrefix("jj") {
+                    stock = createFundStock(code: codeText, value: value)
+                } else {
+                    stock = createStockFromCode(codeText, value: value)
+                }
                 stocks.append(stock)
             }
         }
@@ -69,9 +74,6 @@ extension TencentStocksAPI {
     }
     
     private func createStockFromCode(_ code: String, value: String) -> Stock {
-        if code.hasPrefix("jj") {
-            return createJJStock(code: code, value: value)
-        }
         let stock = Stock(code: code)
         let components = value.split(separator: "~").map { String($0) }
         stock.symbol = components[1]
@@ -92,7 +94,7 @@ extension TencentStocksAPI {
     
     /// 基金
     /// 110003~易方达上证50指数A~2.1723~0.8449~2020-07-13 14:19:00~2.1541~4.0541~-1.2922~2020-07-10~
-    private func createJJStock(code: String, value: String) -> Stock {
+    private func createFundStock(code: String, value: String) -> Stock {
         let stock = Stock(code: code)
         let components = value.split(separator: "~").map { String($0) }
         stock.symbol = components[1]

@@ -15,7 +15,7 @@ typealias RelayCommand = () -> Void
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system.statusItem(withLength: 170)
+    let statusItem = NSStatusBar.system.statusItem(withLength: 180)
     
     lazy var preferencesWindowController = PreferencesWindowController(
         preferencePanes: [
@@ -75,7 +75,9 @@ extension AppDelegate {
         guard let stock = stock else {
             return
         }
-        let title = String(format: "%@ %.2f %@", stock.symbol, stock.current, stock.displayPercent)
+        let title = String(format: "%@ %.3f %@", stock.symbol, stock.current, stock.displayPercent)
         statusItem.title = title
+        let size = (title as NSString).size(withAttributes: [.font: NSFont.systemFont(ofSize: 16)])
+        statusItem.length = size.width
     }
 }
