@@ -19,7 +19,7 @@ class StockDataSource: NSObject {
     
     private var content: [Stock] = []
     
-    private let api = TencentStocksAPI()
+    private let api = SinaStocksAPI()
     
     private var currentIndex = 0
     
@@ -31,6 +31,7 @@ class StockDataSource: NSObject {
             name = "stocks.data"
         #endif
         let path = NSHomeDirectory().appending("/Documents/\(name)")
+        print(path)
         return URL(fileURLWithPath: path)
     }
     
