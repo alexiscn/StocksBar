@@ -74,7 +74,7 @@ class SinaStocksAPI: StocksAPI {
         }
         let code = mappedCodes.joined(separator: ",")
         let url = aURL.appending(code)
-        AF.request(url).responseData { response in
+        AF.request(url, headers: HTTPHeaders([HTTPHeader(name: "Referer", value: "https://finance.sina.com.cn/stock/")])).responseData { response in
             switch response.result {
             case .success(let data):
                 //let content = String(data: data, encoding: .utf8)
