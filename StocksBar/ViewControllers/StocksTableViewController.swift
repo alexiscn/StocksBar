@@ -45,7 +45,6 @@ class StocksTableViewController: NSViewController {
             let cell = self.tableView.view(atColumn: 0, row: i, makeIfNecessary: true) as! StockTableCellView
             isEditing ? cell.beginEditing(): cell.endEditing()
         }
-        tableView.reloadData()
     }
     
     private func setupTableView() {
